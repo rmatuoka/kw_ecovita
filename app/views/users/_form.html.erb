@@ -1,0 +1,56 @@
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :sobrenome %><br />
+    <%= f.text_field :sobrenome %>
+  </p>
+  <% if !current_user %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :sexo %><br />
+	<%= f.radio_button :sexo, :masculino %>Masculino
+	<%= f.radio_button :sexo, :feminino %>Feminino
+  </p>
+  <p>
+    <%= f.label :nascimento %><br />
+    <%= f.date_select :nascimento, :start_year => 1920%>
+  </p>
+  <p>
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf %>
+  </p>
+  <p>
+    <%= f.label :rg %><br />
+    <%= f.text_field :rg %>
+  </p>
+  <% if @user.has_role?("admin") || @user.has_role?("supervisor")%>
+  <h1>Regras</h1>
+  <p>
+	Tipo:<br />
+	<%= f.radio_button :role, :admin, :checked => true %>Administrador
+	<%= f.radio_button :role, :supervisor %>Supervisor
+	<%= f.radio_button :role, :seller %>Vendedor
+  </p>
+  <% end %>
+  <% if !current_user %>
+	<p><%= f.submit "Cadastrar!"%></p>
+  <%else%>
+	<p><%= f.submit "Atualizar!"%></p>
+  <% end%>
+<% end %>
