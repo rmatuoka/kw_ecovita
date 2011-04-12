@@ -1,0 +1,19 @@
+<% title "Page Banners" %>
+
+<table>
+  <tr>
+    <th>Page</th>
+    <th>Banner</th>
+  </tr>
+  <% for page_banners in @page_banners %>
+    <tr>
+      <td><%= page_banners.page_id %></td>
+      <td><%= page_banners.banner_id %></td>
+      <td><%= link_to "Show", page_banners %></td>
+      <td><%= link_to "Edit", edit_page_banners_path(page_banners) %></td>
+      <td><%= link_to "Destroy", page_banners, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Page Banners", new_page_banners_path %></p>

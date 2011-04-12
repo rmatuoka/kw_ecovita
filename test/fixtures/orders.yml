@@ -1,0 +1,11 @@
+one:
+  user_id: 1
+  status: MyString
+  address_id: 1
+  shipping: 9.99
+
+two:
+  user_id: 1
+  status: MyString
+  address_id: 1
+  shipping: 9.99

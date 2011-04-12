@@ -1,0 +1,28 @@
+<% title "Product Comment" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_comment.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @product_comment.email %>
+</p>
+<p>
+  <strong>Comment:</strong>
+  <%= @product_comment.comment %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @product_comment.user_id %>
+</p>
+<p>
+  <strong>Published:</strong>
+  <%= @product_comment.published %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_product_comment_path(@product_comment) %> |
+  <%= link_to "Destroy", @product_comment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", product_comments_path %>
+</p>

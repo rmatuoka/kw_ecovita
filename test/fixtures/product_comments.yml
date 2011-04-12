@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  email: MyString
+  comment: MyText
+  user_id: 1
+  published: false
+
+two:
+  name: MyString
+  email: MyString
+  comment: MyText
+  user_id: 1
+  published: false

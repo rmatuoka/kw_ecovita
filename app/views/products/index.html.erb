@@ -1,0 +1,47 @@
+<% title "Products" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Summary</th>
+    <th>Price</th>
+    <th>Discount</th>
+    <th>Features</th>
+    <th>Description</th>
+    <th>Usage</th>
+    <th>Pub Start</th>
+    <th>Pub End</th>
+    <th>Views</th>
+    <th>Category</th>
+    <th>Published</th>
+    <th>Tweet Text</th>
+    <th>Like Link</th>
+    <th>Video</th>
+    <th>Vendas</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.summary %></td>
+      <td><%= product.price %></td>
+      <td><%= product.discount %></td>
+      <td><%= product.features %></td>
+      <td><%= product.description %></td>
+      <td><%= product.usage %></td>
+      <td><%= product.pub_start %></td>
+      <td><%= product.pub_end %></td>
+      <td><%= product.views %></td>
+      <td><%= product.category_id %></td>
+      <td><%= product.published %></td>
+      <td><%= product.tweet_text %></td>
+      <td><%= product.like_link %></td>
+      <td><%= product.video %></td>
+      <td><%= product.vendas %></td>
+      <td><%= link_to "Show", product %></td>
+      <td><%= link_to "Edit", edit_product_path(product) %></td>
+      <td><%= link_to "Destroy", product, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Product", new_product_path %></p>

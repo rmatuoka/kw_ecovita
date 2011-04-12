@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  page_id: 1
+  published: false
+  clicks: 1
+
+two:
+  name: MyString
+  page_id: 1
+  published: false
+  clicks: 1

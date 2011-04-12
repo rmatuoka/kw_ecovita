@@ -1,0 +1,35 @@
+one:
+  name: MyString
+  summary: MyString
+  price: 9.99
+  discount: 9.99
+  features: MyText
+  description: MyText
+  usage: MyText
+  pub_start: 2011-04-11 22:18:01
+  pub_end: 2011-04-11 22:18:01
+  views: 1
+  category_id: 1
+  published: false
+  tweet_text: MyString
+  like_link: MyString
+  video: MyString
+  vendas: 1
+
+two:
+  name: MyString
+  summary: MyString
+  price: 9.99
+  discount: 9.99
+  features: MyText
+  description: MyText
+  usage: MyText
+  pub_start: 2011-04-11 22:18:01
+  pub_end: 2011-04-11 22:18:01
+  views: 1
+  category_id: 1
+  published: false
+  tweet_text: MyString
+  like_link: MyString
+  video: MyString
+  vendas: 1

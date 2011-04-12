@@ -1,0 +1,2 @@
+module ProductRecommendedsHelper
+end

@@ -1,0 +1,16 @@
+<% title "Page Banners" %>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page_banners.page_id %>
+</p>
+<p>
+  <strong>Banner:</strong>
+  <%= @page_banners.banner_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_page_banners_path(@page_banners) %> |
+  <%= link_to "Destroy", @page_banners, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", page_banners_path %>
+</p>

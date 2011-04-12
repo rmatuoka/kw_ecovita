@@ -1,0 +1,25 @@
+<% title "Product Comments" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Comment</th>
+    <th>User</th>
+    <th>Published</th>
+  </tr>
+  <% for product_comment in @product_comments %>
+    <tr>
+      <td><%= product_comment.name %></td>
+      <td><%= product_comment.email %></td>
+      <td><%= product_comment.comment %></td>
+      <td><%= product_comment.user_id %></td>
+      <td><%= product_comment.published %></td>
+      <td><%= link_to "Show", product_comment %></td>
+      <td><%= link_to "Edit", edit_product_comment_path(product_comment) %></td>
+      <td><%= link_to "Destroy", product_comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Product Comment", new_product_comment_path %></p>

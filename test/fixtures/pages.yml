@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  page_title: MyString
+  body: MyText
+  published: false
+
+two:
+  name: MyString
+  page_title: MyString
+  body: MyText
+  published: false

@@ -1,0 +1,32 @@
+<% title "Banner" %>
+
+<p>
+  <strong>Category:</strong>
+  <%= @banner.category_id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @banner.name %>
+</p>
+<p>
+  <strong>Pub Start:</strong>
+  <%= @banner.pub_start %>
+</p>
+<p>
+  <strong>Pub End:</strong>
+  <%= @banner.pub_end %>
+</p>
+<p>
+  <strong>Clicks:</strong>
+  <%= @banner.clicks %>
+</p>
+<p>
+  <strong>Link:</strong>
+  <%= @banner.link %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_banner_path(@banner) %> |
+  <%= link_to "Destroy", @banner, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", banners_path %>
+</p>

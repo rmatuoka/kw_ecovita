@@ -1,0 +1,24 @@
+<% title "Gallery" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gallery.name %>
+</p>
+<p>
+  <strong>Page:</strong>
+  <%= @gallery.page_id %>
+</p>
+<p>
+  <strong>Published:</strong>
+  <%= @gallery.published %>
+</p>
+<p>
+  <strong>Clicks:</strong>
+  <%= @gallery.clicks %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_gallery_path(@gallery) %> |
+  <%= link_to "Destroy", @gallery, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", galleries_path %>
+</p>

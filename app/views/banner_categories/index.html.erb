@@ -1,0 +1,17 @@
+<% title "Banner Categories" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for banner_category in @banner_categories %>
+    <tr>
+      <td><%= banner_category.name %></td>
+      <td><%= link_to "Show", banner_category %></td>
+      <td><%= link_to "Edit", edit_banner_category_path(banner_category) %></td>
+      <td><%= link_to "Destroy", banner_category, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Banner Category", new_banner_category_path %></p>

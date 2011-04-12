@@ -1,0 +1,15 @@
+one:
+  category_id: 1
+  name: MyString
+  pub_start: 2011-04-11 22:18:53
+  pub_end: 2011-04-11 22:18:53
+  clicks: 1
+  link: MyString
+
+two:
+  category_id: 1
+  name: MyString
+  pub_start: 2011-04-11 22:18:53
+  pub_end: 2011-04-11 22:18:53
+  clicks: 1
+  link: MyString
