@@ -10,7 +10,134 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314141559) do
+ActiveRecord::Schema.define(:version => 20110412011940) do
+
+  create_table "banner_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "banners", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "pub_start"
+    t.datetime "pub_end"
+    t.integer  "clicks"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.integer  "page_id"
+    t.boolean  "published"
+    t.integer  "clicks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gallery_images", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "action"
+    t.text     "log"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_products", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.decimal  "price",      :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.integer  "address_id"
+    t.decimal  "shipping",   :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "page_banners", :force => true do |t|
+    t.integer  "page_id"
+    t.integer  "banner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "page_title"
+    t.text     "body"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_comments", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_images", :force => true do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_recommendeds", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "recommended_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "summary"
+    t.decimal  "price",       :precision => 10, :scale => 0
+    t.decimal  "discount",    :precision => 10, :scale => 0
+    t.text     "features"
+    t.text     "description"
+    t.text     "usage"
+    t.datetime "pub_start"
+    t.datetime "pub_end"
+    t.integer  "views"
+    t.integer  "category_id"
+    t.boolean  "published"
+    t.string   "tweet_text"
+    t.string   "like_link"
+    t.string   "video"
+    t.integer  "vendas"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name",              :limit => 40
