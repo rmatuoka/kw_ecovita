@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412011940) do
+ActiveRecord::Schema.define(:version => 20110413165438) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -78,18 +78,18 @@ ActiveRecord::Schema.define(:version => 20110412011940) do
     t.datetime "updated_at"
   end
 
-  create_table "page_banners", :force => true do |t|
-    t.integer  "page_id"
-    t.integer  "banner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.string   "page_title"
     t.text     "body"
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages_banners", :id => false, :force => true do |t|
+    t.integer  "page_id"
+    t.integer  "banner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -102,18 +102,12 @@ ActiveRecord::Schema.define(:version => 20110412011940) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
   create_table "product_images", :force => true do |t|
     t.string   "name"
     t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "product_recommendeds", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "recommended_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -135,6 +129,13 @@ ActiveRecord::Schema.define(:version => 20110412011940) do
     t.string   "like_link"
     t.string   "video"
     t.integer  "vendas"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products_recommendeds", :id => false, :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "recommended_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

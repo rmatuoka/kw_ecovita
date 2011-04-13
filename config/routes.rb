@@ -1,29 +1,26 @@
 KwEcovita::Application.routes.draw do |map|
-  resources :orders
-
-  resources :order_products
-
-  resources :gallery_images
-
-  resources :galleries
-
-  resources :pages
-
-  resources :page_banners
-
-  resources :banners
-
-  resources :banner_categories
-
-  resources :product_recommendeds
-
-  resources :product_comments
-
-  resources :product_images
-
-  resources :categories
-
-  resources :products
+  namespace(:admin){
+    resources :orders
+    resources :order_products
+    resources :gallery_images
+    resources :galleries
+    resources :pages
+    resources :page_banners
+    resources(:banner_categories){
+      resources :banners
+    }
+    resources :product_recommendeds
+    resources :product_images
+    resources(:categories){
+      resources(:products){
+        resources :product_comments
+      }
+    }
+    
+    
+    root :to => "categories#index"
+  }
+  
 
   get "static_content/denied"
 

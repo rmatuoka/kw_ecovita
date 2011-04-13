@@ -1,7 +1,7 @@
 body {
   background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-family: Tahoma, Helvetica, Arial;
+  font-size: 13px;
 }
 
 a img {
@@ -9,7 +9,7 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  color: #575353;
 }
 
 .clear {
@@ -18,23 +18,40 @@ a {
   overflow: hidden;
 }
 
-#user_nav {
- text-align: right;
+h1
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 24px;
 }
 
-#user_nav a{
- color: #ffffff;
- border: solid 2px red;
- background-color: red;
+h2
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 16px;
+}
+
+th
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 16px;
+	background-color:#e4e4e4;
+}
+
+tr:hover
+{
+	background-color:#e4e4e4;
 }
 
 #container {
   width: 75%;
   margin: 0 auto;
-/* background-color: #FFF;*/
+  background-color: #FFF;
   padding: 20px 40px;
-/* border: solid 1px black;*/
-  margin-top: 20px;
+  border: solid 1px black;
+  margin-top: 10px;
 }
 
 #flash_notice, #flash_error, #flash_alert {
@@ -52,8 +69,32 @@ a {
   border: solid 1px #C66;
 }
 
+#user_nav
+{
+	width: 75%;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 20px 40px;
+	border: solid 1px black;
+	margin-top: 20px;
+}
+
+#user_nav span
+{
+	float:right;
+}
+
 .fieldWithErrors {
   display: inline;
+}
+
+#search input
+{
+	border:1px solid #666666;
+	background-color:#f6f3f1;
+	height:40px;
+	font-size:18px;
+	font-family: Tahoma, Helvetica, Arial;
 }
 
 .error_messages {

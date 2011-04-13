@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :orders
+  
   acts_as_authentic
   acts_as_authorization_subject
 #  attr_accessible :nome, :sobrenome, :email, :crypted_password, :password_salt, :persistence_token, :sexo, :nascimento, :cpf, :rg

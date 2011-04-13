@@ -7,9 +7,9 @@ gem 'rails', '3.0.3'
 
 gem 'mysql2'
 gem "nifty-generators", :group => :development
-gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+#gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 #gem 'be9-acl9'
-gem 'acl9', '0.12'
+#gem 'acl9', '0.12'
 gem 'mongrel'
 
 # Use unicorn as the web server

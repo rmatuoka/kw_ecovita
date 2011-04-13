@@ -1,7 +1,7 @@
 class CreateBanners < ActiveRecord::Migration
   def self.up
     create_table :banners do |t|
-      t.integer :category_id
+      t.integer :banner_category_id
       t.string :name
       t.datetime :pub_start
       t.datetime :pub_end

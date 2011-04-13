@@ -1,3 +1,5 @@
 class Gallery < ActiveRecord::Base
-  attr_accessible :name, :page_id, :published, :clicks
+  belongs_to :page
+  
+  has_many :gallery_images
 end

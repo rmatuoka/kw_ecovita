@@ -1,3 +1,3 @@
 class OrderProduct < ActiveRecord::Base
-  attr_accessible :order_id, :product_id, :amount, :price
+  belongs_to :order
 end

@@ -1,3 +1,4 @@
 class Page < ActiveRecord::Base
-  attr_accessible :name, :page_title, :body, :published
+  has_many :galleries
+  #has_and_belongs_to_many :banners
 end
