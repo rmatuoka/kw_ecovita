@@ -1,0 +1,20 @@
+<%= form_for ([:admin, @gallery]) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :page_id %><br />
+    <%= f.text_field :page_id %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :clicks %><br />
+    <%= f.text_field :clicks %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

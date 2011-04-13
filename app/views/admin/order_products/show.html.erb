@@ -1,0 +1,24 @@
+<% title "Order Product" %>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_product.order_id %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @order_product.product_id %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @order_product.amount %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @order_product.price %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_order_product_path(@order_product) %> |
+  <%= link_to "Destroy", @order_product, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", order_products_path %>
+</p>

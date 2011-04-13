@@ -1,0 +1,24 @@
+<% title "Order" %>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @order.address_id %>
+</p>
+<p>
+  <strong>Shipping:</strong>
+  <%= @order.shipping %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_order_path(@order) %> |
+  <%= link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", orders_path %>
+</p>

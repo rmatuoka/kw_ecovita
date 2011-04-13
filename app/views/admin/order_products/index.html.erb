@@ -1,0 +1,23 @@
+<% title "Order Products" %>
+
+<table>
+  <tr>
+    <th>Order</th>
+    <th>Product</th>
+    <th>Amount</th>
+    <th>Price</th>
+  </tr>
+  <% for order_product in @order_products %>
+    <tr>
+      <td><%= order_product.order_id %></td>
+      <td><%= order_product.product_id %></td>
+      <td><%= order_product.amount %></td>
+      <td><%= order_product.price %></td>
+      <td><%= link_to "Show", order_product %></td>
+      <td><%= link_to "Edit", edit_order_product_path(order_product) %></td>
+      <td><%= link_to "Destroy", order_product, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Order Product", new_order_product_path %></p>

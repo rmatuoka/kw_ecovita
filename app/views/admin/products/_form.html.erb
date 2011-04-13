@@ -1,0 +1,75 @@
+<%= form_for ([:admin, @category, @product]) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :summary %><br />
+    <%= f.text_field :summary %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </p>
+  <p>
+    <%= f.label :features %><br />
+    <%= f.text_area :features %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :usage %><br />
+    <%= f.text_area :usage %>
+  </p>
+  <p>
+    <%= f.label :pub_start %><br />
+    <%= f.datetime_select :pub_start %>
+  </p>
+  <p>
+    <%= f.label :pub_end %><br />
+    <%= f.datetime_select :pub_end %>
+  </p>
+  <p>
+    <%= f.label :views %><br />
+    <%= f.text_field :views %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :tweet_text %><br />
+    <%= f.text_field :tweet_text %>
+  </p>
+  <p>
+    <%= f.label :like_link %><br />
+    <%= f.text_field :like_link %>
+  </p>
+  <p>
+    <%= f.label :video %><br />
+    <%= f.text_field :video %>
+  </p>
+  <p>
+    <%= f.label :vendas %><br />
+    <%= f.text_field :vendas %>
+  </p>
+	
+  <h2>Produtos Relacionados:</h2>
+  <p>
+  	<% Product.all.each do |product| %>
+	  	<%= check_box_tag 'product[recommmended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
+	  <% end %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

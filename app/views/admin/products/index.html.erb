@@ -1,0 +1,28 @@
+<% title "Products" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Views</th>
+    <th>Category</th>
+    <th>Published</th>
+    <th>Vendas</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.views %></td>
+      <td><%= product.category_id %></td>
+      <td><%= product.published %></td>
+      <td><%= product.vendas %></td>
+      <td><%= link_to "Show", admin_category_product_path(@category, product) %></td>
+      <td><%= link_to "Edit", edit_admin_category_product_path(@category, product) %></td>
+      <td><%= link_to "Destroy", admin_category_product_path(@category, product), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Comentários", admin_category_product_product_comments_path(@category, product) %></td>
+	</tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Product", new_admin_category_product_path(@category) %></p>

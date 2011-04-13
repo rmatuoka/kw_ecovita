@@ -1,0 +1,27 @@
+<% title "Banners" %>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Name</th>
+    <th>Pub Start</th>
+    <th>Pub End</th>
+    <th>Clicks</th>
+    <th>Link</th>
+  </tr>
+  <% for banner in @banners %>
+    <tr>
+      <td><%= banner.banner_category_id %></td>
+      <td><%= banner.name %></td>
+      <td><%= banner.pub_start %></td>
+      <td><%= banner.pub_end %></td>
+      <td><%= banner.clicks %></td>
+      <td><%= banner.link %></td>
+      <td><%= link_to "Show", admin_banner_category_banner_path(@category, banner) %></td>
+      <td><%= link_to "Edit", edit_admin_banner_category_banner_path(@category, banner) %></td>
+      <td><%= link_to "Destroy", admin_banner_category_banner_path(@category, banner), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Banner", new_admin_banner_category_banner_path(@category) %></p>
