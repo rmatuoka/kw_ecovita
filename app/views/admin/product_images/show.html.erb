@@ -8,9 +8,12 @@
   <strong>Product:</strong>
   <%= @product_image.product_id %>
 </p>
-
 <p>
-  <%= link_to "Edit", edit_product_image_path(@product_image) %> |
-  <%= link_to "Destroy", @product_image, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", product_images_path %>
+  <strong>Imagem:</strong><br />
+  <%= image_tag(@product_image.image.url("thumb")) %>
+</p>
+<p>
+  	<%= link_to "Edit", edit_admin_category_product_product_image_path(@category, @product, @product_image) %> |
+	<%= link_to "Destroy", admin_category_product_product_image_path(@category, @product, @product_image), :confirm => 'Are you sure?', :method => :delete %> |
+	<%= link_to "View All", admin_category_product_product_images_path(@category, @product)  %>
 </p>

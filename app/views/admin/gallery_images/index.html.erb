@@ -11,11 +11,11 @@
       <td><%= gallery_image.gallery_id %></td>
       <td><%= gallery_image.name %></td>
       <td><%= gallery_image.published %></td>
-      <td><%= link_to "Show", gallery_image %></td>
-      <td><%= link_to "Edit", edit_gallery_image_path(gallery_image) %></td>
-      <td><%= link_to "Destroy", gallery_image, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", admin_page_gallery_gallery_image_path(@page, @gallery, gallery_image) %></td>
+      <td><%= link_to "Edit", edit_admin_page_gallery_gallery_image_path(@page, @gallery, gallery_image) %></td>
+      <td><%= link_to "Destroy", admin_page_gallery_gallery_image_path(@page, @gallery, gallery_image), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Gallery Image", new_gallery_image_path %></p>
+<p><%= link_to "New Gallery Image", new_admin_page_gallery_gallery_image_path(@page, @gallery) %></p>

@@ -9,11 +9,11 @@
     <tr>
       <td><%= product_image.name %></td>
       <td><%= product_image.product_id %></td>
-      <td><%= link_to "Show", product_image %></td>
-      <td><%= link_to "Edit", edit_product_image_path(product_image) %></td>
-      <td><%= link_to "Destroy", product_image, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", admin_category_product_product_image_path(@category, @product, product_image) %></td>
+      <td><%= link_to "Edit", edit_admin_category_product_product_image_path(@category, @product, product_image) %></td>
+      <td><%= link_to "Destroy", admin_category_product_product_image_path(@category, @product, product_image), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Product Image", new_product_image_path %></p>
+<p><%= link_to "New Product Image", new_admin_category_product_product_image_path(@category, @product) %></p>

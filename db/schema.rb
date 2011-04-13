@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413165438) do
+ActiveRecord::Schema.define(:version => 20110413193004) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110413165438) do
   end
 
   create_table "banners", :force => true do |t|
-    t.integer  "category_id"
+    t.integer  "banner_category_id"
     t.string   "name"
     t.datetime "pub_start"
     t.datetime "pub_end"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20110413165438) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -50,6 +54,10 @@ ActiveRecord::Schema.define(:version => 20110413165438) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "logs", :force => true do |t|
@@ -110,6 +118,10 @@ ActiveRecord::Schema.define(:version => 20110413165438) do
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "products", :force => true do |t|

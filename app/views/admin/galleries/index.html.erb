@@ -13,11 +13,12 @@
       <td><%= gallery.page_id %></td>
       <td><%= gallery.published %></td>
       <td><%= gallery.clicks %></td>
-      <td><%= link_to "Show", admin_gallery_path(gallery) %></td>
-      <td><%= link_to "Edit", edit_admin_gallery_path(gallery) %></td>
-      <td><%= link_to "Destroy", admin_gallery_path(gallery), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Imagens", admin_page_gallery_gallery_images_path(@page, gallery) %></td>
+	  <td><%= link_to "Show", admin_page_gallery_path(@page, gallery) %></td>
+      <td><%= link_to "Edit", edit_admin_page_gallery_path(@page, gallery) %></td>
+      <td><%= link_to "Destroy", admin_page_gallery_path(@page, gallery), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Gallery", new_admin_gallery_path %></p>
+<p><%= link_to "New Gallery", new_admin_page_gallery_path(@page) %></p>

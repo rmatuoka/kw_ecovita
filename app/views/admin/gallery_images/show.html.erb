@@ -12,9 +12,12 @@
   <strong>Published:</strong>
   <%= @gallery_image.published %>
 </p>
-
 <p>
-  <%= link_to "Edit", edit_gallery_image_path(@gallery_image) %> |
-  <%= link_to "Destroy", @gallery_image, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", gallery_images_path %>
+  <strong>Imagem:</strong><br />
+  <%= image_tag(@gallery_image.image.url("thumb")) %>
+</p>
+<p>
+  <%= link_to "Edit", edit_admin_page_gallery_gallery_image_path(@page, @gallery, @gallery_image) %> |
+  <%= link_to "Destroy", admin_page_gallery_gallery_image_path(@page, @gallery, @gallery_image), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_page_gallery_gallery_images_path(@page, @gallery) %>
 </p>

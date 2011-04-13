@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_admin_gallery_path(@gallery) %> |
-  <%= link_to "Destroy", admin_gallery_path(@gallery), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_galleries_path %>
+  <%= link_to "Edit", edit_admin_page_gallery_path(@page, @gallery) %> |
+  <%= link_to "Destroy", admin_page_gallery_path(@page, @gallery), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_page_galleries_path(@page) %>
 </p>

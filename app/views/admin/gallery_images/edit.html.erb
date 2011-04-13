@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @gallery_image %> |
-  <%= link_to "View All", gallery_images_path %>
+  <%= link_to "Show", admin_page_gallery_gallery_image_path(@page, @gallery, @gallery_image) %> |
+  <%= link_to "View All", admin_page_gallery_gallery_images_path(@page, @gallery) %>
 </p>

@@ -17,10 +17,12 @@
       <td><%= product.category_id %></td>
       <td><%= product.published %></td>
       <td><%= product.vendas %></td>
-      <td><%= link_to "Show", admin_category_product_path(@category, product) %></td>
+	  <td><%= link_to "Imagens", admin_category_product_product_images_path(@category, product) %></td>
+      <td><%= link_to "Comentários", admin_category_product_product_comments_path(@category, product) %></td>
+	  <td><%= link_to "Show", admin_category_product_path(@category, product) %></td>
       <td><%= link_to "Edit", edit_admin_category_product_path(@category, product) %></td>
       <td><%= link_to "Destroy", admin_category_product_path(@category, product), :confirm => 'Are you sure?', :method => :delete %></td>
-      <td><%= link_to "Comentários", admin_category_product_product_comments_path(@category, product) %></td>
+      
 	</tr>
   <% end %>
 </table>

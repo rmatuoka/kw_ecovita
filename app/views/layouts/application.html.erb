@@ -19,6 +19,12 @@
 			<%= link_to "Login", login_path %>
 		<% end %>
 	</div>
+	<div id="menu">
+		<%=link_to "Gerenciar Produtos", admin_categories_path%> | 
+		<%=link_to "Gerenciar Banners", admin_banner_categories_path%> | 
+		<%=link_to "Gerenciar Páginas", admin_pages_path%> | 
+		<%=link_to "Gerenciar Usuários", "#"%> | 
+	</div>
     <div id="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>

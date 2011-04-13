@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong>Imagem:</strong><br />
+  <%= image_tag(@banner.image.url("thumb")) %>
+</p>
+
+<p>
   <%= link_to "Edit", edit_admin_banner_category_banner_path(@category, @banner) %> |
   <%= link_to "Destroy", admin_banner_category_banner_path(@category, @banner), :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", admin_banner_category_banners_path(@category) %>

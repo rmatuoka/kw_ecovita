@@ -2,18 +2,20 @@ KwEcovita::Application.routes.draw do |map|
   namespace(:admin){
     resources :orders
     resources :order_products
-    resources :gallery_images
-    resources :galleries
-    resources :pages
+    resources(:pages){
+      resources(:galleries){
+        resources :gallery_images
+      }
+    }
     resources :page_banners
     resources(:banner_categories){
       resources :banners
     }
-    resources :product_recommendeds
-    resources :product_images
+    #resources :product_recommendeds
     resources(:categories){
       resources(:products){
         resources :product_comments
+        resources :product_images
       }
     }
     

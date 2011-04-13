@@ -1,4 +1,4 @@
-<%= form_for ([:admin, @category, @banner]) do |f| %>
+<%= form_for ([:admin, @category, @banner], :html => { :multipart => :true }) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :banner_category_id %><br />
@@ -23,6 +23,10 @@
   <p>
     <%= f.label :link %><br />
     <%= f.text_field :link %>
+  </p>
+  <p>
+  	<%= f.label :image%>
+	<%= f.file_field :image%>
   </p>
   <p><%= f.submit %></p>
 <% end %>

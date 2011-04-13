@@ -1,41 +1,46 @@
 class Admin::GalleriesController < ApplicationController
+  before_filter :load_page
   def index
-    @galleries = Gallery.all
+    @galleries = @page.galleries.all
   end
 
   def show
-    @gallery = Gallery.find(params[:id])
+    @gallery = @page.galleries.find(params[:id])
   end
 
   def new
-    @gallery = Gallery.new
+    @gallery = @page.galleries.build
   end
 
   def create
-    @gallery = Gallery.new(params[:gallery])
+    @gallery = @page.galleries.build(params[:gallery])
     if @gallery.save
-      redirect_to admin_gallery_path(@gallery), :notice => "Successfully created gallery."
+      redirect_to admin_page_gallery_path(@page, @gallery), :notice => "Successfully created gallery."
     else
       render :action => 'new'
     end
   end
 
   def edit
-    @gallery = Gallery.find(params[:id])
+    @gallery = @page.galleries.find(params[:id])
   end
 
   def update
-    @gallery = Gallery.find(params[:id])
+    @gallery = @page.galleries.find(params[:id])
     if @gallery.update_attributes(params[:gallery])
-      redirect_to admin_gallery_path(@gallery), :notice  => "Successfully updated gallery."
+      redirect_to admin_page_gallery_path(@page, @gallery), :notice  => "Successfully updated gallery."
     else
       render :action => 'edit'
     end
   end
 
   def destroy
-    @gallery = Gallery.find(params[:id])
+    @gallery = @page.galleries.find(params[:id])
     @gallery.destroy
-    redirect_to admin_galleries_path, :notice => "Successfully destroyed gallery."
+    redirect_to admin_page_galleries_path(@page), :notice => "Successfully destroyed gallery."
+  end
+  
+  def load_page
+    @page = Page.find(params[:page_id])
   end
 end
