@@ -1,5 +1,10 @@
 class Admin::GalleryImagesController < ApplicationController
+  access_control do
+    allow :admin, :supervisor
+  end
+  
   before_filter :load_page
+  layout "admin"
   
   def index
     @gallery_images = @gallery.gallery_images.all

@@ -1,0 +1,92 @@
+<%= form_for (:admin, @user) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :sobrenome %><br />
+    <%= f.text_field :sobrenome %>
+  </p>
+  <% if !current_user %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :sexo %><br />
+	<%= f.radio_button :sexo, :masculino %>Masculino
+	<%= f.radio_button :sexo, :feminino %>Feminino
+  </p>
+  <p>
+    <%= f.label :nascimento %><br />
+    <%= f.date_select :nascimento, :start_year => 1920%>
+  </p>
+  <p>
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf %>
+  </p>
+  <p>
+    <%= f.label :rg %><br />
+    <%= f.text_field :rg %>
+  </p>
+<p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+<p>
+    <%= f.label :cellphone %><br />
+    <%= f.text_field :cellphone %>
+  </p>
+<p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+<p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+<p>
+    <%= f.label :complement %><br />
+    <%= f.text_field :complement %>
+  </p>
+<p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+<p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+<p>
+    <%= f.label :cep %><br />
+    <%= f.text_field :cep %>
+  </p>
+<p>
+    <%= f.label :quarter %><br />
+    <%= f.text_field :quarter %>
+  </p>
+  <% if @user.has_role?("admin") || @user.has_role?("supervisor")%>
+  <h1>Regras</h1>
+  <p>
+	Tipo:<br />
+	<%= f.radio_button :role, :admin, :checked => true %>Administrador
+	<%= f.radio_button :role, :supervisor %>Supervisor
+	<%= f.radio_button :role, :seller %>Vendedor
+  </p>
+  <% end %>
+  <% if !current_user %>
+	<p><%= f.submit "Cadastrar!"%></p>
+  <%else%>
+	<p><%= f.submit "Atualizar!"%></p>
+  <% end%>
+<% end %>

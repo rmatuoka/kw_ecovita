@@ -1,4 +1,10 @@
 class Admin::OrderProductsController < ApplicationController
+  access_control do
+    allow :admin, :supervisor
+  end
+  
+  layout "admin"
+  
   def index
     @order_products = OrderProduct.all
   end

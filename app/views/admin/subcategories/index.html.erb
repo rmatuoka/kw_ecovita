@@ -1,0 +1,20 @@
+<% title "Subcategories" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+  </tr>
+  <% for subcategory in @subcategories %>
+    <tr>
+      <td><%= subcategory.name %></td>
+      <td><%= subcategory.category_id %></td>
+	  <td><%= link_to "Produtos", admin_category_subcategory_products_path(@category, subcategory) %></td>
+      <td><%= link_to "Show", admin_category_subcategory_path(@category, subcategory) %></td>
+      <td><%= link_to "Edit", edit_admin_category_subcategory_path(@category, subcategory) %></td>
+      <td><%= link_to "Destroy", admin_category_subcategory_path(@category, subcategory), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Subcategory", new_admin_category_subcategory_path(@category) %></p>

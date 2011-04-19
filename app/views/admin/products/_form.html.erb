@@ -1,4 +1,4 @@
-<%= form_for ([:admin, @category, @product]) do |f| %>
+<%= form_for ([:admin, @category, @subcategory, @product]) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %><br />
@@ -41,10 +41,6 @@
     <%= f.text_field :views %>
   </p>
   <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-  <p>
     <%= f.label :published %><br />
     <%= f.check_box :published %>
   </p>
@@ -68,7 +64,7 @@
   <h2>Produtos Relacionados:</h2>
   <p>
   	<% Product.all.each do |product| %>
-	  	<%= check_box_tag 'product[recommmended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
+	  	<%= check_box_tag 'product[recommended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
 	  <% end %>
   </p>
   <p><%= f.submit %></p>

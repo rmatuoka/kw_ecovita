@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration
       t.datetime :pub_start
       t.datetime :pub_end
       t.integer :views
-      t.integer :category_id
+      t.integer :subcategory_id
       t.boolean :published
       t.string :tweet_text
       t.string :like_link

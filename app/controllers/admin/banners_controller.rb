@@ -1,5 +1,10 @@
 class Admin::BannersController < ApplicationController
+  access_control do
+    allow :admin, :supervisor
+  end
+  
   before_filter :load_category
+  layout "admin"
   
   def index
     @banners = @category.banners.all

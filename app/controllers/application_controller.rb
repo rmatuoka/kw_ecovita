@@ -27,4 +27,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def load_site_categories
+    @category_site = Category.menu
+    @banners_laterais = BannerCategory.lateral.banners
+  end
+  
+  def load_cart
+    @cart = session[:cart] ||= Cart.new
+  end
 end

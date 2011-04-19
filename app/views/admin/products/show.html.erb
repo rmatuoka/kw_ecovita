@@ -41,10 +41,6 @@
   <%= @product.views %>
 </p>
 <p>
-  <strong>Category:</strong>
-  <%= @product.category_id %>
-</p>
-<p>
   <strong>Published:</strong>
   <%= @product.published %>
 </p>
@@ -66,7 +62,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_admin_category_product_path(@category,@product) %> |
-  <%= link_to "Destroy", admin_category_product_path(@category, @product), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_category_products_path(@category) %>
+  <%= link_to "Edit", edit_admin_category_subcategory_product_path(@category, @subcategory, @product) %> |
+  <%= link_to "Destroy", admin_category_subcategory_product_path(@category, @subcategory,  @product), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_category_subcategory_products_path(@category, @subcategory) %>
 </p>

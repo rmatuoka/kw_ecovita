@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Price</th>
     <th>Views</th>
-    <th>Category</th>
+    <th>SubCategory</th>
     <th>Published</th>
     <th>Vendas</th>
   </tr>
@@ -14,17 +14,17 @@
       <td><%= product.name %></td>
       <td><%= product.price %></td>
       <td><%= product.views %></td>
-      <td><%= product.category_id %></td>
+      <td><%= product.subcategory.name %></td>
       <td><%= product.published %></td>
       <td><%= product.vendas %></td>
-	  <td><%= link_to "Imagens", admin_category_product_product_images_path(@category, product) %></td>
-      <td><%= link_to "Comentários", admin_category_product_product_comments_path(@category, product) %></td>
-	  <td><%= link_to "Show", admin_category_product_path(@category, product) %></td>
-      <td><%= link_to "Edit", edit_admin_category_product_path(@category, product) %></td>
-      <td><%= link_to "Destroy", admin_category_product_path(@category, product), :confirm => 'Are you sure?', :method => :delete %></td>
+	  <td><%= link_to "Imagens", admin_category_subcategory_product_product_images_path(@category, @subcategory, product) %></td>
+      <td><%= link_to "Comentários", admin_category_subcategory_product_product_comments_path(@category, @subcategory, product) %></td>
+	  <td><%= link_to "Show", admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
+      <td><%= link_to "Edit", edit_admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
+      <td><%= link_to "Destroy", admin_category_subcategory_product_path(@category, @subcategory, product), :confirm => 'Are you sure?', :method => :delete %></td>
       
 	</tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Product", new_admin_category_product_path(@category) %></p>
+<p><%= link_to "New Product", new_admin_category_subcategory_product_path(@category, @subcategory) %></p>

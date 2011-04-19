@@ -11,6 +11,7 @@ gem "nifty-generators", :group => :development
 #gem 'be9-acl9'
 #gem 'acl9', '0.12'
 gem 'mongrel'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'

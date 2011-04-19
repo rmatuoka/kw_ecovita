@@ -1,56 +1,48 @@
-<%= form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :sobrenome %><br />
-    <%= f.text_field :sobrenome %>
-  </p>
-  <% if !current_user %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <% end %>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.label :sexo %><br />
-	<%= f.radio_button :sexo, :masculino %>Masculino
-	<%= f.radio_button :sexo, :feminino %>Feminino
-  </p>
-  <p>
-    <%= f.label :nascimento %><br />
-    <%= f.date_select :nascimento, :start_year => 1920%>
-  </p>
-  <p>
-    <%= f.label :cpf %><br />
-    <%= f.text_field :cpf %>
-  </p>
-  <p>
-    <%= f.label :rg %><br />
-    <%= f.text_field :rg %>
-  </p>
-  <% if @user.has_role?("admin") || @user.has_role?("supervisor")%>
-  <h1>Regras</h1>
-  <p>
-	Tipo:<br />
-	<%= f.radio_button :role, :admin, :checked => true %>Administrador
-	<%= f.radio_button :role, :supervisor %>Supervisor
-	<%= f.radio_button :role, :seller %>Vendedor
-  </p>
-  <% end %>
-  <% if !current_user %>
-	<p><%= f.submit "Cadastrar!"%></p>
-  <%else%>
-	<p><%= f.submit "Atualizar!"%></p>
-  <% end%>
-<% end %>
+<%form_for @user do |f|%>
+<div id="Form">
+		
+        <div id="Form_box">
+            <label>Nome completo: <%=f.text_field :nome, :class => "Item_form"%></label>
+            <br /><br />
+            <label>Data de Nascimento: <%= f.date_select :nascimento, :start_year => 1920%></label>
+            <br /><br />
+            <label>Telefone: <%=f.text_field :phone, :class => "Item_form"%></label>
+            <br /><br />
+            <label>Endereço: <%=f.text_field :address, :class => "Item_form"%></label>
+            <br /><br />
+            <label>Bairro: <%=f.text_field :quarter, :class => "Item_form"%></label>
+            <br /><br />
+            <label style=" vertical-align:middle;">Uf:</label>
+            <select name="items por pagina" style=" text-align:left;">
+                <option value="SP">SP</option>
+                <option value="MG">MG</option>
+                <option value="RS">RS</option>
+                <option value="TO">TO</option>
+            </select>
+        	<label>Cep: <%=f.text_field :cep, :class => "Item_form"%></label>
+        </div> 
+		<div id="Form_box2">
+        <label>Sexo: 
+			<%= f.radio_button :sexo, :masculino %>
+			<b style="font-weight:normal; font-size:12px; color:#000;"> Masculino</b> 
+			<%= f.radio_button :sexo, :feminino %>
+			<b style="font-weight:normal; font-size:12px; color:#000;"> Feminino</b></label>
+        <br /><br />
+        <label>Email: <%=f.text_field :email, :class => "Item_form"%></label>
+        <br /><br /> 
+        <label>Celular: <%=f.text_field :cellphone, :class => "Item_form"%></label>
+		<br /><br /> 
+        <label>Nº: <%=f.text_field :number, :class => "N"%></label>&nbsp;<label>Complemento: <%=f.text_field :complement, :class => "N"%></label>
+       	<br /><br /> 
+        <label>Cidade: <%=f.text_field :city, :class => "Item_form"%> </label>  	
+   		</div> 
+ </div>
+ <div class="Box_password">
+ <br />
+ <label>Senha: <%=f.text_field :password, :class => "Item_form"%> &nbsp;&nbsp; </label><label>Repita Senha: <%=f.text_field :password_confirmation, :class => "Item_form"%></label>
+ </div>
+
+<input type="reset" value="" style="background-color:transparent; background-image:url('/images/bt_limpar_cadastro.png'); border:none; width:212px; height:32px;text-align:right; margin-left:220px; float:left; cursor:pointer;">
+<%=image_submit_tag "bt_finalizar_cadastro.png", :stlyle => "margin-left:60px; float:right;"%>
+
+<%end%>

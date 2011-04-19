@@ -1,0 +1,155 @@
+/* CSS Document */
+
+#General #Content #Content_products #Products #Cart
+{
+
+	width:700px;
+	min-height:300px;
+	height:auto;
+	margin:auto;	
+}
+	
+	#General #Content #Content_products #Products Table
+	{
+		margin:auto;
+			
+	}
+	
+	#General #Content #Content_products #Products #Cart .Tit_table
+	{
+		display:inline-block;
+		*float:left;
+		*display:block;
+		width:700px;	
+		height:50px;
+	}
+	#General #Content #Content_products #Products #Cart .Cel_Cust
+	{
+		text-align:left !important;
+	}
+	
+	
+	#General #Content #Content_products #Products #Cart .Tit_text
+	{
+		text-align:right;
+	}
+	.Table_tit
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;	
+	}
+	.Table_tit2
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#999999;	
+	}	
+	#General #Content #Content_products #Products #Cart .Bg_table_line
+	{
+		background-image:url(../images/menu/bg_item_coment.png);
+		background-position:top center;
+		background-repeat:repeat-x;
+		text-align:center;
+		margin:auto;
+		height:67px;
+	}
+	#General #Content #Content_products #Products #Cart .Title_table
+	{
+		display:block;
+		background-image:url(../images/bg_tab_mytabs.png);
+		background-repeat:no-repeat;
+		background-position:center top;
+		width:700px;
+		height:52px;
+		text-align:center;
+		margin:auto;
+	}
+	#General #Content #Content_products #Products #Cart .Title_table2
+	{
+		background-image:url(../images/menu/bg_item_coment.png);
+		background-position:top center;
+		background-repeat:repeat-x;		
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		color:#666666;
+		text-align:center;
+		width:665px;
+		height:10px;
+		text-align:center !important;
+		margin:auto;
+		margin-top:1px;
+		margin-bottom:1px;
+		padding:10px 10px 10px 10px;
+	}	
+	#General #Content #Content_products #Products #Cart .Content_table
+	{
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#666666;
+		text-align:center;
+		width:685px;
+		height:67px;
+		text-align:center;
+		margin:auto;
+		margin-top:1px;	
+	}
+	#General #Content #Content_products #Products #Cart .Down_content_table
+	{
+		background-image:url(../images/bg_tab_mytabs_down.png);
+		background-repeat:no-repeat;
+		background-position:center top;		
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;
+		width:700px;
+		height:93px;
+		text-align:left;
+		margin:auto;
+		margin-top:1px;	
+	}
+	#General #Content #Content_products #Products #Cart .Down_content_table2
+	{
+		background-image:url(../images/bg_tab_mytabs_down2.png);
+		background-repeat:no-repeat;
+		background-position:center top;		
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;
+		width:700px;
+		height:26px;
+		text-align:left;
+		margin:auto;
+		margin-top:1px;	
+	}		
+	#General #Content #Content_products #Products #Cart .Down_content_table p
+	{
+		margin-left:15px;
+		font-size:12px;
+		font-family:Verdana, Geneva, sans-serif;
+				
+	}		
+	#General #Content #Content_products #Products #Cart input
+	{
+		width:216px;
+		height:20px;
+		text-align:right;
+		float:right;
+		color:#000;
+	}	
+	#General #Content #Content_products #Products #Cart .Waiting_for
+	{
+		width:216px;
+		height:20px;
+		background-image:url(../images/bg_table_waitingfor.png);
+		background-repeat:no-repeat;
+		background-position:top left;
+		text-align:right;
+		color:#000;
+	}
+		

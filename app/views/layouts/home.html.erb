@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><%=yield :title%></title>
+<%=stylesheet_link_tag "template"%>
+<%=stylesheet_link_tag "home"%>
+<%=stylesheet_link_tag "slidetabs"%>
+</head>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+<%=javascript_include_tag "jquery"%>
+<script>
+$(document).ready(function() {
+    $("#Menu").hide();
+//	$("#botao").addClass("closed");  
+	
+	$("#botao").click(function(){
+		if($("#botao").hasClass("closed"))
+		{
+		  $("#Menu").slideDown();
+		  $("#botao").attr("src", "images/menu/top_loginbar_abaup.png");
+		  $("#botao").removeClass("closed");
+		  $("#botao").addClass("open");
+		}
+		else
+		{
+			$("#Menu").slideUp();
+		  	$("#botao").attr("src", "images/menu/top_loginbar_abadown.png");
+			$("#botao").removeClass("open");
+		  	$("#botao").addClass("closed");
+		}
+	});
+	
+	$("#Menu1").hide();
+//	$("#botao").addClass("closed");  
+	
+	$("#botao1").click(function(){
+		if($("#botao1").hasClass("closed"))
+		{
+		  $("#Menu1").slideDown();
+		  $("#botao1").attr("src", "images/menu/top_menu_abaup.png");
+		  $("#botao1").removeClass("closed");
+		  $("#botao1").addClass("open");
+		}
+		else
+		{
+			$("#Menu1").slideUp();
+		  	$("#botao1").attr("src", "images/menu/top_menu_abadown.png");
+			$("#botao1").removeClass("open");
+		  	$("#botao1").addClass("closed");
+		}
+	});
+	
+	 $(".p").mouseover(function() {
+      	//alert("a");
+	  	$(this).toggleClass("Product_on");
+		//alert($(this > "#Buttons"));
+		//alert($(this + " .Buttons").html());
+    });
+	
+	$(".p").mouseout(function() {
+      	//alert("a");
+	  	$(this).toggleClass("Product_on");
+		//$(this > ".Buttons").fadeOut("slow");
+    });
+	
+});
+
+
+   
+
+</script>
+<body>
+<div id="General">
+
+	<div id="Header">
+  		<%=render :file => "layouts/_userbar.html.erb"%>
+    	<div id="Logo"><img src="images/logo.png" width="267" height="112" /></div>
+	    <div id="Search_bar">
+	        <table width="953" border="0">
+	          <tr height="33">
+	            <td width="296" height="29"><img src="images/tit_categorias.png" width="123" height="27" alt="Categorias" title="Categorias" style="float:left; margin-left:15px;" /></td>
+	            <td width="396"><div id="Search_for_small"><input type="text" onblur="if(this.value == '') this.value='Buscar por...';" onfocus="if(this.value=='Buscar por...') this.value='';" value="Buscar por..." name="pesquisa"></div></td>
+	            <td width="178">
+	            
+				  <%= select_tag(:id, options_from_collection_for_select(@category_site, :id, :name)) %> 
+  
+				<!-- <select id="Bt_category" name="Todas Categorias">
+	                <option value="">Todas Categorias</option>
+	                <option value="1">categoria 1</option>
+	                <option value="1">categoria 2</option>
+	                <option value="1">categoria 3</option>
+	                <option value="1">categoria 4</option>
+	              </select>
+			  -->
+	            </td>
+	            <td width="65"><a href="#"><img src="images/user_bars/bt_search.png" width="34" height="23" /></a></td>
+	          </tr>
+	          <tr height="20">
+	            <td>
+	            	<div id="Menu_Cat">
+	                    <div id="Menu1">
+	                      <ul>
+							<%@category_site.each do |category|%>
+							  <li><%=image_tag("menu/img_arrow_leftside.png")%> <%=link_to category.name, categoria_path(category)%></a></li>
+							<%end%>
+	                      </ul>
+	                    </div>
+	                    <img src="images/menu/top_menu_abadown.png" id="botao1" class="closed" style="text-align:left; float:left;"  />
+	                </div>
+	            </td>
+	            <td>&nbsp;</td>
+	            <td>&nbsp;</td>
+	            <td>&nbsp;</td>
+	          </tr>
+	        </table>
+	    </div>
+    </div>
+    <div id="Destaque"><img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /></div>
+    <div id="Content">
+        <div id="Content_products">
+
+        	<div id="Products">
+            <h2><img src="images/tit_produtos_mais_vistos.png" width="239" height="14" alt="produtos mais vistos" title="produtos mais vistos" style="float:left; margin-left:10px; margin-bottom:5px;" /><a href=""><img src="images/tit_vejamais.png" width="64" height="11" alt="veja mais" title="veja mais" style="float:right; margin-right:5px;" /></a></h2>
+            <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:5px; margin-left:10px;" />
+                
+                <!-- PRODUTO -->
+				<%@mais_vistos.each do |produto|%>
+				<div id="Product" class="p">
+                    <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></a></div>
+                    <div id="Values">
+                        <h3><%=produto.summary%></h3><br />
+                        <%if produto.discount.blank?%>
+							<h4 class="Price_of">
+							<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
+							</h4>
+						<%else%>
+							<h4 class="Price_of">
+								de: <%=number_to_currency(produto.price)%> <br />
+							<b class="Price_for">por: <%=number_to_currency(produto.price - produto.discount)%></b>
+							</h4>
+						<%end%>
+						
+						<br />
+                    </div>
+                    <h5>+ <%=produto.subcategory.category.name%></h5>
+                    <div class="Buttons">
+						<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(produto)%>
+						<!-- <a href="#"><img src="images/bt_addtocart.png" width="154" height="31" /></a>--><br/>
+
+							<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=produto.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+
+							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
+
+
+                    </div>
+                </div>
+				<%end%>	
+                <!-- /PRODUTO -->
+                                                           
+            </div>
+			<!-- BANNERS LATERAIS -->
+			<%@banners_laterais.each do |banner|%>
+				<div id="Right_up"><%=link_to image_tag(banner.image.url()), banner_path(banner)%></div>
+			<%end%>
+			
+			<!-- 
+				<div id="Right_up"><a href="#"><img src="images/img_exemple1.png" width="222" height="305" /></a></div>
+	            <div id="Right_down"><a href="#"><img src="images/img_exemple2.png" width="222" height="305" /></a></div>
+            -->
+			<!-- BANNERS LATERAIS -->
+
+			<div class="clear"></div>
+      </div>
+    </div>
+	<!-- FOOTER -->
+	<%=render :file => "layouts/_footer.html.erb"%>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<%@category_site.each do |category|%>
+<ul class="Category_align">
+	<li class="Category_name"><%=category.name%></li>
+    <%category.subcategories.all.each do |sub|%>
+	<li><div class="Category_Sub Sub_ali"><%=link_to sub.name, subcategoria_path(sub)%></div></li>
+	<%end%>
+</ul>
+<%end%>

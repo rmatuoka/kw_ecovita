@@ -1,0 +1,498 @@
+
+/* CSS Document */
+a, p, td, input, textarea, span, div
+{
+	font-family: Verdana;
+	font-size:11px;
+}
+table
+{
+	border-collapse:collapse;	
+}
+
+*
+{
+	vertical-align: middle;
+	margin:0px;
+	padding:0px;
+	font-style: normal;	
+}
+ul
+{
+	list-style:none;
+}
+li	
+{ 
+	margin:0px;
+	padding:0px;
+}
+img
+{
+	border:none;	
+}
+
+
+a
+{
+	color:#000;
+	text-decoration:none;	
+}
+
+a:hover
+{
+	text-decoration:underline;	
+}
+
+html
+{
+	height:100%;
+}
+
+body
+{
+	background-image:url(../images/bg.jpg);
+	background-repeat:no-repeat;
+	background-position:center top;
+}
+
+*html #General
+{
+	height:100%;
+}
+
+#General
+{
+	position:relative;
+	text-align:center;
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+}
+	#General #Header
+	{
+		z-index:10000;
+		position:relative;
+		width:100%;
+		height:228px;
+		text-align:center;
+		margin:0 auto;
+	}
+		#General #Header #User_bar		
+		{
+			z-index:10000;
+			background-image:url(../images/user_bars/bg_userbar.png);
+			background-repeat:no-repeat;
+			background-position:center top;
+			position: relative;
+			width:974px;
+			height:50px;
+			text-align:left;
+			margin:auto;
+		}
+		#General #Header #User_bar_logoff		
+		{
+			z-index:10000;
+			background-image:url(../images/user_bars/bg_userbar_logoff.png);
+			background-repeat:no-repeat;
+			background-position:center top;
+			position: relative;
+			width:974px;
+			height:50px;
+			text-align:left;
+			margin:auto;
+		}
+				.Text_userbar
+				{
+					font-family:Verdana, Geneva, sans-serif;
+					font-size:12px;
+					color:#666666;
+					font-weight:normal;
+					vertical-align:middle;
+					text-align:left;
+					
+				}
+								.img_userbar
+								{
+									margin-right:20px;
+									margin-left:20px;
+									vertical-align:middle;
+								}
+		#General #Header #Logo
+		{
+			position:relative;
+			margin:auto;
+			width:940px;
+			height:176px;	
+		}
+			#General #Header #Logo img
+			{
+				text-align:left;
+				float:left;
+				margin-left:30px;	
+			}		
+		#General #Header #Search_bar		
+		{
+			background-image:url(../images/user_bars/bg_searchbar_internal.png);
+			background-repeat:no-repeat;
+			background-position:center top;			
+			position: relative;
+			width:953px;
+			height:51px;
+			text-align:center;
+			margin:auto;
+			z-index:1000;
+		}
+		#General #Header #Search_bar #Search_for_small
+		{
+			background-image:url(../images/user_bars/bg_searchfor_mediuminternall.png);
+			background-repeat:no-repeat;
+			background-position:center top;
+			height:30px;
+			width:463px;
+			margin:auto;
+			margin-top:3px;
+			padding-top:px;							
+		}
+				.Text_searchbar
+				{
+					font-family:Verdana, Geneva, sans-serif;
+					font-size:12px;
+					color:#666666;
+					font-weight:normal;
+					vertical-align:middle;
+					text-align:left;
+					
+				}		
+		#Search_for_small input
+		{
+			margin-top:8px;
+			width:450px;
+			border:none;
+			*border:1px transparent !important; /*Ie7*/	
+		}
+			
+	#General #Content
+	{
+		background-image:url(../images/bg_content.png);
+		background-repeat:no-repeat;
+		background-position:center top;		
+		position: relative;
+		width:100%;
+		min-height:500px;
+		height:auto;
+		text-align:center;
+		margin:0 auto;
+		padding-top:1px;
+	}
+		#General #Content #Content_products
+		{
+			width:940px;
+			min-height:670px;
+			height:auto;
+			margin:auto;	
+		}
+			#General #Content #Content_products #Category
+			{
+				margin-left:8px;
+				*margin-left:0px;
+				width:220px;
+				min-height:680px;
+				height:auto;
+				padding-top:60px;
+				background:#F5F5F5;
+			}
+			#General #Content #Content_products #Category ul 
+			{
+				
+			}
+				#General #Content #Content_products #Category ul li
+				{
+					
+				}
+					#General #Content #Content_products #Category ul li a
+					{
+						margin-left:20px;
+						font-size:12px;
+						color:#666666;
+						
+					}
+						#General #Content #Content_products #Category ul li a:hover
+						{
+						}								
+								.Category_name
+								{
+									background-image:url(../images/menu/bg_nome_categoria.png);
+									background-position:left top;
+									background-repeat:no-repeat;
+									font-family:Verdana, Geneva, sans-serif;
+									font-size:12px;
+									color:#FFF;
+									width:203px;
+									height:32px;
+									padding-top:6px;
+									padding-left:9px;
+									text-align:left;		
+								}
+								.Category_align
+								{
+									margin-left:-7px;
+									*margin-left:-23px !important;/*IE7*/	
+								}
+								.Category_Sub
+								{
+									position:relative;
+									left:7px;
+									*left:11px !important;
+									font-family:Verdana, Geneva, sans-serif;
+									font-size:12px;
+									color:#666666;
+									width:220px;
+									height:27px;
+									text-align:left;
+									padding-top:12px;
+								}
+									
+									.Category_Sub:hover
+									{
+										background:#E7EFD0;
+										font-weight:700;
+									}				
+								
+				
+
+							.pages
+							{
+								font-size:12px;
+							}
+							
+								#General #Content #Content_products #Products h1, p
+								{
+									font-family:Verdana, Geneva, sans-serif;
+									font-size:20px;
+									color:#999999;
+								}
+									.Bread_crumb ,a 
+									{
+										color:#A7C306;
+										font-size:10px;
+										font-family:Verdana, Geneva, sans-serif;	
+										text-align:left !important;
+									}
+									.Bread_crumb a:hover 
+									{
+										color:#A7C306;
+										font-size:10px;
+										font-family:Verdana, Geneva, sans-serif;	
+										text-align:left !important;
+									}
+									
+				#Destaque
+				{
+					width:auto;
+					min-height:700px;
+					height:auto;	
+				}
+		#General #Content #Content_products #Products
+		{
+			width:64em;
+			min-height:660px;
+			height:auto;
+			float:right;
+			padding-top:60px;
+		}				
+			#General #Content #Content_products #Products * div
+			{
+			}			
+				#General #Content #Content_products #Products #Product
+				{
+					position:relative;
+					width:220px;
+					height:322px;
+					margin-left:10px;
+					float:left;
+				}
+					#General #Content #Content_products #Products #Product #Photo
+					{
+						position:relative;
+						text-align:center;
+						margin:auto;
+						width:200px;
+						height:130px;
+						padding-top:10px;
+						padding-bottom:10px;
+						padding-left:10px;
+						padding-right:10px;
+					}
+					#General #Content #Content_products #Products #Product #Values
+					{
+						 position:relative;
+						 text-align:center;
+						 margin:auto;
+						 width:220px;
+						 height:75px;
+					}	
+						#General #Content #Content_products #Products h3
+						{
+							font-family:Tahoma, Geneva, sans-serif;
+							font-size:12px;
+							color:#777777
+						}	
+						#General #Content #Content_products #Products h4
+						{
+							font-family:Tahoma, Geneva, sans-serif;
+							font-size:12px;
+						}
+						#General #Content #Content_products #Products h5
+						{
+							font-family:Tahoma, Geneva, sans-serif;
+							font-size:12px;
+							color:#878787;
+						}																	
+							#General #Content #Content_products #Products #Product #Values .Price_of
+							{
+								font-size:12px;
+								color:#a2cd36;
+							}
+							#General #Content #Content_products #Products #Product #Values .Price_for
+							{
+								font-size:12px;
+								color:#5da74c;
+							}
+					#General #Content #Content_products #Products #Product .Buttons
+					{
+						padding-top:25px;
+						position:relative;
+						text-align:center;
+						margin:auto;
+						width:220px;
+						height:50px;
+						display:none;
+					}	
+					#General #Content #Content_products #Products #Product .Bt_close
+					{
+						position:relative;
+						text-align:center;
+						width:118px;
+						height:38px;
+						left:120px;
+						top:-313px;
+					}																															
+						.Product_on
+						{
+								background-image:url(../images/bg_product_on.png);
+								background-repeat:no-repeat;
+								background-position:center top;
+								text-align:center;
+								margin:auto;							
+								width:220px;
+								height:320px;				
+						}
+						
+						  .Product_on .Buttons
+						  {
+						  	display:block !important;
+						  }
+						  
+						.Product_off
+						{						
+								width:220px;
+								height:320px;			
+						}				
+
+
+			
+
+					
+		.clear{clear:both; width:690px; display:block; }
+		.Empty{ width:100%; height:1px; border:1px red solid; display:block; float:none;}
+#General #Most_searched	
+{
+	width:970px;
+	height:300px;
+	margin:0 auto;
+	text-align:center;	
+}
+		#General #Search_bar_big		
+		{
+			background-image:url(../images/user_bars/bg_searchbarbig.png);
+			background-repeat:no-repeat;
+			background-position:center top;			
+			position: relative;
+			width:970px;
+			height:85px;
+			text-align:center;
+			margin:auto;
+		}		
+				#General #Search_bar_big #Search_for_big
+				{
+					background-image:url(../images/user_bars/bg_searchforbig.png);
+					background-repeat:no-repeat;
+					background-position:center top;
+					height:28px;
+					width:661px;
+					margin:auto;
+					margin-top:7px;
+					padding-top:7px;
+					text-align:center;
+												
+				}
+				#General #Search_bar_big #Search_for_big input
+				{
+					width:641px;
+					border:none;
+					*border:1px transparent !important; /*Ie7*/	
+				}		
+	#General #Most_searched	#Tag_cloud
+	{
+		width:938px;
+		height:124px;
+		margin:auto;
+		clear:both;
+		text-align:center;
+		color:#999;
+	}
+		#General #Most_searched	 #Tag_cloud a
+		{
+			font-family:Verdana;
+			color:#999;
+		}
+		#General #Most_searched	 #Tag_cloud a.Tag_big
+		{
+			font-size:16px;		
+		}
+		#General #Box_secondary #Secondary #Tag_cloud a.Tag_biger
+		{
+			font-size:18px;								
+		}
+		#General #Most_searched	 #Tag_cloud a.Tag_giant
+		{
+			font-size:22px;							
+		}
+		#General #Most_searched	 #Tag_cloud a.Tag_bold
+		{
+			font-weight:500;							
+		}
+		#General #Most_searched	 #Tag_cloud a.Tag_underline
+		{
+			text-decoration:underline;							
+		}
+				
+	#General #Footer
+	{
+		background-image:url(../images/bg_footer.jpg);
+		background-repeat:no-repeat;
+		background-position:center top;		
+		position: relative;
+		margin:auto;
+		width:100%;
+		height:392px;
+		text-align:center;
+	}
+		#General #Footer 
+		{
+			color:#999;
+		}
+		#General #Footer a
+		{
+			color:#999;
+		}

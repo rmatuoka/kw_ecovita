@@ -1,0 +1,104 @@
+
+/* CSS Document */
+
+
+/* Aba carrinho*/
+#Menu_Cart
+{
+	position:relative !important;
+	*left:17px !important;
+	left:-1px;
+	margin-top:-1px;
+}
+	#Menu_Cart #Menu
+	{
+		width:200px;
+		height:auto;
+	}
+		#Menu_Cart #Menu ul
+		{
+			background-image:url(../images/user_bars/bg_transp.png);
+			background-repeat:repeat-y;
+			background-position:top center;
+			text-align:center;
+			width:200px;
+		}
+			#Menu_Cart #Menu ul li
+			{
+				list-style:none;
+				padding-top:10px;
+				padding-bottom:15px;
+			}
+				#Menu_Cart #Menu ul li a
+				{
+					text-decoration:none;
+					color:#858585;
+				}
+				#Menu_Cart #Menu ul li a:hover
+				{
+					color:#f65922;
+				}							
+				#Menu_Cart #Menu ul li img
+				{
+					vertical-align:middle;
+					margin-right:10px;
+				}
+				#Menu_Cart #Menu ul li h3
+				{
+					font-family:Tahoma, Geneva, sans-serif;
+					font-size:12px;
+					color:#858585;
+					font-weight:normal;
+					
+				}
+				
+				/* Aba categorias*/
+				
+#Menu_Cat
+{
+	
+	*margin-left:-23px !important;/*ie7*/
+	position:relative;
+	margin-top:1px;	
+	left:15px;
+}
+	#Menu_Cat #Menu1
+	{
+		width:276px;
+		height:auto;	
+	}
+		#Menu_Cat #Menu1 ul
+		{
+			background-image:url(../images/user_bars/bg_transp.png);
+			background-repeat:repeat-y;
+			background-position:top center;	
+			width:276px;
+		}
+			#Menu_Cat #Menu1 ul li
+			{
+				list-style:none;
+				padding-top:10px;
+				padding-bottom:15px;
+			}
+				#Menu_Cat #Menu1 ul li a
+				{
+					text-decoration:none;
+					color:#858585;
+				}
+				#Menu_Cat #Menu1 ul li a:hover
+				{
+					color:#f65922;
+				}							
+				#Menu_Cat #Menu1 ul li img
+				{
+					vertical-align:middle;
+				}
+				#Menu_Cat #Menu1 ul li h3
+				{
+					font-family:Tahoma, Geneva, sans-serif;
+					font-size:12px;
+					color:#858585;
+					font-weight:normal;
+					
+				}					
+									

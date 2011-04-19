@@ -1,0 +1,66 @@
+<%content_for :head do%>
+	
+<%end%>
+<div id="Content_products">
+<div id="Products">
+            <p class="Bread_crumb"><%=link_to "home", root_path%></p>
+            <h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Lista de Desejos</h1>
+            <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
+            <div id="Destaque_desire"><img src="images/img_lista_desejos.jpg" width="702" height="164" /></div>
+            <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  
+                    <!-- <label style=" vertical-align:middle;">Items por Pagina</label>
+                    <select name="items por pagina" style=" text-align:left; margin-right:260px; ">
+                        <option value="">5</option>
+                        <option value="1">10</option>
+                        <option value="1">20</option>
+                        <option value="1">30</option>
+                    </select> 
+                    <label style=" vertical-align:middle;">Ordenar por categoria</label>
+                    <select name="items por pagina" style=" text-align:left;">
+                        <option value="">Mais Vendidos</option>
+                        <option value="1">categoria</option>
+                        <option value="1">categoria</option>
+                        <option value="1">categoria</option>
+                    </select>--> <br /><br /><br /><br />
+         
+              <!-- PRODUTO -->
+				<%if !@wishlists.blank? %> 
+					<%@wishlists.each do |w|%>
+					<div id="Product" class="p">
+	                  <div id="Photo"><%=link_to(image_tag(w.product.product_images.first.image.url()), produto_path(w.product)) if !w.product.product_images.first.blank? %></a></div>
+	                  <div id="Values">
+	                      	<h3><%=w.product.summary%></h3><br />
+	                      <%if w.product.discount.blank?%>
+								<h4 class="Price_of">
+								<b class="Price_for">por: <%=number_to_currency(w.product.price)%></b>
+								</h4>
+							<%else%>
+								<h4 class="Price_of">
+									de: <%=number_to_currency(w.product.price)%> <br />
+								<b class="Price_for">por: <%=number_to_currency(w.product.price - w.product.discount)%></b>
+								</h4>
+							<%end%>
+						
+							<br />
+	                  </div>
+	                  <h5>+ <%=w.product.subcategory.category.name%></h5>
+	                  <div class="Buttons">
+							<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(w.product)%><br/>
+
+								<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=w.product.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+
+								<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
+								
+								<%=link_to image_tag("bt_remove_list.png"), remove_from_wishlist_produto_path(w.product), :class => "Bt_close"%>
+	                  </div>
+	              </div>
+				<%end%>
+			<%else%>
+			 <p> Sua lista de desejos está vazia.</p>
+			<%end%>
+              
+  		<div style="clear:both;"></div>
+		<p><%= will_paginate @products %></p>
+       <!-- <p ><a href="#" class="pages"><< </a><a href="#" class="pages"> 1 </a><a href="#" class="pages"> 2 </a><a href="#" class="pages"> 3 </a><a href="#" class="pages"> 4 </a><a href="#" class="pages"> 5 </a><a href="#" class="pages"> 6 </a><a href="#" class="pages"> >></a></p>-->                                                   
+       <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
+      </div>

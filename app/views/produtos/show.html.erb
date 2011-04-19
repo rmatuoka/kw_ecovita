@@ -1,0 +1,177 @@
+<%content_for :title do%>
+	
+<%end%>
+
+<%content_for :head do%>
+	<%=stylesheet_link_tag "rating"%>
+	<%=javascript_include_tag "rating"%>
+	<script>
+	$(document).ready(function() {
+	  // Hides the submit button
+	  $('.new_rating').children('input[type=submit]').addClass('hide');
+
+	  
+	
+	<%if !current_user %>
+		$('.star').rating('disable');
+		$('.star').click(function(){
+		        alert("Você precisa estar logado para avaliar um produto!");
+		    });
+	<%else%>
+		// Submits the form (saves data) after user makes a change.
+	  $('.star').click(function(){
+	        form = $(this).parent().parent();
+	        form[0].submit();
+	    });
+	<%end%>
+	});
+	</script>
+<%end%>
+<div id="Content_products">
+
+<div id="Products">
+        <p class="Bread_crumb"><%=link_to "home", home_path%> / <%=link_to @category.name, home_path%> / <%=link_to @subcategory.name, home_path%></p>
+        <h1 style=" vertical-align:middle; text-align:left;">Categoria : <%=@category.name%></h1>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
+        <div id="Info_product_content">
+        	<div id="Info_photo"><%=image_tag(@produto.product_images.first.image.url)%></div>
+            <div id="Info_text">
+            	<h2><%=@produto.name%></h2><br />
+                <p><%=@produto.description%></p><br />
+            	
+				<%if @produto.discount.blank?%>
+					<strong class="For">
+	                Por:
+	                	<strong><%=number_to_currency(@produto.price)%></strong>
+	                </strong>
+				<%else%>
+					<strong class="From">
+	                De:
+	                	<strong><%=number_to_currency(@produto.price)%></strong>
+	                </strong>
+	                <br />
+	            	<strong class="For">
+	                Por:
+	                	<strong><%=number_to_currency(@produto.price - @produto.discount)%></strong>
+	                </strong>
+				<%end%>
+				
+                <br />
+            	<strong class="From">
+                <b class="Text_gray">Prazo de Entrega:</b>
+                	<strong >Até XX dias úteis para todo o Brasil.</strong>
+                </strong>  <br />
+            	<strong class="From">
+					<%=link_to image_tag("bt_productadd.png"), add_to_cart_produto_path(@produto)%>
+                	<strong >
+						<%if current_user%>
+							<%=link_to "+ adicionar a lista de desejos", add_to_wishlist_produto_path(@produto)%>
+						<%else%>
+							<a href="javascript:void(0);" onclick="alert('Para adicionar um produto a sua lista de desejos\n você deve estar logado!')">+ adicionar a lista de desejos</a>
+						<%end%>
+					</strong>
+                </strong><br/>
+                <p>
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=@produto.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+
+					<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+				<br><br>
+				</p>                    
+                <strong class="From">
+                
+				<!-- RATING -->
+				
+				Avalie: (<%= @produto.average_rating %>)<br />
+
+					<%= form_for(Rating.new) do |f| %>
+				      <% 1.upto(5) do |value| %>
+				        <%= star_button f, @produto, value, (value==@produto.average_rating) %>
+				      <% end %>
+				      <%= hidden_field_tag("product_id", @produto.id) %>
+					<% end %>
+
+                </strong>                                      
+                
+            </div>
+        </div>
+        
+		<%if !@recomendados.empty?%>
+		<div id="Recomended">
+        <h3  class="Tit">RECOMENDADO PRA VOCÊ</h3>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
+     	<a href="#"><img src="/images/menu/img_arrowleft_menu_rec.png" width="13" height="220" class="Left"  /></a>
+          <!-- PRODUTO -->
+          	<%@recomendados.each do |produto|%>
+			<div id="Product" class="p">
+            <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></a></div>
+            <div id="Values">
+                	<h3><%=produto.summary%></h3><br />
+                <%if produto.discount.blank?%>
+						<h4 class="Price_of">
+						<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
+						</h4>
+					<%else%>
+						<h4 class="Price_of">
+							de: <%=number_to_currency(produto.price)%> <br />
+						<b class="Price_for">por: <%=number_to_currency(produto.price - produto.discount)%></b>
+						</h4>
+					<%end%>
+					
+					<br />
+            </div>
+            <h5>+ <%=produto.subcategory.category.name%></h5>
+            <div class="Buttons">
+					<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(produto)%><br/>
+
+						<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=produto.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+
+						<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
+
+
+            </div>
+        </div>
+			<%end%>
+            <!-- /PRODUTO -->
+          <a href="#"><img src="/images/menu/img_arrowright_menu_rec.png" width="13" height="220" class="Right" /></a>
+        </div>
+        <%end%>
+   <div id="About_product">
+        <h3 class="Tit">SOBRE O PRODUTO</h3>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:5px; margin-left:-4px; margin-top:5px;" /> 
+        <div id="tabs">
+            <ul style="border-bottom:#B3DE26 1px solid;">
+                <li><a href="#tabs-1">Descri&ccedil;&atilde;o</a></li>
+                <li><a href="#tabs-2">Caracter&iacute;sticas</a></li>
+                <li><a href="#tabs-3">Modo de Uso</a></li>
+                <li><a href="#tabs-3">Videos</a></li>
+            </ul>
+            <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+            <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+            <div id="tabs-4">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+        </div>     
+       </div>
+   
+   <div id="Coments">
+        <h3 class="Tit">COMENTÁRIOS <a href="#" class="L_coment">Envie seu Comentario[+]</a></h3>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:3px;" />
+        
+		<!-- COMENTARIOS -->
+		<%@produto.product_comments.all_published.each do |comment|%>
+		<div id="Item_coment">
+            <strong>
+                De:
+                <strong><%=comment.name%></strong>
+                 - <%=comment.created_at%>
+            </strong>
+            <p><%=comment.comment%></p>
+        </div> 
+        <%end%> 
+          <div id="Form_Comments">
+
+          </div>
+   </div>
+                                                        
+   <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
+</div>
+

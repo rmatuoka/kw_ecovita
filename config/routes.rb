@@ -1,5 +1,8 @@
 KwEcovita::Application.routes.draw do |map|
+  get "ratings/create"
+
   namespace(:admin){
+    resources :users
     resources :orders
     resources :order_products
     resources(:pages){
@@ -13,9 +16,11 @@ KwEcovita::Application.routes.draw do |map|
     }
     #resources :product_recommendeds
     resources(:categories){
-      resources(:products){
-        resources :product_comments
-        resources :product_images
+      resources(:subcategories){
+        resources(:products){
+          resources :product_comments
+          resources :product_images
+        }
       }
     }
     
@@ -23,15 +28,33 @@ KwEcovita::Application.routes.draw do |map|
     root :to => "categories#index"
   }
   
-
-  get "static_content/denied"
-
   resources :user_sessions
-
+  resources(:carrinhos){
+    collection do
+      get :empty_cart
+    end
+  }
+  
+  resources :home
+  resources(:produtos){
+    member do
+      get :add_to_cart
+      get :remove_from_cart
+      get :add_to_wishlist
+      get :remove_from_wishlist
+    end
+  }
+  resources :categorias
+  resources :ratings
+  resources :accounts
+  resources :banners
+  resources :subcategorias
+  resources(:wishlists)
   resources :users
-
+  get "static_content/denied"
   get "static_content/index"
 
+  root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

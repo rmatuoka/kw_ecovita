@@ -1,0 +1,68 @@
+	
+			<%if current_user%>
+				<div id="User_bar">
+					<!-- USUARIO LOGADO -->
+					<table width="942" border="0">
+		              <tr height="33">
+		                <td width="466"><span class="Text_userbar" style="margin-left:35px;"><%=data_atual_extenso%></span></td>
+		                <td width="154"><span class="Text_userbar"><%=image_tag("user_bars/img_myacount.png", :class => "img_userbar")%><%=link_to "Minha conta", accounts_path, :class => "Text_userbar"%></span></td>
+		                <td width="198"><span class="Text_userbar"><%=image_tag("user_bars/img_mycart.png", :class => "img_userbar")%><%=link_to "Meu Carrinho", carrinhos_path, :class=> "Text_userbar"%></span> </td>
+		                <td width="96"><span class="Text_userbar">&nbsp;<%=link_to "Sair", logout_path, :class =>"Text_userbar"%> <%=image_tag("user_bars/img_arrowlogout.png", :class => "img_userbar")%></span> </td>
+		              </tr>
+		              <tr>
+		                <td>&nbsp;</td>
+		                <td>&nbsp;</td>
+		                <td>
+		                	<div id="Menu_Cart">
+		                        <div id="Menu">
+		                          <ul>
+		                            <%if !@cart.items.blank?%>
+										<%for cart_item in @cart.items%>
+											<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produtos_path(cart_item.id_product)%></li>
+										<%end%>
+											<li>Total : <%=number_to_currency(@cart.total_price)%></li>
+									<%else%>
+											<li>Não há itens no carrinho.</li>
+									<%end%>
+		                          </ul>
+		                        </div>
+		                        <img src="/images/menu/top_loginbar_abadown.png" id="botao" class="closed"  />
+		                    </div>	
+		                </td>
+		                <td>&nbsp;</td>
+		              </tr>
+		            </table>
+				</div>
+			<%else%>
+			<div id="User_bar_logoff">
+				<table width="942" border="0">
+	              <tr height="33">
+	                <td width="466"><span class="Text_userbar" style="margin-left:35px;"><%=data_atual_extenso%></span></td>
+	                <td width="154"><span class="Text_userbar"><img src="/images/user_bars/img_myacount.png" width="25" height="17" class="img_userbar" /><%=link_to "Cadastrar-se", new_user_path, :class => "Text_userbar"%></span></td>
+	                <td width="198"><span class="Text_userbar"><img src="/images/user_bars/img_mycart.png" width="25" height="17" class="img_userbar" /><%=link_to "Meu Carrinho", carrinhos_path, :class=> "Text_userbar"%></span> </td>
+	              <tr>
+	                <td>&nbsp;</td>
+	                <td>&nbsp;</td>
+	                <td>
+	                	<div id="Menu_Cart">
+	                        <div id="Menu">
+	                          <ul>
+	                              <%if !@cart.items.blank?%>
+									<%for cart_item in @cart.items%>
+										<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produtos_path(cart_item.id_product)%></li>
+									<%end%>
+										<li>Total : <%=number_to_currency(@cart.total_price)%></li>
+									<%else%>
+											<li>Não há itens no carrinho.</li>
+									<%end%>
+	                          </ul>
+	                        </div>
+	                        <img src="/images/menu/top_loginbar_abadown.png" id="botao" class="closed"  />
+	                    </div>	
+	                </td>
+	              </tr>
+	            </table>
+			</div>
+			<%end%>
+			<!-- /USUARIO LOGADO -->
+	

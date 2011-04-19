@@ -1,4 +1,10 @@
 class Admin::CategoriesController < ApplicationController
+  access_control do
+    allow :admin, :supervisor
+  end
+  
+  layout "admin"
+  
   def index
     @categories = Category.all
   end
