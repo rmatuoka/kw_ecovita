@@ -7,23 +7,28 @@
 	<%=javascript_include_tag "rating"%>
 	<script>
 	$(document).ready(function() {
-	  // Hides the submit button
-	  $('.new_rating').children('input[type=submit]').addClass('hide');
+	    // Hides the submit button
+	    $('.new_rating').children('input[type=submit]').addClass('hide');
 
-	  
-	
-	<%if !current_user %>
-		$('.star').rating('disable');
-		$('.star').click(function(){
-		        alert("Você precisa estar logado para avaliar um produto!");
+		<%if !current_user %>
+			$('.star').rating('disable');
+			$('.star').click(function(){
+			        alert("Você precisa estar logado para avaliar um produto!");
+			    });
+		<%else%>
+			// Submits the form (saves data) after user makes a change.
+		  $('.star').click(function(){
+		        form = $(this).parent().parent();
+		        form[0].submit();
 		    });
-	<%else%>
-		// Submits the form (saves data) after user makes a change.
-	  $('.star').click(function(){
-	        form = $(this).parent().parent();
-	        form[0].submit();
-	    });
-	<%end%>
+		<%end%>
+	
+		$('a.iframe').fancybox({
+			'width'		: 500,
+			'height'	: 280,
+			'centerOnScroll' : true
+		});
+	
 	});
 	</script>
 <%end%>
@@ -67,7 +72,8 @@
 						<%if current_user%>
 							<%=link_to "+ adicionar a lista de desejos", add_to_wishlist_produto_path(@produto)%>
 						<%else%>
-							<a href="javascript:void(0);" onclick="alert('Para adicionar um produto a sua lista de desejos\n você deve estar logado!')">+ adicionar a lista de desejos</a>
+						<a class="iframe" href="/user_sessions/new">+ adicionar a lista de desejos</a>
+							<!-- <a href="javascript:void(0);" onclick="alert('Para adicionar um produto a sua lista de desejos\n você deve estar logado!')">+ adicionar a lista de desejos</a> -->
 						<%end%>
 					</strong>
                 </strong><br/>
@@ -153,7 +159,15 @@
        </div>
    
    <div id="Coments">
-        <h3 class="Tit">COMENTÁRIOS <a href="#" class="L_coment">Envie seu Comentario[+]</a></h3>
+        <h3 class="Tit">
+			COMENTÁRIOS 
+			<%if current_user%>
+				<a href="#" class="L_coment">Envie seu Comentario[+]</a>
+			<%else%>
+				<a class="iframe L_coment" href="/user_sessions/new">Envie seu Comentario[+]</a>
+			<%end%>
+			
+		</h3>
         <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:3px;" />
         
 		<!-- COMENTARIOS -->
@@ -168,7 +182,9 @@
         </div> 
         <%end%> 
           <div id="Form_Comments">
-
+			<%=form_for @produto.product_comments.build do |f|%>
+				
+			<%end%>
           </div>
    </div>
                                                         

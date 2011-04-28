@@ -28,7 +28,6 @@ KwEcovita::Application.routes.draw do |map|
     root :to => "categories#index"
   }
   
-  resources :user_sessions
   resources(:carrinhos){
     collection do
       get :empty_cart
@@ -44,6 +43,7 @@ KwEcovita::Application.routes.draw do |map|
       get :remove_from_wishlist
     end
   }
+  resources :product_comments
   resources :categorias
   resources :ratings
   resources :accounts
@@ -51,6 +51,12 @@ KwEcovita::Application.routes.draw do |map|
   resources :subcategorias
   resources(:wishlists)
   resources :users
+  resources(:user_sessions){
+    collection do
+      get :logado
+    end
+  }
+  
   get "static_content/denied"
   get "static_content/index"
 

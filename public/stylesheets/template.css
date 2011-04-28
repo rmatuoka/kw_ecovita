@@ -70,7 +70,7 @@ body
 }
 	#General #Header
 	{
-		z-index:10000;
+		z-index:0;
 		position:relative;
 		width:100%;
 		height:228px;
@@ -79,7 +79,7 @@ body
 	}
 		#General #Header #User_bar		
 		{
-			z-index:10000;
+			z-index:0;
 			background-image:url(../images/user_bars/bg_userbar.png);
 			background-repeat:no-repeat;
 			background-position:center top;
@@ -91,7 +91,7 @@ body
 		}
 		#General #Header #User_bar_logoff		
 		{
-			z-index:10000;
+			z-index:0;
 			background-image:url(../images/user_bars/bg_userbar_logoff.png);
 			background-repeat:no-repeat;
 			background-position:center top;
@@ -140,7 +140,7 @@ body
 			height:51px;
 			text-align:center;
 			margin:auto;
-			z-index:1000;
+			z-index:-1;
 		}
 		#General #Header #Search_bar #Search_for_small
 		{

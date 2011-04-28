@@ -11,6 +11,7 @@ class Product < ActiveRecord::Base
                           :association_foreign_key => 'recommended_id'
 
   acts_as_rateable
+  accepts_nested_attributes_for :product_comments
   
   cattr_reader :per_page
   @@per_page = 20
