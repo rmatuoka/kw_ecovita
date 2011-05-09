@@ -1,6 +1,6 @@
-class CreateOrders < ActiveRecord::Migration
+class CreateTransactions < ActiveRecord::Migration
   def self.up
-    create_table :orders do |t|
+    create_table :transactions do |t|
       t.integer :user_id
       t.string :status
       t.string :payment_type
@@ -13,6 +13,6 @@ class CreateOrders < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :orders
+    drop_table :transactions
   end
 end

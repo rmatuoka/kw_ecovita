@@ -1,0 +1,12 @@
+--- 
+"8": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "8"
+  item_valor_1: "800"
+  commit: Efetuar pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_id_1: "10"
+  item_descr_1: Welexa X

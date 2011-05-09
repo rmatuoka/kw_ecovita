@@ -1,5 +1,17 @@
 <%=content_for :head do%>
 	<%=stylesheet_link_tag "cart"%>
+	
+	<script>
+	$(document).ready(function() {
+	    // Hides the submit button
+		$('a.iframe').fancybox({
+			'width'		: 500,
+			'height'	: 280,
+			'centerOnScroll' : true
+		});
+	
+	});
+	</script>
 <%end%>
 <div id="Content_products">
 
@@ -55,10 +67,18 @@
 				<b class="Price_f" ><label>*O frete será calculado através do pagSeguro </label></b> 
             </div>      
         </div>
-     	
-		<%=link_to image_tag("bt_limpar_carrinho.png"), empty_cart_carrinhos_path%>
-		<%=link_to image_tag("bt_continuar_comprando.png"), root_path%>
-		<a href="#"><img src="images/bt_finalizarcompra.png" width="212" height="32" /></a>   
+     	<%=form_for(Order.new) do |f|%>
+			<%=link_to image_tag("bt_limpar_carrinho.png"), empty_cart_carrinhos_path%>
+			<%=link_to image_tag("bt_continuar_comprando.png"), root_path%>
+		
+			<%if current_user%>
+				<!-- LOGADO< EXIBIR BOTAO PAGSEGURO -->
+					<%=image_submit_tag "bt_finalizarcompra.png"%>
+			
+			<%else%>
+			<a class="iframe" href="/user_sessions/new"><img src="images/bt_finalizarcompra.png" width="212" height="32" /></a>
+			<%end%>  
+		<%end%>
 	  
 		<div id="Warning">
         	<img src="/images/img_warning.png" width="112" height="110" style="float:left; margin-left:5px;" />

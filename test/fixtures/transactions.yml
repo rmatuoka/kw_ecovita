@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  status: MyString
+  payment_type: MyString
+  shipping: MyString
+  pagseguro_id: MyString
+  rastreamento: MyString
+
+two:
+  user_id: 1
+  status: MyString
+  payment_type: MyString
+  shipping: MyString
+  pagseguro_id: MyString
+  rastreamento: MyString

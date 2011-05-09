@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419160523) do
+ActiveRecord::Schema.define(:version => 20110509162430) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -190,6 +190,17 @@ ActiveRecord::Schema.define(:version => 20110419160523) do
   create_table "subcategories", :force => true do |t|
     t.string   "name"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "payment_type"
+    t.string   "shipping"
+    t.string   "pagseguro_id"
+    t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

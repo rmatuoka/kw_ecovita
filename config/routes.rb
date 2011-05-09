@@ -43,6 +43,7 @@ KwEcovita::Application.routes.draw do |map|
       get :remove_from_wishlist
     end
   }
+  resources :orders
   resources :product_comments
   resources :categorias
   resources :ratings
@@ -54,6 +55,12 @@ KwEcovita::Application.routes.draw do |map|
   resources(:user_sessions){
     collection do
       get :logado
+    end
+  }
+  resources(:payments){
+    collection do
+      post :efetuado
+      get :efetuado
     end
   }
   
@@ -120,7 +127,7 @@ KwEcovita::Application.routes.draw do |map|
   
   root :controller => "static_content", :action => "index"
 
-  
+  post "pagseguro_developer", :to => "pag_seguro/developer#create"
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 end
