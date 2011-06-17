@@ -21,7 +21,7 @@ class Cart
     if current_item
         current_item.decrement_quantity
     else
-      @items << CartItem.new(product)
+        @items << CartItem.new(product)
     end
   end
   

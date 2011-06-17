@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110617141843) do
+ActiveRecord::Schema.define(:version => 20110617193218) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(:version => 20110617141843) do
   end
 
   create_table "gifts", :force => true do |t|
-    t.string   "gift_code"
+    t.string   "gift_cod"
     t.boolean  "used"
-    t.datetime "valid"
-    t.decimal  "discount",   :precision => 10, :scale => 0
+    t.datetime "valido"
+    t.decimal  "discount",   :precision => 10, :scale => 2
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,8 +94,10 @@ ActiveRecord::Schema.define(:version => 20110617141843) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "status"
-    t.integer  "address_id"
-    t.decimal  "shipping",   :precision => 10, :scale => 0
+    t.string   "payment_type"
+    t.string   "shipping"
+    t.string   "pagseguro_id"
+    t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -154,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20110617141843) do
     t.string   "tweet_text"
     t.string   "like_link"
     t.string   "video"
-    t.integer  "vendas"
+    t.integer  "vendas",                                        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -197,20 +199,19 @@ ActiveRecord::Schema.define(:version => 20110617141843) do
     t.datetime "updated_at"
   end
 
-  create_table "subcategories", :force => true do |t|
-    t.string   "name"
-    t.integer  "category_id"
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "transactions", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "status"
-    t.string   "payment_type"
-    t.string   "shipping"
-    t.string   "pagseguro_id"
-    t.string   "rastreamento"
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "subcategories", :force => true do |t|
+    t.string   "name"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
