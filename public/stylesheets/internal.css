@@ -317,11 +317,19 @@ body
 						text-align:center;
 						margin:auto;
 						width:200px;
-						height:130px;
-						padding-top:10px;
-						padding-bottom:10px;
+						height:120px;
+						padding-top:5px;
+						padding-bottom:5px;
 						padding-left:10px;
 						padding-right:10px;
+					}
+					
+					#General #Content #Content_products #Products #Product #Name
+					{
+						margin-top:3px;
+						font-size:13px;
+						font-weight:bold;
+						color:#fb9a2b;
 					}
 					#General #Content #Content_products #Products #Product #Values
 					{
@@ -335,7 +343,10 @@ body
 						{
 							font-family:Tahoma, Geneva, sans-serif;
 							font-size:12px;
-							color:#777777
+							color:#777777;
+							padding:0px;
+							margin:0px;
+							font-weight:normal;
 						}	
 						#General #Content #Content_products #Products h4
 						{
@@ -367,6 +378,10 @@ body
 						width:220px;
 						height:50px;
 						display:none;
+					}
+					#General #Content #Content_products #Products #Product .twitter-share-button
+					{
+						margin-left:39px;
 					}	
 					#General #Content #Content_products #Products #Product .Bt_close
 					{

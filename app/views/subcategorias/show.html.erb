@@ -24,9 +24,10 @@
               <!-- PRODUTO -->
 				<%@products.each do |produto|%>
 				<div id="Product" class="p">
-                  <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></a></div>
+                  	<div id="Name"><%=produto.name%></div>
+					<div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></a></div>
                   <div id="Values">
-                      	<h3><%=truncate(produto.summary, :length => 80)%></h3><br />
+                      	<h3><%=truncate(produto.summary, :length => 55)%></h3><br />
                       <%if produto.discount.blank?%>
 							<h4 class="Price_of">
 							<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
