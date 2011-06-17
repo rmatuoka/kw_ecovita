@@ -14,6 +14,7 @@ class PaymentsController < ApplicationController
           order.save
           
           if order.status.to_s.include? 'completed'
+          #enviar email de confirmação
           #  corpo = "
           #  <b>Nome:</b>#{transaction.nome}<br />
           #  <b>E-mail: </b>#{transaction.email}<br />

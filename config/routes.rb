@@ -2,6 +2,7 @@ KwEcovita::Application.routes.draw do |map|
   get "ratings/create"
 
   namespace(:admin){
+    resources :gifts
     resources :users
     resources :orders
     resources :order_products
@@ -52,6 +53,7 @@ KwEcovita::Application.routes.draw do |map|
   resources :subcategorias
   resources(:wishlists)
   resources :users
+  resources :myorders
   resources(:user_sessions){
     collection do
       get :logado

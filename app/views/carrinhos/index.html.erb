@@ -19,9 +19,9 @@
 	<p class="Bread_crumb"><%=link_to "home", root_path%> </p>
     <h1 style=" vertical-align:middle; text-align:left;">Meu Carrinho</h1>
     <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
-	<%if !@cart.items.blank?%>
+	
 	<div id="Cart">
-    	
+    <%if !@cart.items.blank?%>
 
 		<div class="Title_table">
             <table width="700" border="0">
@@ -37,32 +37,43 @@
         </div>
         
 		<%for cart_item in @cart.items%>
-			<div class="Content_table">
-	            <table width="685">
-	                <tr class="Bg_table_line">
-	                <td width="95" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
-	                <td width="118"><%=cart_item.title%></td>
-	                <td width="112"><b><%=number_to_currency(cart_item.price)%></b></td>
-	                <td width="114"><%=cart_item.quantity%></td>
-	                <td width="115"><input type="checkbox" /></td>
-	                <td width="103"><%=link_to image_tag("img_excluir.png"), remove_from_cart_produto_path(cart_item.id_product)%></td>
-	              </tr>
-	            </table>
-	        </div>
+			<%if cart_item.quantity > 0 %>
+				<div class="Content_table">
+		            <table width="685">
+		                <tr class="Bg_table_line">
+		                <td width="95" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
+		                <td width="118"><%=cart_item.title%></td>
+		                <td width="112"><b><%=number_to_currency(cart_item.price)%></b></td>
+		                <td width="114"><%=cart_item.quantity%></td>
+		                <td width="115"><input type="checkbox" /></td>
+		                <td width="103"><%=link_to image_tag("img_excluir.png"), remove_from_cart_produto_path(cart_item.id_product)%></td>
+		              </tr>
+		            </table>
+		        </div>
 			<%end%>
+		<%end%>
 		
          
 	</div>
+	
   <div id="Gift_certificate">
         <div id="Gift_box">
-            <label>Código vale presente: <input class="Gift_cert" type="text" /></label>
+         	<form action="/carrinhos" method="get">
+   			<label>
+				Código vale presente:
+				<%=flash[:gift]%>
+				<%=text_field_tag :gift_cod, params[:gift_cod], :class => "Gift_cert" %>
+			</label>
+			
+			<input type="submit" />
+			</form>
             <br /><br />
             <!-- <label>Cep: <input class="Cep1_1" type="text" /> - <input class="Cep1_2" type="text" /></label> -->
             <br>
         </div>    
         <div id="Total">
         	<div id="Price_box">
-				<b class="Price_f" ><label>Total sem frete: </label><%=number_to_currency(@cart.total_price)%></b> 
+				<b class="Price_f" ><label>Total sem frete: </label><%=number_to_currency(@total_final)%></b> 
 				<br /><br />                
 				<b class="Price_f" ><label>*O frete será calculado através do pagSeguro </label></b> 
             </div>      
@@ -82,11 +93,17 @@
 	  
 		<div id="Warning">
         	<img src="/images/img_warning.png" width="112" height="110" style="float:left; margin-left:5px;" />
-       	  <p class="w">Lorem ipsum dolor sit amet</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+       	  	<p class="w">Lorem ipsum dolor sit amet</p>
+          	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
       	</div>
+		<%else%>
+			<div id="Warning">
+	        	<img src="/images/img_warning.png" width="112" height="110" style="float:left; margin-left:5px;" />
+	       	  	<p class="w">Seu carrinho está vazio!</p>
+	      	</div>
+		<%end%>
     </div>
-<%end%> 
+	
 
 
                                                         

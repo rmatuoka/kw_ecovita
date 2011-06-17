@@ -35,4 +35,10 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart = session[:cart] ||= Cart.new
   end
+  
+  def logado
+    if !current_user
+      redirect_to root_path
+    end
+  end
 end

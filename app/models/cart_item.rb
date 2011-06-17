@@ -10,6 +10,12 @@ class CartItem
     @quantity += 1
   end
   
+  def decrement_quantity
+    if @quantity > 0
+      @quantity -= 1
+    end
+  end
+  
   def title
     @product.name
   end

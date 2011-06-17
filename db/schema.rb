@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509162430) do
+ActiveRecord::Schema.define(:version => 20110526151830) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
     t.datetime "image_updated_at"
   end
 
+  create_table "gifts", :force => true do |t|
+    t.string   "gift_cod"
+    t.boolean  "used"
+    t.datetime "valido"
+    t.decimal  "discount",   :precision => 10, :scale => 0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "logs", :force => true do |t|
     t.integer  "user_id"
     t.text     "action"
@@ -84,8 +94,10 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "status"
-    t.integer  "address_id"
-    t.decimal  "shipping",   :precision => 10, :scale => 0
+    t.string   "payment_type"
+    t.string   "shipping"
+    t.string   "pagseguro_id"
+    t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -190,17 +202,6 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
   create_table "subcategories", :force => true do |t|
     t.string   "name"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "transactions", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "status"
-    t.string   "payment_type"
-    t.string   "shipping"
-    t.string   "pagseguro_id"
-    t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

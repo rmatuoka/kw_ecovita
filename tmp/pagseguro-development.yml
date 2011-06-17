@@ -10,3 +10,18 @@
   email_cobranca: bruformulasatibaia@uol.com.br
   item_id_1: "10"
   item_descr_1: Welexa X
+"9": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "9"
+  item_valor_1: "18000"
+  commit: Efetuar pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "800"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  item_id_1: "9"
+  item_id_2: "10"
+  item_descr_1: Pholia Magra
+  item_descr_2: Welexa X

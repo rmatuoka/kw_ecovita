@@ -32,5 +32,8 @@ class OrdersController < ApplicationController
         end
       end
     end
+  
+    #LIMPA CARRINHO
+    session[:cart] = nil
   end
 end
