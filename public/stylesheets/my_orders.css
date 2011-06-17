@@ -2,19 +2,18 @@
 
 #General #Content #Content_products #Products #Cart
 {
-
 	width:700px;
-	min-height:300px;
 	height:auto;
 	margin:auto;	
 }
-	
-	#General #Content #Content_products #Products Table
-	{
-		margin:auto;
-			
-	}
-	
+#General #Content #Content_products #Products #Cart_content
+{
+	width:700px;
+	min-height:200px;
+	height:auto;
+	margin:auto;	
+}
+
 	#General #Content #Content_products #Products #Cart .Tit_table
 	{
 		display:inline-block;
@@ -35,39 +34,116 @@
 	}
 	.Table_tit
 	{
+		position:relative;
 		font-family:Verdana, Geneva, sans-serif;
 		font-size:12px;
-		color:#fff;	
-	}
+		color:#fff;
+		vertical-align:midle;
+		text-align:left;
+		margin-left:25px;
+	}	
 	.Table_tit2
 	{
 		font-family:Verdana, Geneva, sans-serif;
 		font-size:12px;
-		color:#999999;	
+		color:#fff;
+		vertical-align:midle;
+		text-align:left;
+		margin-left:25px;			
+	}
+	.Table_tit3
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#999999;
+		text-align:left;
+		margin-left:14px;			
 	}	
+	.Label_frete
+	{
+		vertical-align:middle;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#99BE0A;
+		text-align:right;
+		margin-right:36px;			
+	}	
+	.Down_content_end .Label_frete b
+	{
+		color:#666666;
+		margin-left:16px;	
+	}	
+	.Label_total
+	{
+		vertical-align:middle;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:16px;
+		color:#99BE0A;
+		text-align:right;
+		margin-right:20px;			
+	}
+	.Down_content_end .Label_total b
+	{
+		color:#666666;
+		margin-left:16px;	
+	}
+	.Table_status
+	{
+		position:relative;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;
+		vertical-align:midle;
+		float:left;
+		margin-left:55px;
+		padding-top:4px;
+	}	
+		#Status	
+		{
+			background-image:url(/images/bg_status.png);
+			background-position:center top;
+			background-repeat:no-repeat;
+			position:relative;
+			float:right;
+			display:block;
+			width:216px;
+			height:20px;
+			padding-top:3px;
+			text-align:center;
+			margin-right:6px;
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:12px;
+			color:#999999;
+		}
 	#General #Content #Content_products #Products #Cart .Bg_table_line
 	{
-		background-image:url(../images/menu/bg_item_coment.png);
+		background-image:url(/images/menu/bg_item_coment.png);
 		background-position:top center;
 		background-repeat:repeat-x;
 		text-align:center;
 		margin:auto;
 		height:67px;
 	}
-	#General #Content #Content_products #Products #Cart .Title_table
+
+	#General #Content #Content_products #Products #Cart .Title_info
 	{
 		display:block;
-		background-image:url(../images/bg_tab_mytabs.png);
+		background-image:url(/images/bg_tab_mytabs_end.png);
 		background-repeat:no-repeat;
 		background-position:center top;
 		width:700px;
-		height:52px;
+		height:26px;
+		vertical-align:middle;
 		text-align:center;
 		margin:auto;
 	}
+	#General #Content #Content_products #Products #Cart .Title_info table h2
+	{
+		text-align:center;
+	}		
 	#General #Content #Content_products #Products #Cart .Title_table2
 	{
-		background-image:url(../images/menu/bg_item_coment.png);
+		background-image:url(/images/menu/bg_item_coment.png);
 		background-position:top center;
 		background-repeat:repeat-x;		
 		display:block;
@@ -97,9 +173,44 @@
 		margin:auto;
 		margin-top:1px;	
 	}
-	#General #Content #Content_products #Products #Cart .Down_content_table
+	#General #Content #Content_products #Products #Cart .Down_content_end
 	{
-		background-image:url(../images/bg_tab_mytabs_down.png);
+		background-image:url(/images/bg_tab_mytabs_end.png);
+		background-repeat:no-repeat;
+		background-position:center top;		
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;
+		width:685px;
+		height:65px;
+		text-align:left;
+		margin:auto;
+		margin-top:1px;	
+	}	
+	#General #Content #Content_products #Products #Cart .Down_content_end table p
+	{	
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#666;	
+		padding:3px 3px 3px 3px;
+	}		
+	#General #Content #Content_products #Products #Cart_item
+	{		
+		display:block;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:#fff;
+		width:700px;
+		height:26px;
+		text-align:left;
+		margin:auto;
+		margin-top:1px;	
+	}
+	#General #Content #Content_products #Products .Item_gray
+	{
+		background-image:url(/images/bg_tab_mytabs_down.png);
 		background-repeat:no-repeat;
 		background-position:center top;		
 		display:block;
@@ -107,14 +218,32 @@
 		font-size:12px;
 		color:#fff;
 		width:700px;
-		height:93px;
+		height:26px;
 		text-align:left;
 		margin:auto;
 		margin-top:1px;	
-	}
-	#General #Content #Content_products #Products #Cart .Down_content_table2
+	}	
+	#General #Content #Content_products #Products .Item_orange
 	{
-		background-image:url(../images/bg_tab_mytabs_down2.png);
+		display:block;
+		background-image:url(/images/bg_tab_mytabs.png);
+		background-repeat:no-repeat;
+		background-position:center top;
+		width:700px;
+		height:26px;
+		text-align:center;
+		margin:auto;
+	}	
+	.closed
+	{
+		display:none;
+	}
+	.open
+	{
+	}	
+	#General #Content #Content_products #Products .Down_content_table2
+	{
+		background-image:url(/images/bg_tab_mytabs_down2.png);
 		background-repeat:no-repeat;
 		background-position:center top;		
 		display:block;
@@ -146,7 +275,7 @@
 	{
 		width:216px;
 		height:20px;
-		background-image:url(../images/bg_table_waitingfor.png);
+		background-image:url(/images/bg_table_waitingfor.png);
 		background-repeat:no-repeat;
 		background-position:top left;
 		text-align:right;

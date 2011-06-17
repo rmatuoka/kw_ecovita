@@ -1,90 +1,99 @@
 <%content_for :head do%>
 	<%=stylesheet_link_tag "my_orders"%>
+	
+	<script>
+	$(document).ready(function() {
+		$("#Cart_content").hide();
+		$("#Cart_item").click(function(){
+			if($("#Cart_item").hasClass("Item_gray"))
+			{
+			  $("#Cart_content").slideDown('fast');
+			  $("#Cart_item").removeClass("Item_gray");
+			  $("#Cart_item").addClass("Item_orange");	  
+			}
+			else 
+			{
+				$("#Cart_content").slideUp('fast');
+				$("#Cart_item").removeClass("Item_orange");
+				$("#Cart_item").addClass("Item_gray");					
+			}
+		});
+	});
+	</script>
 <%end%>
 
-<div id="Content_products">
+		<div id="Content_products">
 
-<div id="Products">
-	<p class="Bread_crumb">
-		<p class="Bread_crumb"><%=link_to "home", root_path%> / <%=link_to "minha conta", accounts_path%></p> 
-    <h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>
-    <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
-	
-	<div id="Cart">
-    	<div class="Title_table">
-            <table width="700" border="0">
-              <tr>
-                <td width="269" height="30" class="Tit_text"><h2 class="Table_tit"><img src="images/img_arrow_right.png" width="8" height="14" style="margin:0 5px 0 10px; float:left;" />Pedido N°: 000000000000-0</h2></td>
-				<td width="86" class="Tit_text"><h2 class="Table_tit" >&nbsp;</h2></td>
-                <td width="331" class="Tit_text"><span class="Table_tit">Status:</span><img src="images/img_aguardando_aprovacao.png" width="218" height="22" style="margin-right:10px; margin-bottom:3px;" /></td>
-              </tr>
-              <tr>
-                <td class="Tit_text"><h2 class="Table_tit2">Data do Pedido: 00/00/0000 - 00:00</h2></td>
-				<td class="Tit_text"><h2 class="Table_tit2"></h2></td>
-                <td class="Tit_text Cel_Cust"><h2 class="Table_tit2">Data do Entrega: 00/00/0000 - 00:00</h2></td>
-              </tr>                  
-            </table>
-        </div>
-        <div class="Title_table2">
-        <table width="685">
-              <tr>
-                <td width="69">&nbsp;</td>
-                <td width="120">Produto</td>
-                <td width="152">Valor Un.</td>
-                <td width="125">Qntd.</td>
-                <td width="195">Presente</td>
-              </tr>
-            </table>
-        </div>            
-        <div class="Content_table">
-            <table width="685">
-               <tr class="Bg_table_line">
-                <td width="76" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
-                <td width="111">Lorem ipsum dolor sit amet</td>
-                <td width="139"><b>R$9.999,99</b></td>
-                <td width="116">999</td>
-                <td width="168">Sim</td>
-              </tr>
-            </table>
-        </div>
-        <div class="Content_table">
-            <table width="685">
-               <tr class="Bg_table_line">
-                <td width="76" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
-                <td width="111">Lorem ipsum dolor sit amet</td>
-                <td width="139"><b>R$9.999,99</b></td>
-                <td width="116">999</td>
-                <td width="168">Sim</td>
-              </tr>
-            </table>
-        </div>
-      
-		<!-- FECHADO -->
-		<div class="Down_content_table">
-            <table width="700" border="0">
-              <tr>
-                <td width="407" height="67">
-                    <p><b>Endereço de Entrega:</b> <br />
-                    Rua Nome da Rua, 0000 - 000 - Bairro<br />
-                    Cidade - UF<br /></p>
-                </td>
-                <td width="277">&nbsp;</td>
-              </tr>
-              <tr>
-                <td height="26"><img src="images/img_arrow_down.png" width="14" height="8" style="margin:0 5px; 0 5px;" />Pedido N°: 000000000000-0 </td>
-                <td><span class="Tit_text">Status: <img src="images/img_entregue.png" alt="" width="218" height="22" style="margin-right:10px; margin-bottom:3px;" /></span></td>
-              </tr>
-            </table>                        
-        </div>
-	  
-	<!-- FECHADO -->
-      <div class="Down_content_table2">
-            <table width="700" border="0">
-              <tr>
-                <td width="412" height="30"><img src="images/img_arrow_down.png" width="14" height="8" style="margin:0 5px; 0 5px;" />Pedido N°: 000000000000-0 </td>
-                <td width="278"><span class="Tit_text">Status: <img src="images/img_cancelado.png" alt="" width="218" height="22" style="margin-right:10px; margin-bottom:3px;" /></span></td>
-              </tr>
-            </table>                        
-        </div>            
-	</div>
-</div>
+    <div id="Products">
+    	<p class="Bread_crumb"><%=link_to "home", root_path%> / <%=link_to "minha conta", accounts_path%></p> 
+        <h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
+		<%@myorders.each do |order|%>
+		<!-- item-start --> 		
+		<div id="Cart">        
+            <div id="Cart_item" class="Item_gray">
+                <table width="700" border="0">
+                  <tr>
+                    <td width="269" height="26" class="Tit_text"><h2 class="Table_tit">Pedido N°: <%=order.id%></h2></td>
+                    <td width="86" class="Tit_text"><h2 class="Table_tit" >&nbsp;</h2></td>
+                    <td width="331" class="Tit_text"><span class="Table_status">Status:</span><div id="Status"><%=order.status%></div></td>
+                  </tr>                 
+                </table>
+            </div>        
+        	<div id="Cart_content" class="closed">
+                <div class="Title_info">            
+                    <table width="685" height="26">
+                      <tr>
+                        <td width="282" class="Tit_text"><h2 class="Table_tit3">Data do Pedido: <%=order.created_at%></h2></td>
+                        <td width="103" class="Tit_text"><h2 class="Table_tit3"></h2></td>
+                        <td width="284" class="Tit_text Cel_Cust"><h2 class="Table_tit3"><!-- Data do Entrega: 00/00/0000 - 00:00 --></h2></td>
+                      </tr>             
+                    </table>
+                </div>
+                <div class="Title_table2">
+                <table width="685">
+                      <tr>
+                        <td width="69">&nbsp;</td>
+                        <td width="120">Produto</td>
+                        <td width="152">Valor Un.</td>
+                        <td width="125">Qntd.</td>
+                        <!--<td width="195">Presente</td> -->
+                      </tr>
+                    </table>
+                </div>            
+                <!-- PRODUTOS -->
+				<%order.order_products.each do |produto|%>
+				<div class="Content_table">
+                    <table width="685">
+                       <tr class="Bg_table_line">
+                        <td width="76" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
+                        <td width="111"><%=produto.product.name%></td>
+                        <td width="139"><b><%=number_to_currency(produto.price)%></b></td>
+                        <td width="116"><%=produto.amount%></td>
+                        <!-- <td width="168">Sim</td> -->
+                      </tr>
+                    </table>
+                </div>
+				<%end%>
+                <!-- PRODUTOS -->
+                <!-- <div class="Down_content_end">                
+                    <table width="685">
+                      <tr>
+                        <td width="365" height="65">
+                            <p><b>Endereço de Entrega:</b> <br />
+                            Rua Nome da Rua, 0000 - 000 - Bairro<br />
+                            Cidade - UF<br /></p>
+                        </td>
+                        <td width="325">
+                        	<h2 class="Label_frete">Frete:<b>9.999,99</b></h2>
+                            <br>
+                            <h2 class="Label_total">Total:<b>9.999,99</b></h2>
+                        </td>
+                      </tr>                  
+                    </table>
+				-->
+            </div>
+		</div>  
+      </div>                                                         
+<!--item-end-->
+<%end%>

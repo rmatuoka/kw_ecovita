@@ -18,7 +18,7 @@
 		                          <ul>
 		                            <%if !@cart.items.blank?%>
 										<%for cart_item in @cart.items%>
-											<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produtos_path(cart_item.id_product)%></li>
+											<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
 										<%end%>
 											<li>Total : <%=number_to_currency(@cart.total_price)%></li>
 									<%else%>
@@ -49,7 +49,7 @@
 	                          <ul>
 	                              <%if !@cart.items.blank?%>
 									<%for cart_item in @cart.items%>
-										<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produtos_path(cart_item.id_product)%></li>
+										<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
 									<%end%>
 										<li>Total : <%=number_to_currency(@cart.total_price)%></li>
 									<%else%>
