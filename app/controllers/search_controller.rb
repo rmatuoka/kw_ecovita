@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  layout "interna"
+  before_filter :load_site_categories,:load_cart  
   def index
     
   end
@@ -24,14 +26,14 @@ class SearchController < ApplicationController
       if !params[:pag].blank? 
         qtdade = params[:pag]
       else
-        qtdade = '5'
+        qtdade = '10'
       end      
       @Results = Product.find(:all,
                               :select=> "`products`.*, `subcategories`.`name` as scatname,`categories`.`id` as catid ,`categories`.`name` as catname ",
                               :joins=>"`products` INNER JOIN `subcategories` ON `products`.`subcategory_id` = `subcategories`.`id` INNER JOIN `categories` ON `subcategories`.`category_id` = `categories`.`id` ",
                               :conditions=>["(`products`.`name` like ? or `products`.`summary` like ? or `products`.`description` like ?)"+cat,key,key,key],
                               :order=> order
-                              ).paginate :per_page => qtdade
+                              ).paginate :page => params[:page], :per_page => qtdade
     else
       flash[:error] = "Os dados enviados para consulta são invalidos!"
     end

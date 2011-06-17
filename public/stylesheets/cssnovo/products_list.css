@@ -1,0 +1,15 @@
+/* CSS Document */
+	label
+	{
+		font:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		vertical-align:middle;
+		color:#9ABE0A;
+	}
+					#Destaque_desire
+				{
+					width:auto;
+					min-height:110px;
+					height:auto;	
+				}

@@ -1,0 +1,35 @@
+/* CSS Document */
+	label
+	{
+		font:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		vertical-align:middle;
+		color:#9ABE0A;
+	}
+					#Destaque_desire
+				{
+					width:auto;
+					min-height:110px;
+					height:auto;	
+				}
+				.Text_box
+				{
+					margin-top:20px;
+					width:700px;
+					min-height:200px;
+					height:auto;	
+				}
+				#General #Content #Content_products #Products .Tit_1
+				{
+					text-align:left;
+					font-size:18px;
+					color:#666;
+				}					
+				#General #Content #Content_products #Products .Content
+				{
+					text-align:left;
+					font-size:12px;
+					color:#666;
+				}
+			

@@ -1,0 +1,120 @@
+/* CSS Document */
+
+
+
+#Text_form 
+{
+	min-height:200px;
+	height:auto;
+	width:700px;
+	text-align:left;
+}
+
+#Text_form  p
+{
+	font-size:12px;
+}
+
+#Form
+{
+	height:auto;
+	width:auto;	
+}
+
+
+
+#General #Form_box
+	{
+		width:340px;
+		height:220px;
+		text-align:right;
+		float:left;
+	}
+	#General #Form_box2
+		{
+			width:340px;
+			height:220px;
+			text-align:right;
+			float:left;
+			
+		}	
+	.Item_form
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;
+		width:135px;
+		font-size:18px;
+		border:#666666 1px solid;		
+	}
+	.Cep1_1
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;;
+		width:90px;
+		font-size:18px;
+		border:#666666 1px solid;
+		
+	}
+	.N
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;;
+		width:82px;
+		font-size:18px;
+		border:#666666 1px solid;
+		
+	}	
+	.Cep1_2
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;
+		width:30px;
+		font-size:18px;
+		border:#666666 1px solid;		
+	}
+	label
+	{
+		font:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		color:#9ABE0A;
+	}	
+.Box_password
+{
+	float:left;
+	width:700px;
+	height:50px;
+	background-image:url(../images/menu/bg_item_coment.png);
+	background-repeat:repeat;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+	#General #Content #Content_products #Products #Warning
+	{
+		background-image:url(../images/bg_warning.png);
+		background-repeat:no-repeat;
+		background-position:top center;
+		width:680px;
+		height:134px;
+		margin-top:30px;
+		padding:5px 10px 5px 10px;
+		margin-bottom:10px;
+		
+	}
+	#General #Content #Content_products #Products #Warning p
+	{
+		font:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:normal;
+		text-align:left;
+		
+	}	
+	#General #Content #Content_products #Products #Warning .w
+	{
+		font:Verdana, Geneva, sans-serif;
+		font-size:18px;
+		font-weight:normal;
+		text-align:left;
+		
+	}	
+	

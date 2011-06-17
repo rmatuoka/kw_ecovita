@@ -1,0 +1,169 @@
+/* CSS Document */
+
+#General #Content #Content_products #Products #Info_product_content 
+{
+	width:700px;
+	min-height:400px;
+	height:auto;
+}
+	#General #Content #Content_products #Products #Info_product_content  #Info_photo 
+	{
+		width:260px;
+		height:260px;
+		text-align:left;
+		float:left;
+	}
+	#General #Content #Content_products #Products #Info_product_content  #Info_text 
+	{
+		width:420px;
+		height:390px;
+		text-align:right;
+		float:right;
+	}	
+		#General #Content #Content_products #Products #Info_product_content  #Info_text h2
+		{
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:18px;
+			color:#666666;
+			font-weight:normal;
+			text-align:left;
+		}	
+			#General #Content #Content_products #Products #Info_product_content  #Info_text p
+			{
+				font-family:Verdana, Geneva, sans-serif;
+				font-size:12px;
+				color:#666666;
+				font-weight:normal;
+				text-align:left;
+			}
+			#General #Content #Content_products #Products #Info_product_content  #Info_text .From
+			{
+				font-family:Verdana, Geneva, sans-serif;
+				font-size:14px;
+				color:#999999;
+				font-weight:normal;
+				text-align:left;
+				display: block;
+			}			
+			#General #Content #Content_products #Products #Info_product_content  #Info_text .For
+			{
+				font-family:Verdana, Geneva, sans-serif;
+				font-size:20px;
+				color:#FB9B2B;
+				font-weight:normal;
+				text-align:left;
+				display: block;
+			}	
+	
+			#General #Content #Content_products #Products #Info_product_content  #Info_text .Text_gray
+			{
+				font-size:12px;
+				color:#666;
+			}
+#General #Content #Content_products #Products #Recomended
+{
+	position:relative;
+	width:700px;
+	min-height:80px;
+	height:auto;
+	display:block;
+	float:left;
+}
+	#General #Content #Content_products #Products #Recomended .Left
+	{
+		display:block;	
+		float:left;
+		margin-top:45px;
+	}
+	#General #Content #Content_products #Products #Recomended .Right
+	{
+		display:block;	
+		float:right;
+		margin-top:45px;
+	}
+	#General #Content #Content_products #Products .Tit
+	{
+		font-size:16px;
+		margin-left:7px;
+		vertical-align:middle;
+		text-align:left;
+	}
+	#General #Content #Content_products #Products .L_coment
+	{
+		text-align:right;
+		float:right;
+		font-size:8px;
+		color:#A6C306;
+		margin-right:15px;
+		margin-top:5px;
+	}	
+#General #Content #Content_products #Products #About_product
+{
+	position:relative;
+	width:700px;
+	min-height:180px;
+	height:auto;
+	display:block;
+	float:left;
+	text-align:left;
+}
+#General #Content #Content_products #Products #Coments
+{
+	position:relative;
+	width:700px;
+	min-height:250px;
+	height:auto;
+	display:block;
+	float:left;
+}
+
+
+	#General #Content #Content_products #Products #Coments #Item_coment
+	{
+		text-align:left;
+		background-image:url(../images/menu/bg_item_coment.png);
+		background-repeat:repeat;
+		padding: 5px 5px 5px 5px;
+		margin-bottom:5px;
+
+	}
+	
+	#General #Content #Content_products #Products #Coments #Form_Comments
+	{
+		text-align:left;
+		background-image:url(../images/menu/bg_item_coment.png);
+		background-repeat:repeat;
+		padding: 5px 5px 5px 5px;
+		margin-bottom:5px;
+
+	}
+	
+		#General #Content #Content_products #Products #Coments #Form_Comments .form
+		{
+			border:1px solid Grey;
+			width:300px;
+			height:20px;
+		}
+		#General #Content #Content_products #Products #Coments #Item_coment strong
+		{
+			color:#999;
+			font-size:12px;
+		}
+		#General #Content #Content_products #Products #Coments #Item_coment strong a
+		{
+			color:#FA9A2B;
+			font-size:16px;
+			padding-bottom:8px;
+		}
+		#General #Content #Content_products #Products #Coments #Item_coment p
+		{
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:12px;
+			font-weight:normal;
+		}
+		
+.Bg_tab
+{
+	background-image:url(../images/menu/bg_item_coment.png);
+	background-position:center top;	
+}

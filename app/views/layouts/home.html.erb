@@ -6,7 +6,6 @@
 <%=stylesheet_link_tag "template"%>
 <%=stylesheet_link_tag "home"%>
 <%=stylesheet_link_tag "slidetabs"%>
-</head>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 <%=javascript_include_tag "jquery"%>
 <script>
@@ -72,6 +71,7 @@ $(document).ready(function() {
    
 
 </script>
+</head>
 <body>
 <div id="General">
 
@@ -104,7 +104,7 @@ $(document).ready(function() {
 	                    <div id="Menu1">
 	                      <ul>
 							<%@category_site.each do |category|%>
-							  <li><%=image_tag("menu/img_arrow_leftside.png")%> <%=link_to category.name, categoria_path(category)%></a></li>
+							  <li><%=image_tag("menu/img_arrow_leftside.png")%> <%=link_to category.name, categoria_path(category)%></li>
 							<%end%>
 	                      </ul>
 	                    </div>
@@ -129,7 +129,7 @@ $(document).ready(function() {
                 <!-- PRODUTO -->
 				<%@mais_vistos.each do |produto|%>
 				<div id="Product" class="p">
-                    <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></a></div>
+                    <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></div>
                     <div id="Values">
                         <h3><%=truncate(produto.summary, :length => 80)%></h3><br />
                         <%if produto.discount.blank?%>

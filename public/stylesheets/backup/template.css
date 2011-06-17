@@ -55,7 +55,7 @@ body
 	background-position:center top;
 	background-image:url(../images/bg.jpg);
 	background-repeat:repeat-x;
-	background-position:center top;
+	background-position:center top;	
 }
 
 *html #General
@@ -73,7 +73,7 @@ body
 }
 	#General #Header
 	{
-		z-index:1000;
+		z-index:0;
 		position:relative;
 		width:100%;
 		height:228px;
@@ -82,7 +82,7 @@ body
 	}
 		#General #Header #User_bar		
 		{
-			z-index:1200;
+			z-index:0;
 			background-image:url(../images/user_bars/bg_userbar.png);
 			background-repeat:no-repeat;
 			background-position:center top;
@@ -94,7 +94,7 @@ body
 		}
 		#General #Header #User_bar_logoff		
 		{
-			z-index:1000;
+			z-index:0;
 			background-image:url(../images/user_bars/bg_userbar_logoff.png);
 			background-repeat:no-repeat;
 			background-position:center top;
@@ -143,7 +143,7 @@ body
 			height:51px;
 			text-align:center;
 			margin:auto;
-			z-index:999;
+			z-index:-1;
 		}
 		#General #Header #Search_bar #Search_for_small
 		{
@@ -198,6 +198,7 @@ body
 		text-align:center;
 		margin:0 auto;
 		padding-top:1px;
+		z-index:-100;
 	}
 		#General #Content #Content_products
 		{
@@ -406,7 +407,7 @@ body
 	#General #Footer
 	{
 		background-image:url(../images/bg_footer.jpg);
-		background-repeat:repeat-x;
+		background-repeat:no-repeat;
 		background-position:center top;		
 		position: relative;
 		margin:auto;
