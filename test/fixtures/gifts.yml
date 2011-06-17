@@ -1,0 +1,13 @@
+one:
+  code: MyString
+  used: false
+  valid: 2011-05-26 12:18:28
+  discount: 9.99
+  user_id: 1
+
+two:
+  code: MyString
+  used: false
+  valid: 2011-05-26 12:18:28
+  discount: 9.99
+  user_id: 1

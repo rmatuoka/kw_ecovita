@@ -1,0 +1,24 @@
+<%= form_for ([:admin, @gift]) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :gift_cod %><br />
+    <%= f.text_field :gift_cod %>
+  </p>
+  <p>
+    <%= f.label :used %><br />
+    <%= f.check_box :used %>
+  </p>
+  <p>
+    <%= f.label :valido %><br />
+    <%= f.datetime_select :valido %>
+  </p>
+  <p>
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

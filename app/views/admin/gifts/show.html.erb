@@ -1,0 +1,28 @@
+<% title "Gift" %>
+
+<p>
+  <strong>Code:</strong>
+  <%= @gift.gift_cod %>
+</p>
+<p>
+  <strong>Used:</strong>
+  <%= @gift.used %>
+</p>
+<p>
+  <strong>Valid:</strong>
+  <%= @gift.valido %>
+</p>
+<p>
+  <strong>Discount:</strong>
+  <%= @gift.discount %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @gift.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_gift_path(@gift) %> |
+  <%= link_to "Destroy", admin_gift_path(@gift), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_gifts_path %>
+</p>
