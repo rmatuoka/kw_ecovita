@@ -13,6 +13,7 @@
 <%=javascript_include_tag "fancybox/jquery.fancybox-1.3.4.pack.js"%>
 <%=javascript_include_tag "fancybox/jquery.easing-1.3.pack.js"%>
 <%=javascript_include_tag "fancybox/jquery.mousewheel-3.0.4.pack.js"%>
+<%= javascript_include_tag "jcycle" %>
 
 <script>
 $(document).ready(function() {
@@ -71,6 +72,17 @@ $(document).ready(function() {
 
 	<%=yield :script%>
 	
+	//DESTAQUES
+	$('#Destaque').show(); //exibe a div pai  
+		$('#Destaque').cycle({  
+		fx:     'fade',  
+		timeout: 5000,  
+		speed: 500
+		/*,  
+		next:   '.next',  
+		prev:   '.previous',  
+		pager: '.numbers'  */
+	});
 });
 
 
@@ -124,7 +136,12 @@ $(document).ready(function() {
 	        </table>
 	    </div>
     </div>
-    <div id="Destaque"><img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /></div>
+    <div id="Destaque">
+		<%=image_tag("destaques/dsh_cafeverde.jpg")%>
+		<%=image_tag("destaques/dsh_cramberry.jpg")%>
+		<%=image_tag("destaques/dsh_lingomax.jpg")%>
+		<!-- <img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /> -->
+	</div>
     <div id="Content">
         <div id="Content_products">
 

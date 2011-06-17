@@ -182,10 +182,20 @@ body
 		background-repeat:no-repeat;
 		background-position:center top;		
 		width:100%;
+		clip:rect('100% 0px 252px 0px');
+		overflow:hidden;
 		margin:0 auto;
 		height:250px;
 		z-index:-1000;
-	}		
+		text-align:center;
+	}
+	
+		#General #Destaque img
+		{
+			position:absolute !important;
+			left:50% !important;
+			margin-left:-800px !important;
+		}		
 	#General #Content
 	{
 		background-image:url(../images/bg_content.png);
