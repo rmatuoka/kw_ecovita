@@ -33,7 +33,7 @@ class SearchController < ApplicationController
                               :joins=>"`products` INNER JOIN `subcategories` ON `products`.`subcategory_id` = `subcategories`.`id` INNER JOIN `categories` ON `subcategories`.`category_id` = `categories`.`id` ",
                               :conditions=>["(`products`.`name` like ? or `products`.`summary` like ? or `products`.`description` like ?)"+cat,key,key,key],
                               :order=> order
-                              ).paginate :page => params[:page], :per_page => qtdade
+                              ).paginate(:page => params[:page], :per_page => qtdade)
     else
       flash[:error] = "Os dados enviados para consulta são invalidos!"
     end
