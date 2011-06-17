@@ -1,0 +1,7 @@
+<div id="search">
+<p>Busca</p>
+<%=form_tag '/search/results', :method => :get %>
+	<%=text_field_tag :keyword, nil ,:style => "width:400px;"%>
+	<%=hidden_field_tag :category, '3'%>
+	<%=submit_tag "Buscar"%>
+</div>

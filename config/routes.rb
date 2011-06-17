@@ -43,6 +43,11 @@ KwEcovita::Application.routes.draw do |map|
       get :remove_from_wishlist
     end
   }
+  resources :search  do
+    collection do
+      get 'results'
+    end
+  end  
   resources :orders
   resources :product_comments
   resources :categorias
