@@ -65,7 +65,9 @@
 	#Menu_Cat #Menu1
 	{
 		width:276px;
-		height:auto;	
+		height:auto;
+		
+		z-index:10000;	
 	}
 		#Menu_Cat #Menu1 ul
 		{
@@ -73,12 +75,14 @@
 			background-repeat:repeat-y;
 			background-position:top center;	
 			width:276px;
+			text-align:left;
 		}
 			#Menu_Cat #Menu1 ul li
 			{
 				list-style:none;
 				padding-top:10px;
 				padding-bottom:15px;
+				margin-left:10px;
 			}
 				#Menu_Cat #Menu1 ul li a
 				{

@@ -53,6 +53,9 @@ body
 	background-image:url(../images/bg.jpg);
 	background-repeat:no-repeat;
 	background-position:center top;
+	background-image:url(../images/bg.jpg);
+	background-repeat:repeat-x;
+	background-position:center top;	
 }
 
 *html #General
@@ -195,6 +198,7 @@ body
 		text-align:center;
 		margin:0 auto;
 		padding-top:1px;
+		z-index:-100;
 	}
 		#General #Content #Content_products
 		{
