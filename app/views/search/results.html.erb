@@ -1,0 +1,16 @@
+<%if flash[:error]%>
+	<%= content_tag :div, flash[:error], :id => "flash_error" %>
+<%end%>
+<%if !@Results.blank?%>
+
+	<% @Results.each do |resultado|%>
+		<%= resultado.id%>
+	<% end %>
+	
+	
+	
+<%else%>
+
+<p>Nenhum registro foi localizado! Tente novamente.</p>
+
+<%end%>
