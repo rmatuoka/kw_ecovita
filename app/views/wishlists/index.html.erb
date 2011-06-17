@@ -47,9 +47,9 @@
 	                  <div class="Buttons">
 							<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(w.product)%><br/>
 
-								<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=w.product.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+								<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=w.product.tweet_text%>" data-count="none" data-via="farmaecovita" style="display:inline-block;">Tweet</a>
 
-								<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
+								<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=w.product.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
 								
 								<%=link_to image_tag("bt_remove_list.png"), remove_from_wishlist_produto_path(w.product), :class => "Bt_close"%>
 	                  </div>

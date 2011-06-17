@@ -5,7 +5,7 @@
 
 <div id="Products">
           <p class="Bread_crumb"><%= link_to "home", root_path%></p>
-          <h1 style=" vertical-align:middle; text-align:left;">Categoria : Nome da Categoria</h1>
+          <h1 style=" vertical-align:middle; text-align:left;">Busca : <%=params[:keyword]%></h1>
           <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
           <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  
                   <label style=" vertical-align:middle; text-align:left;">Items por Pagina:</label>
@@ -45,7 +45,7 @@
 	            		<div id="Field_buttons">
 							<%=link_to image_tag("bt_addtocart_src.png",:width=>"222", :height=>"32", :style=>"margin-left:10px; margin-top:10px;"), add_to_cart_produto_path(resultado)%>
 							<a href="#"><img src="images/img_stars_search.png" width="116" height="17" style="margin-left:10px;margin-top:10px;" /></a><br />
-	                 		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=resultado.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
+	                 		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=resultado.tweet_text%>" data-count="none" data-via="farmaecovita" style="display:inline-block;">Tweet</a>
 							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=resultado.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 	                  	</div>			
 				</div>
