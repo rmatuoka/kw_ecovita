@@ -27,9 +27,10 @@
 				<%if !@wishlists.blank? %> 
 					<%@wishlists.each do |w|%>
 					<div id="Product" class="p">
-	                  <div id="Photo"><%=link_to(image_tag(w.product.product_images.first.image.url()), produto_path(w.product)) if !w.product.product_images.first.blank? %></a></div>
+	                  	<div id="Name"><%=w.product.name%></div>
+						<div id="Photo"><%=link_to(image_tag(w.product.product_images.first.image.url()), produto_path(w.product)) if !w.product.product_images.first.blank? %></a></div>
 	                  <div id="Values">
-	                      	<h3><%=w.product.summary%></h3><br />
+	                      	<h3><%=truncate(w.product.summary, :length => 55)%></h3><br />
 	                      <%if w.product.discount.blank?%>
 								<h4 class="Price_of">
 								<b class="Price_for">por: <%=number_to_currency(w.product.price)%></b>

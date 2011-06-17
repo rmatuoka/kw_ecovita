@@ -129,9 +129,10 @@ $(document).ready(function() {
                 <!-- PRODUTO -->
 				<%@mais_vistos.each do |produto|%>
 				<div id="Product" class="p">
+					<div id="Name"><%=produto.name%></div>
                     <div id="Photo"><%=link_to(image_tag(produto.product_images.first.image.url()), produto_path(produto)) if !produto.product_images.first.blank? %></div>
                     <div id="Values">
-                        <h3><%=truncate(produto.summary, :length => 80)%></h3><br />
+                        <h3><%=truncate(produto.summary, :length => 55)%></h3><br />
                         <%if produto.discount.blank?%>
 							<h4 class="Price_of">
 							<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
@@ -152,7 +153,7 @@ $(document).ready(function() {
 
 							<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=produto.tweet_text%>" data-count="none" data-via="farmaecovita" style="display:inline-block;">Tweet</a>
 
-							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=produto.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
+							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=produto.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 100px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
 
 
                     </div>
