@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
     t.string   "name"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "clicks",             :default => 0
+    t.integer  "clicks"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,8 +84,10 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "status"
-    t.integer  "address_id"
-    t.decimal  "shipping",   :precision => 10, :scale => 0
+    t.string   "payment_type"
+    t.string   "shipping"
+    t.string   "pagseguro_id"
+    t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -131,14 +133,14 @@ ActiveRecord::Schema.define(:version => 20110509162430) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "summary"
-    t.decimal  "price",          :precision => 10, :scale => 2
-    t.decimal  "discount",       :precision => 10, :scale => 2
+    t.decimal  "price",          :precision => 10, :scale => 0
+    t.decimal  "discount",       :precision => 10, :scale => 0
     t.text     "features"
     t.text     "description"
     t.text     "usage"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "views",                                         :default => 0
+    t.integer  "views"
     t.integer  "subcategory_id"
     t.boolean  "published"
     t.string   "tweet_text"
