@@ -28,7 +28,13 @@
 			'height'	: 280,
 			'centerOnScroll' : true
 		});
-	
+		
+		$('#comments_form').click(function(){
+			$('#Form_Comments').fadeIn('slow');
+		});
+		
+		//MOSTRA COMENTARIOS
+		
 	});
 	</script>
 <%end%>
@@ -80,7 +86,7 @@
                 <p>
 					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=@produto.tweet_text%>" data-count="none" data-via="ecovita" style="display:inline-block;">Tweet</a>
 
-					<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+					<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=@produto.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 				<br><br>
 				</p>                    
                 <strong class="From">
@@ -149,20 +155,24 @@
                 <li><a href="#tabs-1">Descri&ccedil;&atilde;o</a></li>
                 <li><a href="#tabs-2">Caracter&iacute;sticas</a></li>
                 <li><a href="#tabs-3">Modo de Uso</a></li>
-                <li><a href="#tabs-3">Videos</a></li>
-            </ul>
-            <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-            <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-            <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-            <div id="tabs-4">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-        </div>     
+                <%if !@produto.video.blank?%>
+				<li><a href="#tabs-3">Videos</a></li>
+            	<%end%>
+			</ul>
+            <div id="tabs-1"><%=@produto.description%></div>
+            <div id="tabs-2"><%=@produto.features%></div>
+            <div id="tabs-3"><%=@produto.usage%></div>
+            <%if !@produto.video.blank?%>
+			<div id="tabs-4"><%=@produto.video%></div>
+        	<%end%>
+		</div>     
        </div>
    
    <div id="Coments">
         <h3 class="Tit">
 			COMENTÁRIOS 
 			<%if current_user%>
-				<a href="#" class="L_coment">Envie seu Comentario[+]</a>
+				<a href="javascript:void(0);" id="comments_form" class="L_coment">Envie seu Comentario[+]</a>
 			<%else%>
 				<a class="iframe L_coment" href="/user_sessions/new">Envie seu Comentario[+]</a>
 			<%end%>
@@ -179,12 +189,21 @@
             </strong>
             <p><%=comment.comment%></p>
         </div> 
-        <%end%> 
-          <div id="Form_Comments">
-			<%=form_for @produto.product_comments.build do |f|%>
-				
+        <%end%>
+		
+		<%if current_user%> 
+          <div id="Form_Comments" style="display:none;">	
+				<%=form_for @produto.product_comments.build do |f|%>
+					Seu nome: &nbsp;   <%=f.text_field :name, :class => "form"%><br>
+					Seu e-mail: &nbsp;<%=f.text_field :email, :class => "form"%><br>
+					Comentário: <%=f.text_area :comment, :class => "form", :style => "height:100px;"%><br>
+					<%=f.hidden_field :product_id, :value => @produto.id%>
+					<%=f.hidden_field :user_id, :value => current_user.id%>
+					<%=f.hidden_field :published, :value => 0%>
+					<%=f.submit "Enviar!"	%>	
 			<%end%>
-          </div>
+        <%end%>  
+		</div>
    </div>
                                                         
    <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
