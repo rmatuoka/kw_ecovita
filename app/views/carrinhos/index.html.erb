@@ -30,7 +30,7 @@
                 <td class="Tit_text">Produto</td>
                 <td class="Tit_text">Valor Un.</td>
                 <td class="Tit_text">Quantidade</td>
-                <td class="Tit_text">Presente</td>
+                <td class="Tit_text"><!-- Presente --></td>
                 <td class="Tit_text">&nbsp;</td>
               </tr>
             </table>
@@ -45,7 +45,7 @@
 		                <td width="118"><%=cart_item.title%></td>
 		                <td width="112"><b><%=number_to_currency(cart_item.price)%></b></td>
 		                <td width="114"><%=cart_item.quantity%></td>
-		                <td width="115"><input type="checkbox" /></td>
+		                <td width="115"><!-- <input type="checkbox" /> --></td>
 		                <td width="103"><%=link_to image_tag("img_excluir.png"), remove_from_cart_produto_path(cart_item.id_product)%></td>
 		              </tr>
 		            </table>
