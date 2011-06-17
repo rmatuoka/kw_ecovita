@@ -45,6 +45,9 @@ KwEcovita::Application.routes.draw do |map|
     end
   }
   resources :orders
+  resources :sitecontacts
+  resources :terms
+  resources :politics
   resources :product_comments
   resources :categorias
   resources :ratings

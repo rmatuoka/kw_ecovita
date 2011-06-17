@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20110526151830) do
     t.string   "gift_cod"
     t.boolean  "used"
     t.datetime "valido"
-    t.decimal  "discount",   :precision => 10, :scale => 0
+    t.decimal  "discount",   :precision => 10, :scale => 2
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

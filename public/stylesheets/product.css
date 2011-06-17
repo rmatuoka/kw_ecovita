@@ -116,6 +116,8 @@
 	display:block;
 	float:left;
 }
+
+
 	#General #Content #Content_products #Products #Coments #Item_coment
 	{
 		text-align:left;
@@ -125,6 +127,23 @@
 		margin-bottom:5px;
 
 	}
+	
+	#General #Content #Content_products #Products #Coments #Form_Comments
+	{
+		text-align:left;
+		background-image:url(../images/menu/bg_item_coment.png);
+		background-repeat:repeat;
+		padding: 5px 5px 5px 5px;
+		margin-bottom:5px;
+
+	}
+	
+		#General #Content #Content_products #Products #Coments #Form_Comments .form
+		{
+			border:1px solid Grey;
+			width:300px;
+			height:20px;
+		}
 		#General #Content #Content_products #Products #Coments #Item_coment strong
 		{
 			color:#999;
