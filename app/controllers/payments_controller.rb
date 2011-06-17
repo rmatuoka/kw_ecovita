@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  before_filter :load_site_categories, :load_cart
+  layout "interna"
   #before_filter :autentica, :load_box_package
   skip_before_filter :verify_authenticity_token
   
