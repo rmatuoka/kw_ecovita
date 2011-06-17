@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
   belongs_to :subcategory
-  has_many :product_comments
-  has_many :product_images
-  has_many :wishlists
+  has_many :product_comments, :dependent => :destroy
+  has_many :product_images, :dependent => :destroy
+  has_many :wishlists, :dependent => :destroy
   
   has_and_belongs_to_many :recommendeds,
                           :class_name => 'Product',

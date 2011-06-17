@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :orders
-  has_many :wishlists
+  has_many :orders, :dependent => :destroy
+  has_many :wishlists, :dependent => :destroy
   
   acts_as_authentic
   acts_as_authorization_subject
