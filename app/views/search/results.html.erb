@@ -8,20 +8,26 @@
           <h1 style=" vertical-align:middle; text-align:left;">Busca : <%=params[:keyword]%></h1>
           <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
           <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  
-                  <label style=" vertical-align:middle; text-align:left;">Items por Pagina:</label>
-                  <select name="items por pagina" style=" text-align:left;">
-                      <option value="">5</option>
-                      <option value="1">10</option>
-                      <option value="1">20</option>
-                      <option value="1">30</option>
+                <%=form_tag '/search/results', :method => :get %>
+				<%= hidden_field_tag :keyword, nil,:value=>params[:keyword]%>
+				<%= hidden_field_tag :category, nil,:value=>params[:category]%>
+				<label style=" vertical-align:middle; text-align:left;">Items por Pagina:</label>
+                  <select name="pag" id="pag"style=" text-align:left;">
+                      <option value="5">5</option>
+                      <option value="10" selected>10</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
                   </select> 
                   <label style=" vertical-align:middle; text-align:left;">Ordenar por:</label>
-                  <select name="items por pagina" style=" text-align:left; margin-right:260px;">
-                      <option value="">Mais Vendidos</option>
-                      <option value="1">categoria</option>
-                      <option value="1">categoria</option>
-                      <option value="1">categoria</option>
-                  </select> <br /><br /><br /><br />       
+                  <select name="order" id="order" style=" text-align:left; margin-right:10px;">
+                      <option value="1">Mais Vendidos</option>
+                      <option value="2">Menor Preço</option>
+                      <option value="3">Maior Preço</option>
+                      <option value="4">Nome</option>
+                  </select>
+				<%= submit_tag "Ordenar...", :style=>"text-align:left; margin-right:200px;" %>
+ 				</form>
+				<br /><br /><br /><br />       
 			<%if flash[:error]%>
 				<%= content_tag :div, flash[:error], :id => "flash_error" %>
 			<%end%>
@@ -41,14 +47,21 @@
 								<%= resultado.name%>
 							</p>
 							<p>
-								<%=truncate(resultado.summary, :length => 80)%><%=link_to image_tag("tit_vejamais.png", :width=>"64", :height=>"11", :alt=>"veja mais", :title=>"veja mais", :style=>"margin-top:4px;"), produto_path(resultado)%>
+								<%=truncate(resultado.summary, :length => 100)%> <%=link_to image_tag("tit_vejamais.png", :width=>"64", :height=>"11", :alt=>"veja mais", :title=>"veja mais", :style=>"margin-top:4px;"), produto_path(resultado)%>
 							</p>
 						</div>
 	            		<div id="Field_buttons">
 							<%=link_to image_tag("bt_addtocart_src.png",:width=>"222", :height=>"32", :style=>"margin-left:10px; margin-top:10px;"), add_to_cart_produto_path(resultado)%>
-							<a href="#"><img src="images/img_stars_search.png" width="116" height="17" style="margin-left:10px;margin-top:10px;" /></a><br />
+							<%if resultado.discount.blank?%>
+								<strong class="For">Por:<strong><%=number_to_currency(resultado.price)%></strong></strong>
+							<%else%>
+								<strong class="From">De:<strong><%=number_to_currency(resultado.price)%></strong></strong>
+				            	<strong class="For">Por:<strong><%=number_to_currency(resultado.price - resultado.discount)%></strong></strong>
+							<%end%>
+							<!-- <a href="#"><img src="images/img_stars_search.png" width="116" height="17" style="margin-left:10px;margin-top:10px;" /></a> -->
+							<br />
 	                 		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=resultado.tweet_text%>" data-count="none" data-via="farmaecovita" style="display:inline-block;">Tweet</a>
-							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=resultado.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=resultado.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;margin-top:5px;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 	                  	</div>			
 				</div>
 				<% end %>
@@ -57,6 +70,6 @@
 			<p>Nenhum registro foi localizado! Tente novamente.</p>
 
 			<%end%>
-     <p><%= will_paginate @Results %></p>                                               
+     <%= will_paginate @Results if !@Results.blank? %>                                               
      <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
     </div>

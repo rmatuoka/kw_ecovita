@@ -18,7 +18,18 @@ class SearchController < ApplicationController
       end
       #Se não for passado order irá ordenar pelo campo views
       if !params[:order].blank? 
-        order = params[:order]
+        case params[:order]
+          when '1'
+            order = 'views'
+          when '2'
+            order = 'price'
+          when '3'
+            order = 'price DESC'
+          when '4'
+            order = 'name'     
+          else
+            order = 'views'
+        end
       else
         order = 'views'
       end

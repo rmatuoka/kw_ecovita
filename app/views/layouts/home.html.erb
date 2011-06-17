@@ -79,25 +79,24 @@ $(document).ready(function() {
   		<%=render :file => "layouts/_userbar.html.erb"%>
     	<div id="Logo"><img src="images/logo.png" width="267" height="112" /></div>
 	    <div id="Search_bar">
-	        <table width="953" border="0">
-	          <tr height="33">
-	            <td width="296" height="29"><img src="images/tit_categorias.png" width="123" height="27" alt="Categorias" title="Categorias" style="float:left; margin-left:15px;" /></td>
-	            <td width="396"><div id="Search_for_small"><input type="text" onblur="if(this.value == '') this.value='Buscar por...';" onfocus="if(this.value=='Buscar por...') this.value='';" value="Buscar por..." name="pesquisa"></div></td>
-	            <td width="178">
-	            
-				  <%= select_tag(:id, options_from_collection_for_select(@category_site, :id, :name)) %> 
-  
-				<!-- <select id="Bt_category" name="Todas Categorias">
-	                <option value="">Todas Categorias</option>
-	                <option value="1">categoria 1</option>
-	                <option value="1">categoria 2</option>
-	                <option value="1">categoria 3</option>
-	                <option value="1">categoria 4</option>
-	              </select>
-			  -->
-	            </td>
-	            <td width="65"><a href="#"><img src="images/user_bars/bt_search.png" width="34" height="23" /></a></td>
-	          </tr>
+			<%=form_tag '/search/results', :method => :get %>
+            <table width="953" border="0">
+              <tr height="33">
+                <td width="230" height="29">
+					<img src="/images/tit_categorias.png" width="123" height="27" alt="Categorias" title="Categorias" style="float:left; margin-left:15px;" />
+				</td>
+                <td width="396">
+					<div id="Search_for_small">
+						<%=text_field_tag :keyword, 'Buscar por...',:onblur=>"if(this.value == '') this.value='Buscar por...';", :onfocus=>"if(this.value=='Buscar por...') this.value='';"%>
+					</div>
+				</td>
+                <td width="178">
+					<%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name)) %> 
+                </td>
+                <td width="56">
+					<%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%>
+				</td>
+              </tr>
 	          <tr height="20">
 	            <td>
 	            	<div id="Menu_Cat">
@@ -116,6 +115,7 @@ $(document).ready(function() {
 	            <td>&nbsp;</td>
 	          </tr>
 	        </table>
+			</form>			
 	    </div>
     </div>
     <div id="Destaque"><img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /></div>
