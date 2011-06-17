@@ -186,11 +186,12 @@ body
 		overflow:hidden;
 		margin:0 auto;
 		height:250px;
-		z-index:-1000;
+		z-index:0 !important;
+		/*z-index:-1000;*/
 		text-align:center;
 	}
 	
-		#General #Destaque img
+		#General #Destaque a
 		{
 			position:absolute !important;
 			left:50% !important;
@@ -344,7 +345,7 @@ body
 				margin:auto;
 				margin-top:20px;
 				float:right;
-				border:1px #CCC dashed;	
+				/*border:1px #CCC dashed;*/	
 			}			
 			#General #Content #Right_down
 			{
