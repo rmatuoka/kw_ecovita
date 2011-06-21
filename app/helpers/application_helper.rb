@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ActsAsTaggableOn::TagsHelper
+  
   def data_atual_extenso
     return Date.today.strftime("%d").to_s + " de " + busca_mes(Date.today.strftime("%m").to_i) + " de " +  Date.today.strftime("%y").to_s
   end

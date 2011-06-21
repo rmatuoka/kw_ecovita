@@ -8,6 +8,11 @@ class SearchController < ApplicationController
   def results
     #Se não for passado keyword manda mensagem de erro!
     if (!params[:keyword].blank?)
+      #Grava palavra chave para gerar o tagcloud
+      @keyword = Keyword.new
+      @keyword.tag_list = params[:keyword]
+      @keyword.save
+      
       key = "%"+params[:keyword]+"%"
 
       #Se não for passado a categoria irá carregar todas!

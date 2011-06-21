@@ -411,6 +411,11 @@ body
 			font-family:Verdana;
 			color:#999;
 		}
+		
+		#General #Most_searched	 #Tag_cloud a.Tag_medium
+		{
+			font-size:14px;		
+		}
 		#General #Most_searched	 #Tag_cloud a.Tag_big
 		{
 			font-size:16px;		
