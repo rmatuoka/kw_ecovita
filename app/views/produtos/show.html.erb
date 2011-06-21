@@ -34,7 +34,32 @@
 		});
 		
 		//MOSTRA COMENTARIOS
-		
+		// Inicia o validador ao carregar a página
+		$(function() {
+			// valida o formulário
+			$('#new_product_comment').validate({
+				// define regras para os campos
+				rules: {
+					product_comment[name]: {
+						required: true,
+						minlength: 2
+					},
+					product_comment[email]: {
+						required: true,
+						email: true
+					},
+					product_comment[comment]: {
+						required: true
+					}
+				},
+				// define messages para cada campo
+				messages: {
+					product_comment[name]: "Preencha o seu nome",
+					product_comment[email]: "Preencha seu e-mail de contato",
+					product_comment[comment]: "Insira algum comentário no campo!"
+				}
+			});
+		});		
 	});
 	</script>
 <%end%>
@@ -205,7 +230,7 @@
 					<%=f.hidden_field :product_id, :value => @produto.id%>
 					<%=f.hidden_field :user_id, :value => current_user.id%>
 					<%=f.hidden_field :published, :value => 0%>
-					<%=f.submit "Enviar!"	%>	
+					<%=f.submit "Enviar!",:onsubmit => "return validate()"	%>	
 		</div>
 			<%end%>
 		<%end%>  
