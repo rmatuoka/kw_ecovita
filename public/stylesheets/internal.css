@@ -140,7 +140,7 @@ body
 			height:51px;
 			text-align:center;
 			margin:auto;
-			z-index:10000;
+			z-index:999;
 		}
 		#General #Header #Search_bar #Search_for_small
 		{

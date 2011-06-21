@@ -8,7 +8,7 @@
               </tr>
               <tr>
                 <td width="690" height="40"><div id="Search_for_big" ><%=text_field_tag :keyword, 'Buscar por...',:onblur=>"if(this.value == '') this.value='Buscar por...';", :onfocus=>"if(this.value=='Buscar por...') this.value='';"%></div></td>
-                <td width="151"><%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name)) %></td>
+                <td width="151"><%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name),:style => "width:160px; margin-left:8px;") %></td>
                 <td width="115"><%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%></td>
               </tr>
             </table>
@@ -26,8 +26,8 @@
         <div id="Footer">
         	<table width="970" border="0" style="text-align:center; margin:auto;">
               <tr>
-                <td width="541" height="34"><img src="/images/img_ecovita2011.png" width="78" height="9" style="float:left; margin-left:10px;" /></td>
-                <td width="413">
+                <td width="540" height="34"><img src="/images/img_ecovita2011.png" width="78" height="9" style="float:left; margin-left:10px;" /></td>
+                <td width="420">
                     	<%=link_to "Prazos de Entrega", deliveries_path%> | <%=link_to "Política de Privacidade", politics_path%> | <%=link_to "Termos de Uso", terms_path%> | <%=link_to "Fale Conosco", sitecontacts_path%>
                 </td>
               </tr>
