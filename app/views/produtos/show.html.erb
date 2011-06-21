@@ -5,6 +5,9 @@
 <%content_for :head do%>
 	<%=stylesheet_link_tag "rating"%>
 	<%=javascript_include_tag "rating"%>
+	<%=javascript_include_tag "jquery.validate.min"%>
+	<%=javascript_include_tag "additional-methods.min"%>
+	
 	<script>
 	$(document).ready(function() {
 	    // Hides the submit button
@@ -34,32 +37,31 @@
 		});
 		
 		//MOSTRA COMENTARIOS
-		// Inicia o validador ao carregar a página
-		$(function() {
-			// valida o formulário
-			$('#new_product_comment').validate({
-				// define regras para os campos
-				rules: {
-					product_comment[name]: {
-						required: true,
-						minlength: 2
-					},
-					product_comment[email]: {
-						required: true,
-						email: true
-					},
-					product_comment[comment]: {
-						required: true
-					}
+		// Inicia o validador js ao carregar a página
+		// valida o formulário
+		$('#new_product_comment').validate({
+			// define regras para os campos
+			rules: {
+				product_comment_name: {
+					required: true,
+					minlength: 2
 				},
-				// define messages para cada campo
-				messages: {
-					product_comment[name]: "Preencha o seu nome",
-					product_comment[email]: "Preencha seu e-mail de contato",
-					product_comment[comment]: "Insira algum comentário no campo!"
+				product_comment_email: {
+					required: true,
+					email: true
+				},
+				product_comment_comment: {
+					required: true
 				}
-			});
-		});		
+			},
+			// define messages para cada campo
+			messages: {
+				product_comment_name: "Preencha o seu nome",
+				product_comment_email: "Preencha seu e-mail de contato",
+				product_comment_comment: "Insira algum comentário no campo!"
+			}
+		});
+	
 	});
 	</script>
 <%end%>
@@ -224,13 +226,13 @@
 		<%if current_user%> 
           <div id="Form_Comments" style="display:none;">	
 				<%=form_for @produto.product_comments.build do |f|%>
-					Seu nome: &nbsp;   <%=f.text_field :name, :class => "form"%><br>
-					Seu e-mail: &nbsp;<%=f.text_field :email, :class => "form"%><br>
-					Comentário: <%=f.text_area :comment, :class => "form", :style => "height:100px;"%><br>
+					Seu nome: &nbsp;   <%=f.text_field :name, :class => "required form"%><br>
+					Seu e-mail: &nbsp;<%=f.text_field :email, :class => "required form"%><br>
+					Comentário: <%=f.text_area :comment, :class => "required form", :style => "height:100px;"%><br>
 					<%=f.hidden_field :product_id, :value => @produto.id%>
 					<%=f.hidden_field :user_id, :value => current_user.id%>
 					<%=f.hidden_field :published, :value => 0%>
-					<%=f.submit "Enviar!",:onsubmit => "return validate()"	%>	
+					<%=f.submit "Enviar!" %>	
 		</div>
 			<%end%>
 		<%end%>  
