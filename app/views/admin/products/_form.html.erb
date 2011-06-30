@@ -1,65 +1,71 @@
 <%= form_for ([:admin, @category, @subcategory, @product]) do |f| %>
   <%= f.error_messages %>
-  <p>
+<div style="display:inline-block;">
+  <div class="pqno">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
+  </div >
+  <div class="pqno">
     <%= f.label :summary %><br />
     <%= f.text_field :summary %>
-  </p>
-  <p>
+  </div>
+  <div class="pqno">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
-  </p>
-  <p>
+  </div>
+  <div class="pqno">
     <%= f.label :discount %><br />
     <%= f.text_field :discount %>
-  </p>
-  <p>
+  </div>
+</div>
+<div style="display:inline-block;width:auto;margin: 0px 3px 0px 0px;">
+  <div class="mdio">
     <%= f.label :features %><br />
     <%= f.text_area :features %>
-  </p>
-  <p>
+  </div>
+  <div class="mdio">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
-  </p>
-  <p>
+  </div>
+  <div class="mdio">
     <%= f.label :usage %><br />
     <%= f.text_area :usage %>
-  </p>
-  <p>
+  </div>
+</div>
+<div style="display:inline-block;">
+  <div class="grde">
     <%= f.label :pub_start %><br />
     <%= f.datetime_select :pub_start %>
-  </p>
-  <p>
+  </div>
+  <div class="grde">
     <%= f.label :pub_end %><br />
     <%= f.datetime_select :pub_end %>
-  </p>
-  <p>
+  </div>
+</div>
+  <div>
     <%= f.label :views %><br />
     <%= f.text_field :views %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :published %><br />
     <%= f.check_box :published %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :tweet_text %><br />
     <%= f.text_field :tweet_text %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :like_link %><br />
     <%= f.text_field :like_link %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :video %><br />
     <%= f.text_field :video %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :vendas %><br />
     <%= f.text_field :vendas %>
-  </p>
+  </div>
 	
   <h2>Produtos Relacionados:</h2>
   <div class="Related_products">
@@ -67,5 +73,5 @@
 	  	<%= check_box_tag 'product[recommended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
 	  <% end %>
   </div>
-  <p><%= f.submit %></p>
+  <div><%= f.submit %></div>
 <% end %>

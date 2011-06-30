@@ -142,3 +142,20 @@ tr:hover
 .Related_products input{
 
 }
+.pqno{
+	display: block;
+	float: left;
+	width: 200px;
+}
+.mdio{
+	display: block;
+	float: left;
+	width: 300px;
+	margin-right: 10px;
+}
+.grde{
+	display: block;
+	float: left;
+	width: 350px;
+	margin-right: 10px;
+}
