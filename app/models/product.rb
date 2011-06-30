@@ -30,5 +30,8 @@ class Product < ActiveRecord::Base
     Product.all(:conditions => ['published = 1'])
   end
   
+  def self.all_order_by_name_asc
+    Product.all(:order => "name ASC")
+  end
   
 end
