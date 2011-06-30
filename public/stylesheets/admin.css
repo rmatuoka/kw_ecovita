@@ -135,3 +135,10 @@ tr:hover
 .error_messages ul {
   margin: 0;
 }
+.Related_products{
+	height:300px;
+	overflow:auto;
+}
+.Related_products input{
+
+}

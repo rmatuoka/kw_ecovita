@@ -306,9 +306,9 @@ body
 				#General #Content #Content_products #Products #Product
 				{
 					position:relative;
-					width:220px;
+					width:218px;
 					height:322px;
-					margin-left:10px;
+				/*	margin-left:10px; */
 					float:left;
 				}
 					#General #Content #Content_products #Products #Product #Photo
@@ -381,7 +381,7 @@ body
 					}
 					#General #Content #Content_products #Products #Product .twitter-share-button
 					{
-						margin-left:39px;
+						margin-left:20px;
 					}	
 					#General #Content #Content_products #Products #Product .Bt_close
 					{

@@ -16,7 +16,8 @@
 	#General #Content #Content_products #Products #Info_product_content  #Info_text 
 	{
 		width:420px;
-		height:390px;
+		height:auto;
+		min-height:390px;
 		text-align:right;
 		float:right;
 	}	
@@ -69,7 +70,7 @@
 	display:block;
 	float:left;
 }
-	#General #Content #Content_products #Products #Recomended .Left
+/*	#General #Content #Content_products #Products #Recomended .Left
 	{
 		display:block;	
 		float:left;
@@ -80,7 +81,7 @@
 		display:block;	
 		float:right;
 		margin-top:45px;
-	}
+	}*/
 	#General #Content #Content_products #Products .Tit
 	{
 		font-size:16px;

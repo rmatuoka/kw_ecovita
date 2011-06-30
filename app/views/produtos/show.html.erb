@@ -4,9 +4,11 @@
 
 <%content_for :head do%>
 	<%=stylesheet_link_tag "rating"%>
+	<%=stylesheet_link_tag "skin"%>	
 	<%=javascript_include_tag "rating"%>
 	<%=javascript_include_tag "jquery.validate.min"%>
 	<%=javascript_include_tag "additional-methods.min"%>
+	<%=javascript_include_tag "jcarousel.min"%>
 	
 	<script>
 	$(document).ready(function() {
@@ -61,6 +63,10 @@
 				product_comment_comment: "Insira algum comentário no campo!"
 			}
 		});
+		
+		$('#Recomended_list').jcarousel({
+	        // Configuration goes here
+	    });
 	
 	});
 	</script>
@@ -135,14 +141,18 @@
         </div>
         
 		<%if !@recomendados.empty?%>
-		<div id="Recomended">
+		<div id="Recomended" >
         <h3  class="Tit">RECOMENDADO PRA VOCÊ</h3>
         <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
-     	<a href="#"><img src="/images/menu/img_arrowleft_menu_rec.png" width="13" height="220" class="Left"  /></a>
           <!-- PRODUTO -->
-          	<%@recomendados.each do |produto|%>
-			<div id="Product" class="p">
-            	<div id="Name"><%=produto.name%></div>
+			<ul id="Recomended_list" class="jcarousel-skin-tango">
+          	<%	x = 0
+				@recomendados.each do |produto|%>
+			<li class="liProduct,jcarousel-item-<%= x%>">
+			<div id="Product" class="p" >
+            	<div id="Name">
+					<%=produto.name%>
+				</div>
 				<div id="Photo">
 					<%=link_to(image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto)) if !produto.product_images.first.blank? %>
 					
@@ -150,7 +160,7 @@
 				</div>
             <div id="Values">
                 	<h3><%=truncate(produto.summary, :length => 55)%></h3><br />
-                <%if produto.discount.blank?%>
+                	<%if produto.discount.blank?%>
 						<h4 class="Price_of">
 						<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
 						</h4>
@@ -174,9 +184,10 @@
 
             </div>
         </div>
+		</li>
 			<%end%>
+			</ul>
             <!-- /PRODUTO -->
-          <a href="#"><img src="/images/menu/img_arrowright_menu_rec.png" width="13" height="220" class="Right" /></a>
         </div>
         <%end%>
    <div id="About_product">

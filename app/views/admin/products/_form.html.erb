@@ -62,10 +62,10 @@
   </p>
 	
   <h2>Produtos Relacionados:</h2>
-  <p>
-  	<% Product.all.each do |product| %>
+  <div class="Related_products">
+  	<% Product.all(:order => "name ASC").each do |product| %>
 	  	<%= check_box_tag 'product[recommended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
 	  <% end %>
-  </p>
+  </div>
   <p><%= f.submit %></p>
 <% end %>
