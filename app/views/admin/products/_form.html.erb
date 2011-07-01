@@ -17,6 +17,10 @@
     <%= f.label :discount %><br />
     <%= f.text_field :discount %>
   </div>
+  <div class="pqno">
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </div>
 </div>
 <div style="display:inline-block;width:auto;margin: 0px 3px 0px 0px;">
   <div class="mdio">
@@ -32,7 +36,7 @@
     <%= f.text_area :usage %>
   </div>
 </div>
-<div style="display:inline-block;">
+<div style="display:inline-block;width:auto;">
   <div class="grde">
     <%= f.label :pub_start %><br />
     <%= f.datetime_select :pub_start %>
@@ -42,30 +46,28 @@
     <%= f.datetime_select :pub_end %>
   </div>
 </div>
-  <div>
+<div style="display:inline-block;">
+  <div class="pqno">
     <%= f.label :views %><br />
     <%= f.text_field :views %>
   </div>
-  <div>
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
-  <div>
+  <div class="pqno">
     <%= f.label :tweet_text %><br />
     <%= f.text_field :tweet_text %>
   </div>
-  <div>
+  <div class="pqno">
     <%= f.label :like_link %><br />
     <%= f.text_field :like_link %>
   </div>
-  <div>
+  <div class="pqno">
     <%= f.label :video %><br />
     <%= f.text_field :video %>
   </div>
-  <div>
+  <div class="pqno">
     <%= f.label :vendas %><br />
     <%= f.text_field :vendas %>
   </div>
+</div>
 	
   <h2>Produtos Relacionados:</h2>
   <div class="Related_products">

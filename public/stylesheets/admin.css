@@ -136,8 +136,9 @@ tr:hover
   margin: 0;
 }
 .Related_products{
-	height:300px;
+	height:309px;
 	overflow:auto;
+	margin-bottom:10px;
 }
 .Related_products input{
 
@@ -145,7 +146,7 @@ tr:hover
 .pqno{
 	display: block;
 	float: left;
-	width: 200px;
+	width: 185px;
 }
 .mdio{
 	display: block;
@@ -155,7 +156,6 @@ tr:hover
 }
 .grde{
 	display: block;
-	float: left;
-	width: 350px;
-	margin-right: 10px;
+	float: left;	
+	width: 450px;
 }

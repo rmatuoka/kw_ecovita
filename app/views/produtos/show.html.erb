@@ -74,7 +74,7 @@
 <div id="Content_products">
 
 <div id="Products">
-        <p class="Bread_crumb"><%=link_to "home", home_path%> / <%=link_to @category.name, home_path%> / <%=link_to @subcategory.name, home_path%></p>
+        <p class="Bread_crumb"><%=link_to "home", home_index_path %> / <%=link_to @category.name, categoria_path(@category)%> / <%=link_to @subcategory.name, subcategoria_path(@subcategory)%></p>
         <h1 style=" vertical-align:middle; text-align:left;">Categoria : <%=@category.name%></h1>
         <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
         <div id="Info_product_content">
