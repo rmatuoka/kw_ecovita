@@ -117,8 +117,25 @@
 	display:block;
 	float:left;
 }
-
-
+#General #Content #Content_products #Products #Warning
+{
+	position:relative;
+	width:700px;
+	min-height:250px;
+	height:auto;
+	display:block;
+	float:left;
+	margin-bottom:10px;
+}
+#General #Content #Content_products #Products #Warning p
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	text-align:left;
+	margin-left:5px;
+	color:#000;
+}
 	#General #Content #Content_products #Products #Coments #Item_coment
 	{
 		text-align:left;

@@ -148,11 +148,18 @@ tr:hover
 	float: left;
 	width: 185px;
 }
+.pqno input{
+	width:177px;
+}
+
 .mdio{
 	display: block;
 	float: left;
 	width: 300px;
 	margin-right: 10px;
+}
+.mdio textarea{
+	width:297px;
 }
 .grde{
 	display: block;

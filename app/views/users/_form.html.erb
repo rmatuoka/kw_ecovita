@@ -1,4 +1,4 @@
-<%form_for @user do |f|%>
+<%=form_for @user do |f|%>
 <div id="Form">
 		
         <div id="Form_box">
@@ -6,7 +6,7 @@
             <br /><br />
             <label>Data de Nascimento: <%= f.date_select :nascimento, :start_year => 1920%></label>
             <br /><br />
-            <label>Telefone: <%=f.text_field :phone, :class => "Item_form"%></label>
+            <label>Telefone: <%=f.text_field :phone, :class => "Item_form" %></label>
             <br /><br />
             <label>Endereço: <%=f.text_field :address, :class => "Item_form"%></label>
             <br /><br />
@@ -39,10 +39,10 @@
  </div>
  <div class="Box_password">
  <br />
- <label>Senha: <%=f.text_field :password, :class => "Item_form"%> &nbsp;&nbsp; </label><label>Repita Senha: <%=f.text_field :password_confirmation, :class => "Item_form"%></label>
+ <label>Senha: <%=f.password_field :password, :class => "Item_form"%> &nbsp;&nbsp; </label><label>Repita Senha: <%=f.password_field :password_confirmation, :class => "Item_form"%></label>
  </div>
-
-<input type="reset" value="" style="background-color:transparent; background-image:url('/images/bt_limpar_cadastro.png'); border:none; width:212px; height:32px;text-align:right; margin-left:220px; float:left; cursor:pointer;">
 <%=image_submit_tag "bt_finalizar_cadastro.png", :stlyle => "margin-left:60px; float:right;"%>
+<input type="reset" value="" style="background-color:transparent; background-image:url('/images/bt_limpar_cadastro.png'); border:none; width:212px; height:32px;text-align:right; margin-left:220px; float:left; cursor:pointer;">
+
 
 <%end%>
