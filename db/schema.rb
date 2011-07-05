@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621142715) do
+ActiveRecord::Schema.define(:version => 20110705205113) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20110621142715) do
     t.integer  "vendas",                                        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "bibliography"
   end
 
   create_table "products_recommendeds", :id => false, :force => true do |t|

@@ -18,8 +18,8 @@
     <%= f.text_field :discount %>
   </div>
   <div class="pqno">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
+    <%= f.label :bibliography %><br />
+    <%= f.text_field :bibliography %>
   </div>
 </div>
 <div style="display:inline-block;width:auto;margin: 0px 3px 0px 0px;">
@@ -67,13 +67,18 @@
     <%= f.label :vendas %><br />
     <%= f.text_field :vendas%>
   </div>
-</div>
-	
+</div>	
   <h2>Produtos Relacionados:</h2>
   <div class="Related_products">
   	<% Product.all_order_by_name_asc.each do |product| %>
 	  	<%= check_box_tag 'product[recommended_ids][]', product.id, @product.recommendeds.include?(product) %><%= product.name %><br />
 	  <% end %>
   </div>
+<div style="display:inline-block;">
+	<div class="pqno">
+	  <%= f.label :published %><br />
+	  <%= f.check_box :published %>
+	</div>
+</div>
   <div><%= f.submit %></div>
 <% end %>
