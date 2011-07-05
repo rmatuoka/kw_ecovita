@@ -198,15 +198,17 @@
                 <li><a href="#tabs-1">Descri&ccedil;&atilde;o</a></li>
                 <li><a href="#tabs-2">Caracter&iacute;sticas</a></li>
                 <li><a href="#tabs-3">Modo de Uso</a></li>
+				<li><a href="#tabs-4">Bibliografia</a></li>
                 <%if !@produto.video.blank?%>
-				<li><a href="#tabs-3">Videos</a></li>
+				<li><a href="#tabs-5">Videos</a></li>
             	<%end%>
 			</ul>
             <div id="tabs-1"><%=@produto.description%></div>
             <div id="tabs-2"><%=@produto.features%></div>
             <div id="tabs-3"><%=@produto.usage%></div>
+			<div id="tabs-4"><%=@produto.bibliography%></div>
             <%if !@produto.video.blank?%>
-			<div id="tabs-4"><%=@produto.video%></div>
+			<div id="tabs-5"><%=@produto.video%></div>
         	<%end%>
 		</div>     
        </div>
