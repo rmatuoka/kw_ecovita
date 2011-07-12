@@ -1,4 +1,4 @@
-<%= form_for ([:admin, @category, @subcategory, @product]) do |f| %>
+<%= form_for ([:admin, @category, @subcategory, @product], :html => { :multipart => :true }) do |f| %>
   <%= f.error_messages %>
 <div style="display:inline-block;">
   <div class="pqno">
@@ -78,6 +78,10 @@
 	<div class="pqno">
 	  <%= f.label :published %><br />
 	  <%= f.check_box :published %>
+	</div>
+	<div class="pqno">
+	  <%= f.label :literature %><br />
+	  <%= f.file_field :literature %>
 	</div>
 </div>
   <div><%= f.submit %></div>

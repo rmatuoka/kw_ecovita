@@ -9,12 +9,17 @@ class Product < ActiveRecord::Base
                           :join_table => 'products_recommendeds',
                           :foreign_key => 'product_id',
                           :association_foreign_key => 'recommended_id'
-
+  
+  #RATING
   acts_as_rateable
   accepts_nested_attributes_for :product_comments
   
+  #WILL_PAGINATE
   cattr_reader :per_page
   @@per_page = 20
+  
+  #PAPERCLIP
+  has_attached_file :literature
   
   
   

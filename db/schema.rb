@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110705205113) do
+ActiveRecord::Schema.define(:version => 20110712135848) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -148,23 +148,27 @@ ActiveRecord::Schema.define(:version => 20110705205113) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "summary"
-    t.decimal  "price",          :precision => 10, :scale => 2
-    t.decimal  "discount",       :precision => 10, :scale => 2
+    t.decimal  "price",                   :precision => 10, :scale => 2
+    t.decimal  "discount",                :precision => 10, :scale => 2
     t.text     "features"
     t.text     "description"
     t.text     "usage"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "views",                                         :default => 0
+    t.integer  "views",                                                  :default => 0
     t.integer  "subcategory_id"
     t.boolean  "published"
     t.string   "tweet_text"
     t.string   "like_link"
     t.string   "video"
-    t.integer  "vendas",                                        :default => 0
+    t.integer  "vendas",                                                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "bibliography"
+    t.string   "literature_file_name"
+    t.string   "literature_content_type"
+    t.integer  "literature_file_size"
+    t.datetime "literature_updated_at"
   end
 
   create_table "products_recommendeds", :id => false, :force => true do |t|
