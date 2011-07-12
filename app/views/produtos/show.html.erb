@@ -206,7 +206,9 @@
             <div id="tabs-1"><%=@produto.description%></div>
             <div id="tabs-2"><%=@produto.features%></div>
             <div id="tabs-3"><%=@produto.usage%></div>
-			<div id="tabs-4"><%=@produto.bibliography%></div>
+			<div id="tabs-4">
+				<%=link_to("Clique aqui e faça o download da literatura.", @produto.literature.url, :target => "_blank")%>
+			</div>
             <%if !@produto.video.blank?%>
 			<div id="tabs-5"><%=@produto.video%></div>
         	<%end%>
