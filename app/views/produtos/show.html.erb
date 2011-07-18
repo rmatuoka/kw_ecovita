@@ -9,6 +9,7 @@
 	<%=javascript_include_tag "jquery.validate.min"%>
 	<%=javascript_include_tag "additional-methods.min"%>
 	<%=javascript_include_tag "jcarousel.min"%>
+	<%= javascript_include_tag "jcycle" %>
 	
 	<script>
 	$(document).ready(function() {
@@ -68,6 +69,18 @@
 	        // Configuration goes here
 	    });
 	
+		//IMAGENS PRODUTOS
+		$('#Destaque').show(); //exibe a div pai  
+			$('#Destaque').cycle({  
+			fx:     'fade',  
+			timeout: 5000,  
+			speed: 500
+			/*,  
+			next:   '.next',  
+			prev:   '.previous',  
+			pager: '.numbers'  */
+		});
+	
 	});
 	</script>
 <%end%>
@@ -78,7 +91,13 @@
         <h1 style=" vertical-align:middle; text-align:left;">Categoria : <%=@category.name%></h1>
         <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
         <div id="Info_product_content">
-        	<div id="Info_photo"><%= image_tag(@produto.product_images.first.image.url()) if !@produto.product_images.first.blank? %></div>
+        	<div id="Info_photo">
+				<%if !@produto.product_images.first.blank?%>
+					<%@produto.product_images.all.each do |img|%>
+					<%end%>
+				<%end%>
+				<%#= image_tag(@produto.product_images.first.image.url()) if !@produto.product_images.first.blank? %>
+			</div>
             <div id="Info_text">
             	<h2><%=@produto.name%></h2><br />
                 <p><%=@produto.description%></p><br />
