@@ -11,11 +11,11 @@
         <div class="Text_box">
         	<p class="Tit_1">Olá, <%=current_user.nome%></p><br>
         	<p class="Content">Seu medicamento será manipulado mediante confirmação do pagamento junto à pagseguro.
-				Para acompanhar o status do seu pedido clique no link abaixo ou acesse <%=link_to "www.farmaciaecovita.com.br","http://www.farmaciaecovita.com.br"%>.</p>
+				Para acompanhar o status do seu pedido clique no link abaixo ou acesse: <%=link_to "Minha conta", accounts_path%></p>
             <br />
-			<%=link_to "Minha conta", accounts_path%>
 			<p>Obrigado por escolher a Ecovita!</p>
-			<%= pagseguro_form @order_product, :submit => "Efetuar pagamento!" %>
+			<br />
+			<%= pagseguro_form @order_product, :submit => "Clique aqui para efetuar o pagamento!" %>
 
         </div>
 </div>
