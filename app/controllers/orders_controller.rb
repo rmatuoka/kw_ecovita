@@ -28,7 +28,9 @@ class OrdersController < ApplicationController
           @pedidos.amount = cart_item.quantity
           @pedidos.price = cart_item.price
           @pedidos.save
-          @order_product.add :id => cart_item.id_product, :price => cart_item.price, :description => cart_item.title
+          @order_product.add :id => cart_item.id_product, :weight => 0.250, :price => cart_item.price, :description => cart_item.title
+        
+          
         end
       end
     end
