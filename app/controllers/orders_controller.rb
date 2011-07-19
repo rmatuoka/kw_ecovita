@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
             :name                  => current_user.nome,
             :email                 => current_user.email
           }
+          
           @order_product.add :id => cart_item.id_product, :weight => 0.250, :price => cart_item.price, :description => cart_item.title
         
           

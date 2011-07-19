@@ -8,6 +8,6 @@ test:
   <<: *development
 
 production:
-  authenticity_token: C31EFEA28C874E85ADB8DFAAD5CBD576
+  authenticity_token: 9CA8D46AF0C6177CB4C23D76CAF5E4B0
   email: bruformulasatibaia@uol.com.br
-  return_to: "http://www.farmaciaecovita.com.br/payments/efetuado"
+  return_to: "/payments/efetuado"
