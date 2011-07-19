@@ -28,6 +28,11 @@ class OrdersController < ApplicationController
           @pedidos.amount = cart_item.quantity
           @pedidos.price = cart_item.price
           @pedidos.save
+          
+          @order_product.billing = {
+            :name                  => current_user.nome,
+            :email                 => current_user.email
+          }
           @order_product.add :id => cart_item.id_product, :weight => 0.250, :price => cart_item.price, :description => cart_item.title
         
           
