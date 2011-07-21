@@ -41,7 +41,7 @@
                   <tr>
                     <td width="269" height="26" class="Tit_text"><h2 class="Table_tit">Pedido N°: <%=order.id%></h2></td>
                     <td width="86" class="Tit_text"><h2 class="Table_tit" >&nbsp;</h2></td>
-                    <td width="331" class="Tit_text"><span class="Table_status">Status:</span><div id="Status"><%=order.status%></div></td>
+                    <td width="331" class="Tit_text"><span class="Table_status">Status:</span><div id="Status"><%=traduz_status_do_pedido(order.status)%></div></td>
                   </tr>                 
                 </table>
             </div>        
@@ -80,25 +80,10 @@
                     </table>
                 </div>
 				<%end%>
-                <!-- PRODUTOS -->
-                <!-- <div class="Down_content_end">                
-                    <table width="685">
-                      <tr>
-                        <td width="365" height="65">
-                            <p><b>Endereço de Entrega:</b> <br />
-                            Rua Nome da Rua, 0000 - 000 - Bairro<br />
-                            Cidade - UF<br /></p>
-                        </td>
-                        <td width="325">
-                        	<h2 class="Label_frete">Frete:<b>9.999,99</b></h2>
-                            <br>
-                            <h2 class="Label_total">Total:<b>9.999,99</b></h2>
-                        </td>
-                      </tr>                  
-                    </table>
-				-->
+
             </div>
 		</div>  
-      </div>                                                         
+      </div>
+ <%end%>                                                        
 <!--item-end-->
-<%end%>
+
