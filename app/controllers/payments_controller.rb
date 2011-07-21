@@ -9,6 +9,11 @@ class PaymentsController < ApplicationController
       pagseguro_notification do |notification|
         if notification.valid?(:force)
           order = Order.find(notification.order_id)
+          if order.pagseguro_id.blank?
+            $first = true
+          else
+            $first = false
+          end
           order.payment_type = notification.payment_method
           order.status = notification.status
           order.shipping = notification.shipping_type
@@ -25,19 +30,15 @@ class PaymentsController < ApplicationController
           order.state = notification.buyer[:address][:state]
           order.area_code = notification.buyer[:phone][:area_code]
           order.phone = notification.buyer[:phone][:number]
-          
-          
-          
+
           order.save
           
-          if order.status.to_s.include? 'completed'
-          #enviar email de confirmação
-          #  corpo = "
-          #  <b>Nome:</b>#{transaction.nome}<br />
-          #  <b>E-mail: </b>#{transaction.email}<br />
-          #  "
-          #  Email.deliver_agradecimento(transaction.email)
-          #  Email.deliver_pedido(@user.email,corpo)
+          if order.status.to_s.include? 'completed' or order.status.to_s.include? 'approved'
+            UserMailer.payment_made(order).deliver
+          else
+            if $first
+              UserMailer.transaction_initiated(order).deliver
+            end
           end
           
           #SETA QUOTES COMO INDIPONIVEL
