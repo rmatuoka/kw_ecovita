@@ -47,17 +47,6 @@
   item_id_3: "80"
   item_descr_2: "Maxvegg Skin 120 C\xC3\xA1psulas"
   cliente_nome: Supervisor
-"8": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "8"
-  item_valor_1: "800"
-  commit: Efetuar pagamento!
-  moeda: BRL
-  item_quant_1: "1"
-  email_cobranca: bruformulasatibaia@uol.com.br
-  item_id_1: "10"
-  item_descr_1: Welexa X
 "13": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
@@ -77,6 +66,32 @@
   item_descr_1: "Lingonmax 60 C\xC3\xA1psulas"
   item_descr_2: "Indol - 3 - Carbinol 60 C\xC3\xA1psulas"
   cliente_nome: Rafael Matuoka Chiocchetti
+"8": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "8"
+  item_valor_1: "800"
+  commit: Efetuar pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_id_1: "10"
+  item_descr_1: Welexa X
+"9": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "9"
+  item_valor_1: "18000"
+  commit: Efetuar pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "800"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  item_id_1: "9"
+  item_id_2: "10"
+  item_descr_1: Pholia Magra
+  item_descr_2: Welexa X
 "14": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
@@ -96,21 +111,35 @@
   item_descr_1: "Lingonmax 60 C\xC3\xA1psulas"
   item_descr_2: "Exsynutriment 90 C\xC3\xA1psulas"
   cliente_nome: Zaba
-"9": !map:ActiveSupport::HashWithIndifferentAccess 
+"15": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
+  item_descr_3: "Padinactive Nutri 120 C\xC3\xA1psulas"
   encoding: UTF-8
-  ref_transacao: "9"
-  item_valor_1: "18000"
-  commit: Efetuar pagamento!
+  ref_transacao: "15"
+  item_valor_1: "13050"
+  item_descr_4: "Bio-Arct  60 C\xC3\xA1psulas"
+  commit: Clique aqui para efetuar o pagamento!
   moeda: BRL
   item_quant_1: "1"
-  item_valor_2: "800"
+  item_valor_2: "4950"
   email_cobranca: bruformulasatibaia@uol.com.br
   item_quant_2: "1"
-  item_id_1: "9"
-  item_id_2: "10"
-  item_descr_1: Pholia Magra
-  item_descr_2: Welexa X
+  item_valor_3: "27900"
+  item_quant_3: "1"
+  item_valor_4: "9000"
+  item_quant_4: "1"
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "102"
+  item_peso_2: "250"
+  item_id_2: "49"
+  item_peso_3: "250"
+  item_descr_1: "Bio-Arct  90 C\xC3\xA1psulas"
+  item_id_3: "95"
+  item_peso_4: "250"
+  item_descr_2: "Maxvegg Skin 60 C\xC3\xA1psulas"
+  item_id_4: "12"
+  cliente_nome: Zaba
 "10": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8

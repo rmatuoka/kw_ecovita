@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "TESTE DE DESENVOLVIMENTO - Ecovita  <bsilva@korewa.com.br>"
+  default :from => "Farmácia Ecovita - Vendas <vendas@farmaciaecovita.com.br>"
 
 / Emails para o usuário: /
   
@@ -33,12 +33,16 @@ class UserMailer < ActionMailer::Base
 
   #Enviado quando o pedido entrar no sistema!
   def order_start(order)
-    
+    @order = order
+    @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
+    mail(:to => "bsilva@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
   end
   
   #Enviado quando o pagamento for concluido!
   def order_completed(order)
-    
+    @order = order
+    @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
+    mail(:to => "bsilva@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
   end
   
 end

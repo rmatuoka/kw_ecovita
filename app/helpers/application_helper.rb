@@ -16,6 +16,7 @@ module ApplicationHelper
   end
   
   def traduz_status_do_pedido(status)
+    
     retorno = ""
     case status
       when "completed"

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Pagamento Autorizado!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">td img {display: block;}</style>
+<!--Fireworks CS5 Dreamweaver CS5 target.  Created Mon Jun 20 14:43:47 GMT-0300 (Hora oficial do Brasil) 2011-->
+</head>
+<body bgcolor="#ffffff">
+<table style="font-family:Verdana, Geneva, sans-serif;" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+  <tr>
+   <td><img name="modelo_padrao_email_r1_c1" src="http://www.farmaciaecovita.com.br/images/email/modelo_padrao_email_r1_c1.jpg" width="600" height="196" border="0" id="modelo_padrao_email_r1_c1" alt="" /></td>
+  </tr>
+  <tr>
+   <td style="border-bottom:1px solid #9EBF09; font-size:18px; color:#9EBF09; font-weight:bold; padding:5px; text-transform:uppercase">Pagamento Autorizado!</td>
+  </tr>
+  <tr>
+    <td width="600" style="text-align:justify; padding:10px; font-size:12px;">
+		<br />
+		<br />
+		<br />
+		Olá <%= @order.user.nome%>.
+		<br />
+		<br />
+		Seu pedido foi aprovado e entrará em manipulação.
+		<br />
+		<br />		
+		Os prazos de entrega podem variar de acordo com a região do País. Normalmente o prazo para a entrega não excede 10 dias. 
+		<br />
+		<br />
+		Seu pedido:
+		<br />
+		<br />
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="580">
+			<tr>
+				<th width="80" align="center">
+					Quantidade
+				</th>
+				<th width="250" align="center">
+					Produto
+				</th>
+				<th width="100" align="center">
+					Valor Unitário
+				</th>
+				<th width="150" align="center">
+					Sub Total
+				</th>
+			</tr>
+			<tr height="10">
+				
+			</tr>
+			<% 
+				$subtotal = 0
+				$valor_total = 0
+				@order_itens.each do |item|
+			%>			
+				<tr>
+					<td align="center">
+						<%= item.amount %>
+					</td>
+					<td align="center">
+						<%= item.product.name %>
+					</td>
+					<td align="right">
+						<%= number_to_currency(item.price) %>
+					</td>
+					<td align="right">
+						<%= number_to_currency($subtotal = (item.amount * item.price)) %>
+					</td>
+				</tr>
+				<tr height="5">
+				
+				</tr>
+			<%
+				$valor_total += $subtotal
+				end
+			%>
+			<tr height="30" style="font-size:14px;">
+				<td colspan="3" align="right">
+					<b>Total</b>
+				</td>
+				<td align="right">
+					<b><%= number_to_currency($valor_total) %></b>
+				<td>
+			</tr>			
+		</table>
+		<br />
+		<br />
+    </td>
+  </tr>
+  <tr style="font-size:12px;">
+	<td>
+		<b>Tipo de pagamento:</b> <%= @order.payment_type%>
+		<br />
+		<br />
+		<br />
+	</td>
+  </tr>
+  <tr>
+   <td><img name="modelo_padrao_email_r3_c1" src="http://www.farmaciaecovita.com.br/images/email/modelo_padrao_email_r3_c1.jpg" width="600" height="78" border="0" id="modelo_padrao_email_r3_c1" alt="" /></td>
+  </tr>
+</table>
+</body>
+</html>

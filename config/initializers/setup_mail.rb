@@ -1,10 +1,10 @@
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address => "mail.vanessaefabiano.com.br",
+  :address => "mail.farmaciaecovita.com.br",
   :port => 587,
-  :domain => "vanessaefabiano.com.br",
-  :user_name => "resposta@vanessaefabiano.com.br",
-  :password => "resposta@@@",
+  :domain => "farmaciaecovita.com.br",
+  :user_name => "vendas@farmaciaecovita.com.br",
+  :password => "vendas@@@",
   :authentication => :login,
   :enable_starttls_auto => false  
 }

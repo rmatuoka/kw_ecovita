@@ -6,14 +6,16 @@
 	<label>E-mail: </label><strong class="f_dados"><%= @Results.first.user.email%></strong><br />
 	<label>CPF: </label><strong class="f_dados"><%= @Results.first.user.cpf%></strong><br />
 	<label>RG: </label><strong class="f_dados"><%= @Results.first.user.rg%></strong><br />	
-	<label>Endereço: </label><strong class="f_dados"><%= @Results.first.user.address%>, <%= @Results.first.user.number%> <%= @Results.first.user.complement%></strong><br />
-	<label>Cidade: </label><strong class="f_dados"><%= @Results.first.user.city%>-<%= @Results.first.user.state%></strong><br />
-	<label>CEP: </label><strong class="f_dados"><%= @Results.first.user.cep%></strong><br />			
+	<label>Endereço: </label><strong class="f_dados"><%= @Results.first.street%>, <%= @Results.first.number%> <%= " - " + @Results.first.complement if !@Results.first.complement.blank?%> </strong><br />
+	<label>Bairro: </label><strong class="f_dados"><%= @Results.first.neighbourood %></strong><br />		
+	<label>Cidade: </label><strong class="f_dados"><%= @Results.first.city%>-<%= @Results.first.state%></strong><br />
+	<label>CEP: </label><strong class="f_dados"><%= @Results.first.zipcode%></strong><br />		
+	<label>Telefone: </label><strong class="f_dados"><%= @Results.first.area_code%><%= @Results.first.phone%></strong><br />				
 	<br />
 	<br />
-	<label>Status: </label><strong class="f_dados"><%= @Results.first.status%></strong><br />
-	<label>Tipo de Pagameto: </label><strong class="f_dados"><%= @Results.first.payment_type%></strong><br />
-	<label>Frete: </label><strong class="f_dados"><%= @Results.first.shipping%></strong><br />
+	<label>Status: </label><strong class="f_dados"><%= traduz_status_do_pedido(@Results.first.status)%></strong><br />
+	<label>Tipo de Pagameto: </label><strong class="f_dados"><%= traduz_tipo_do_pagamento(@Results.first.payment_type)%></strong><br />
+	<label>Tipo de Envio: </label><strong class="f_dados"><%= @Results.first.shipping%></strong><br />
 	<label>Código Rastreamento: </label><strong class="f_dados"><%= @Results.first.rastreamento%></strong> <%= link_to "Inserir Codigo de Rastreamento", ""%><br />
 	<br />
 	<br />

@@ -1,0 +1,33 @@
+Pagamento Autorizado!
+
+
+
+
+
+Olá <%= @order.user.nome%>.
+
+
+Seu pedido foi aprovado e entrará em manipulação.
+
+
+Os prazos de entrega podem variar de acordo com a região do País. Normalmente o prazo para a entrega não excede 10 dias. 
+
+Seu pedido:
+
+Quantidade	Produto				Valor Unitário	Sub Total
+
+<% 
+	$subtotal = 0
+	$valor_total = 0
+	@order_itens.each do |item|
+%>
+<%= item.amount %>	<%= item.product.name %>				<%= number_to_currency(item.price) %>	<%= number_to_currency($subtotal = (item.amount * item.price)) %>
+
+<%
+	$valor_total += $subtotal
+	end
+%>
+
+Total:	 <%= number_to_currency($valor_total) %>
+
+Tipo de pagamento: <%= @order.payment_type%>
