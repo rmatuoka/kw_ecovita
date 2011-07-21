@@ -1,16 +1,52 @@
 --- 
 "11": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
+  item_descr_3: "Maxvegg Skin 120 C\xC3\xA1psulas"
   encoding: UTF-8
   ref_transacao: "11"
   item_valor_1: "9000"
   commit: Clique aqui para efetuar o pagamento!
   moeda: BRL
   item_quant_1: "1"
+  item_valor_2: "14850"
   email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  item_valor_3: "11700"
+  item_quant_3: "1"
+  cliente_email: rmatuoka@korewa.com.br
   item_peso_1: "250"
   item_id_1: "12"
+  item_peso_2: "250"
+  item_id_2: "96"
+  item_peso_3: "250"
   item_descr_1: "Bio-Arct  60 C\xC3\xA1psulas"
+  item_id_3: "90"
+  item_descr_2: "Exsynutriment 90 C\xC3\xA1psulas"
+  cliente_nome: Rafael Matuoka Chiocchetti
+"12": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  item_descr_3: "Camu Camu 90 C\xC3\xA1psulas"
+  encoding: UTF-8
+  ref_transacao: "12"
+  item_valor_1: "20400"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "11700"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  item_valor_3: "3700"
+  item_quant_3: "1"
+  cliente_email: super@teste.com.br
+  item_peso_1: "250"
+  item_id_1: "13"
+  item_peso_2: "250"
+  item_id_2: "90"
+  item_peso_3: "250"
+  item_descr_1: "Exsynutriment 60 C\xC3\xA1psulas"
+  item_id_3: "80"
+  item_descr_2: "Maxvegg Skin 120 C\xC3\xA1psulas"
+  cliente_nome: Supervisor
 "8": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8

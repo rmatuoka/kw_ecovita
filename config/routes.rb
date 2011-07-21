@@ -24,7 +24,12 @@ KwEcovita::Application.routes.draw do |map|
         }
       }
     }
-    
+    resources :searchs  do
+      collection do
+        get 'results'
+        get 'resend'  
+      end
+    end
     
     root :to => "categories#index"
   }

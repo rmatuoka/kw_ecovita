@@ -12,8 +12,8 @@
 		<%= link_to "Home", root_path %>
 		<% if current_user %>
 			<%= link_to "Editar", edit_user_path(:current) %>
-			<%= link_to "Logout", logout_path %>
-			<span>Bem vindo <strong><%= current_user.nome %></strong>!</span>
+			<%= link_to "Logout", logout_path %> 
+			<span> Bem vindo <strong><%= current_user.nome %></strong>!</span>
 		<% else %>
 			<%= link_to "Registrar", new_admin_user_path %>
 			<%= link_to "Login", login_path %>
@@ -24,7 +24,8 @@
 		<%=link_to "Gerenciar Banners", admin_banner_categories_path%> | 
 		<%=link_to "Gerenciar Páginas", admin_pages_path%> | 
 		<%=link_to "Gerenciar Usuários", admin_users_path%> | 
-		<%=link_to "Gerenciar Vale-Presente", admin_gifts_path%>
+		<%=link_to "Gerenciar Vale-Presente", admin_gifts_path%> |
+		<%=link_to "Gerenciar Compras", admin_searchs_path%>
 	</div>
     <div id="container">
       <% flash.each do |name, msg| %>

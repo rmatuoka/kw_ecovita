@@ -109,7 +109,7 @@ $(document).ready(function() {
 					</div>
 				</td>
                 <td width="178">
-					<%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name), :style => "width:160px; margin-right:8px;") %> 
+					<%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name), :include_blank=>"Todos" ,:style => "width:160px; margin-right:8px;") %> 
                 </td>
                 <td width="56">
 					<%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%>

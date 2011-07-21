@@ -8,7 +8,7 @@
               </tr>
               <tr>
                 <td width="690" height="40"><div id="Search_for_big" ><%=text_field_tag :keyword, 'Buscar por...',:onblur=>"if(this.value == '') this.value='Buscar por...';", :onfocus=>"if(this.value=='Buscar por...') this.value='';"%></div></td>
-                <td width="151"><%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name),:style => "width:160px; margin-left:8px;") %></td>
+                <td width="151"><%= select_tag(:category, options_from_collection_for_select( @category_site, :id, :name),:include_blank=>"Todos" ,:style => "width:160px; margin-left:8px;") %></td>
                 <td width="115"><%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%></td>
               </tr>
             </table>
@@ -37,7 +37,7 @@
 					<td colspan="2" style="padding:15px;">
 						<span style="color:#A4D227;">ECO VITA FARMACIA DE MANIPULAÇÃO LTDA ME</span><br/>
 						<br/>
-						<span style="color:#A4D227;">Horário de funcionamento:</span> De segunda a sexta, das 8h00 às 18 horas e aos sábados, das 8h00 às 12h00 - (11) 4411-6000<br/>
+						<span style="color:#A4D227;">Horário de funcionamento:</span> De segunda a sexta, das 8h00 às 19 horas e aos sábados, das 9h00 às 18h00 - (11) 4411-6000<br/>
 						<br/>
 						<span style="color:#A4D227;">Farmacêutica Responsável:</span> Andrea Alexandre - CRF-SP 26.632<br/>
 						<br/>
