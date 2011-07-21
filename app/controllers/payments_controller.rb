@@ -13,6 +13,21 @@ class PaymentsController < ApplicationController
           order.status = notification.status
           order.shipping = notification.shipping_type
           order.pagseguro_id = notification.transaction_id
+
+          #GRAVA ENDEREÇOS
+          puts notification.buyer[:name]
+          order.zipcode = notification.buyer[:address][:postal_code]
+          order.street = notification.buyer[:address][:street]
+          order.number = notification.buyer[:address][:number]
+          order.complement = notification.buyer[:address][:complements]
+          order.neighbourood = notification.buyer[:address][:neighbourhood]
+          order.city = notification.buyer[:address][:city]
+          order.state = notification.buyer[:address][:state]
+          order.area_code = notification.buyer[:phone][:area_code]
+          order.phone = notification.buyer[:phone][:number]
+          
+          
+          
           order.save
           
           if order.status.to_s.include? 'completed'

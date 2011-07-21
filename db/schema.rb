@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712135848) do
+ActiveRecord::Schema.define(:version => 20110721151901) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -105,6 +105,16 @@ ActiveRecord::Schema.define(:version => 20110712135848) do
     t.string   "rastreamento"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "zipcode"
+    t.string   "street"
+    t.string   "number"
+    t.string   "complement"
+    t.string   "neighbourood"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "area_code"
+    t.string   "phone"
   end
 
   create_table "pages", :force => true do |t|
