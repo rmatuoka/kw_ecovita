@@ -3,7 +3,7 @@
 <!-- saved from url=(0014)about:internet -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><%= @order.user.nome %> - Novo pedido através do site!</title>
+<title><%= @order.user.nome %> - Pedido concluído!</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">td img {display: block;}</style>
 <!--Fireworks CS5 Dreamweaver CS5 target.  Created Mon Jun 20 14:43:47 GMT-0300 (Hora oficial do Brasil) 2011-->
@@ -14,7 +14,7 @@
    <td><img name="modelo_padrao_email_r1_c1" src="http://www.farmaciaecovita.com.br/images/email/modelo_padrao_email_r1_c1.jpg" width="600" height="196" border="0" id="modelo_padrao_email_r1_c1" alt="" /></td>
   </tr>
   <tr>
-   <td style="border-bottom:1px solid #9EBF09; font-size:18px; color:#9EBF09; font-weight:bold; padding:5px; text-transform:uppercase">Novo pedido através do site!</td>
+   <td style="border-bottom:1px solid #9EBF09; font-size:18px; color:#9EBF09; font-weight:bold; padding:5px; text-transform:uppercase">Pedido concluído!</td>
   </tr>
   <tr>
     <td width="600" style="text-align:justify; padding:10px; font-size:12px;">
@@ -24,7 +24,7 @@
 		Olá ADM.
 		<br />
 		<br />
-		Um novo pedido foi feito através do site.
+		O pedido foi concluído.
 		<br />
 		<br />		
 		<b>NOME:</b> <%= @order.user.nome %> <%= @order.user.sobrenome %>
@@ -40,6 +40,18 @@
 		<b>STATUS DO PAGAMENTO:</b> <%= @order.status%>
 		<br />
 		<b>ID PAGSEGURO:</b> <%= @order.pagseguro_id%>
+		<br />
+		<br />
+		<b>ENDEREÇO:</b> <%= @order.street%>, <%= @order.number%> <%= " - " + @order.complement if !@order.complement.blank?%>
+		<br />
+		<b>BAIRRO:</b> <%= @order.neighbourood %>
+		<br />		
+		<b>CIDADE:</b> <%= @order.city%>-<%= @order.state%>
+		<br />
+		<b>CEP:</b> <%= @order.zipcode%>
+		<br />
+		<br />		
+		<b>TIPO DE ENVIO:</b> <%= @order.shipping%>
 		<br />
 		<br />
 		Pedido:

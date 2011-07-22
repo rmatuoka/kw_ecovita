@@ -16,6 +16,8 @@ class CarrinhosController < ApplicationController
           @total_final = @cart.total_price
         end
       end
+    else
+      @total_final = @cart.total_price
     end
   end
   

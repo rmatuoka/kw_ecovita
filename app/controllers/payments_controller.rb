@@ -35,9 +35,11 @@ class PaymentsController < ApplicationController
           
           if order.status.to_s.include? 'completed' or order.status.to_s.include? 'approved'
             UserMailer.payment_made(order).deliver
+            UserMailer.order_completed(order).deliver
           else
             if $first
               UserMailer.transaction_initiated(order).deliver
+              UserMailer.order_start(order).deliver
             end
           end
           

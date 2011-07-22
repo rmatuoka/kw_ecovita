@@ -1,4 +1,4 @@
-Novo pedido através do site!
+Pagamento concluído!
 
 
 
@@ -6,7 +6,7 @@ Novo pedido através do site!
 
 Olá ADM.
 
-Um novo pedido foi feito através do site.
+O pedido foi concluído.
 
 NOME: <%= @order.user.nome %> <%= @order.user.sobrenome %>
 
@@ -22,6 +22,14 @@ STATUS DO PAGAMENTO: <%= @order.status%>
 
 ID PAGSEGURO: <%= @order.pagseguro_id%>
 
+
+
+ENDEREÇO: <%= @order.street%>, <%= @order.number%> <%= " - " + @order.complement if !@order.complement.blank?%>
+BAIRRO: <%= @order.neighbourood %>		
+CIDADE: <%= @order.city%>-<%= @order.state%>
+CEP: <%= @order.zipcode%>
+
+TIPO DE ENVIO: <%= @order.shipping%>
 
 Pedido:
 

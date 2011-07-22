@@ -140,6 +140,49 @@
   item_descr_2: "Maxvegg Skin 60 C\xC3\xA1psulas"
   item_id_4: "12"
   cliente_nome: Zaba
+"16": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  item_descr_3: "Lingonmax 60 C\xC3\xA1psulas"
+  encoding: UTF-8
+  ref_transacao: "16"
+  item_valor_1: "10200"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "18200"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  item_valor_3: "10600"
+  item_quant_3: "1"
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "13"
+  item_peso_2: "250"
+  item_id_2: "103"
+  item_peso_3: "250"
+  item_descr_1: "Exsynutriment 60 C\xC3\xA1psulas"
+  item_id_3: "47"
+  item_descr_2: "Bio-Arct 120 C\xC3\xA1psulas"
+  cliente_nome: Zaba
+"17": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "17"
+  item_valor_1: "10600"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "9000"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "47"
+  item_peso_2: "250"
+  item_id_2: "12"
+  item_descr_1: "Lingonmax 60 C\xC3\xA1psulas"
+  item_descr_2: "Bio-Arct  60 C\xC3\xA1psulas"
+  cliente_nome: Zaba
 "10": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
