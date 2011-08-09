@@ -54,4 +54,5 @@ class SearchController < ApplicationController
       flash[:error] = "Os dados enviados para consulta são invalidos!"
     end
   end
+  
 end
