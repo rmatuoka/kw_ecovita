@@ -35,14 +35,14 @@ class UserMailer < ActionMailer::Base
   def order_start(order)
     @order = order
     @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
-    mail(:to => "bsilva@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
+    mail(:to=>"vendas@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
   end
   
   #Enviado quando o pagamento for concluido!
   def order_completed(order)
     @order = order
     @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
-    mail(:to => "bsilva@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
+    mail(:to=>"vendas@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
   end
   
 end
