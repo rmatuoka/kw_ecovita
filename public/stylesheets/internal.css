@@ -111,6 +111,16 @@ body
 					text-align:left;
 					
 				}
+				.Text_name
+				{
+					position:relative;
+					font-family:Verdana, Geneva, sans-serif;
+					font-size:12px;
+					color:#666666;
+					font-weight:normal;
+					vertical-align:middle;		
+				}					
+			
 								.img_userbar
 								{
 									margin-right:20px;
@@ -395,8 +405,10 @@ body
 						text-align:center;
 						width:118px;
 						height:38px;
-						left:120px;
-						top:-313px;
+						left:180px;
+						*left:130px;
+						top:-315px;
+						z-index:20000;
 					}																															
 						.Product_on
 						{

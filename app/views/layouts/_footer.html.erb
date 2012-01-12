@@ -7,7 +7,7 @@
                 <td colspan="3"><a href="#"><img src="/images/tit_backtop.png" width="116" height="8" style="text-align:right; float:right; margin-right:20px;" /></a></td>
               </tr>
               <tr>
-                <td width="690" height="40"><div id="Search_for_big" ><%=text_field_tag :keyword, 'Buscar por...',:onblur=>"if(this.value == '') this.value='Buscar por...';", :onfocus=>"if(this.value=='Buscar por...') this.value='';"%></div></td>
+                <td width="690" height="40"><div id="Search_for_big" ><%=text_field_tag :keyword, 'Digite o nome do produto.',:onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%></div></td>
                 <td width="151"><%= select_tag(:category, options_from_collection_for_select( @category_site, :id, :name),:include_blank=>"Todos" ,:style => "width:160px; margin-left:8px;") %></td>
                 <td width="115"><%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%></td>
               </tr>
@@ -24,7 +24,7 @@
 
    	</div>
     <img src="/images/img_cards.png" width="941" height="37" />
-    </div>
+</div>
         <div id="Footer">
         	<table width="970" border="0" style="text-align:center; margin:auto;">
               <tr>

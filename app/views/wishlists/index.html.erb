@@ -56,7 +56,7 @@
 
 								<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=w.product.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>            
 								
-								<%=link_to image_tag("bt_remove_list.png"), remove_from_wishlist_produto_path(w.product), :class => "Bt_close"%>
+								<div class="Bt_close"><%=link_to image_tag("bt_remove_list.png"), remove_from_wishlist_produto_path(w.product)%></div>
 	                  </div>
 	              </div>
 				<%end%>
