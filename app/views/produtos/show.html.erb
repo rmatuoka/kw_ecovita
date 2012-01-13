@@ -271,8 +271,8 @@
 		<div id="Item_coment">
             <strong>
                 De:
-                <strong><%=comment.name%></strong>
-                 - <%=comment.created_at%>
+                <%=comment.name%>
+                 em <%= comment.created_at.strftime("%d/%m/%Y") %>
             </strong>
             <p><%=comment.comment%></p>
         </div> 
@@ -281,8 +281,6 @@
 		<%if current_user%> 
           <div id="Form_Comments" style="display:none;">	
 				<%=form_for @produto.product_comments.build do |f|%>
-					Seu nome: &nbsp;   <%=f.text_field :name, :class => "required form"%><br>
-					Seu e-mail: &nbsp;<%=f.text_field :email, :class => "required form"%><br>
 					Comentário: <%=f.text_area :comment, :class => "required form", :style => "height:100px;"%><br>
 					<%=f.hidden_field :product_id, :value => @produto.id%>
 					<%=f.hidden_field :user_id, :value => current_user.id%>

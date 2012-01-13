@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart = session[:cart] ||= Cart.new
     #carrega_tagcloud
-    @tagcloud = Keyword.tag_counts_on(:tags)
+    @tagcloud = Keyword.tag_counts_on(:tags, :at_least => 200, :limit => 50)
   end
   
   def logado

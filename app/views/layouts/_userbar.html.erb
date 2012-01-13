@@ -21,6 +21,7 @@
 											<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
 										<%end%>
 											<li>Total : <%=number_to_currency(@cart.total_price)%></li>
+											<li><%=link_to("Finalizar Compra",carrinhos_path)%></li>
 									<%else%>
 											<li>Não há itens no carrinho.</li>
 									<%end%>

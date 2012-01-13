@@ -48,7 +48,7 @@
 						
 							<br />
 	                  </div>
-	                  <h5>+ <%=w.product.subcategory.category.name%></h5>
+	                  <h5><%=link_to("+ "+w.product.subcategory.category.name ,categoria_path(w.product.subcategory.category_id))%></h5>
 	                  <div class="Buttons">
 							<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(w.product)%><br/>
 
