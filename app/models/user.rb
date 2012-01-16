@@ -4,6 +4,18 @@ class User < ActiveRecord::Base
   
   acts_as_authentic
   acts_as_authorization_subject
+  
+  validates_uniqueness_of :email  
+  validates_presence_of :nome
+  validates_presence_of :phone
+  validates_presence_of :address
+  validates_presence_of :quarter
+  validates_presence_of :cep
+  validates_presence_of :sexo
+  validates_presence_of :city  
+
+  
+  
 #  attr_accessible :nome, :sobrenome, :email, :crypted_password, :password_salt, :persistence_token, :sexo, :nascimento, :cpf, :rg
   attr_writer :role
     after_save :define_role

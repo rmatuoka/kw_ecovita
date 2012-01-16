@@ -38,7 +38,20 @@ input
 label
 {
 }
-
+.error_messages
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:red;
+	font-weight:bold;
+}
+.error_messages li
+{
+	list-style:none;
+}
+.field_with_errors{
+	width:260px;
+}
 </style>
 </head>
 
@@ -48,10 +61,16 @@ label
         <br />
         <img src="/images/user_bars/img_myacount.png" width="25" height="17" style="float:left; margin-left:20px; margin-top:10px;" /><label class="Text_tile" style="float:left; margin-left:10px; margin-top:10px;">Minha Conta <b class="Sub_t">: Login</b></label>
         <img src="/images/img_login_line.png" width="440" height="2" />
-        <br /><br />
-		<%= f.error_messages %>
-        <label class="Text_tile">E-mail  <%= f.text_field :email %></label><br /><br />
-        <label class="Text_tile"> &nbsp; Senha  <%= f.password_field :password %></label><br /><br />
+        <br />
+		<%= f.error_messages :header_message => "",
+		  :message => "",
+		  :header_tag => "" %>
+		<%= f.label :email, "E-mail", :class=>"Text_tile" %>
+        <%= f.text_field :email %>
+		<br /><br />
+		<%= f.label :password, raw("&nbsp; Senha"), :class=>"Text_tile" %>
+        <%= f.password_field :password %>
+		<br />
         <%=image_submit_tag "bt_entrar.png", :style => "margin-top:10px; border:none;"%><br>
 		<br>
 		<a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location ='/users/new'">Não é cadastrado? clique aqui.</a>

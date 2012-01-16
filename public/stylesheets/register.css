@@ -117,5 +117,14 @@
 		font-weight:normal;
 		text-align:left;
 		
+	}
+	.error_messages
+	{
+		margin-bottom:30px;
+		font:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:normal;
+		color:red;
+		
 	}	
 	

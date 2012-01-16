@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to admin_users_path, :notice => "Usuário Cadastrado com Sucesso!"
+      redirect_to accounts_path, :notice => "Usuário Cadastrado com Sucesso!"
     else
       render :action => 'new'
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to admin_users_path, :notice  => "Dados do usuário alterados!"
+      redirect_to accounts_path, :notice  => "Dados do usuário alterados!"
     else
       render :action => 'edit'
     end
