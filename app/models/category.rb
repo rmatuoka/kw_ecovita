@@ -6,4 +6,8 @@ class Category < ActiveRecord::Base
   def self.menu  
     Category.all
   end 
+  
+  def url_slug()
+    "#{id}-#{name.parameterize}"
+  end  
 end

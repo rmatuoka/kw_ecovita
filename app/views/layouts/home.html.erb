@@ -135,7 +135,7 @@ $(document).ready(function() {
 	                    <div id="Menu1">
 	                      <ul>
 							<%@category_site.each do |category|%>
-							  <li><%=image_tag("menu/img_arrow_leftside.png")%> <%=link_to category.name, categoria_path(category)%></li>
+							  <li><%=image_tag("menu/img_arrow_leftside.png")%> <%=link_to category.name, categoria_path(category.url_slug)%></li>
 							<%end%>
 	                      </ul>
 	                    </div>
@@ -168,12 +168,14 @@ $(document).ready(function() {
 				<div id="Product" class="p">
 					<div id="Name"><%=produto.name%></div>
                     <div id="Photo">
-						<%=link_to(image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto)) if !produto.product_images.first.blank? %>
-
-						<%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto)) if produto.product_images.first.blank? %>
+						<%=link_to (image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+						
+						<%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
 					</div>
                     <div id="Values">
-                        <h3><%=truncate(produto.summary, :length => 55)%></h3><br />
+                        <h3>
+							<%=truncate(produto.summary, :length => 55)%>
+						</h3><br />
                         <%if produto.discount.blank?%>
 							<h4 class="Price_of">
 							<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
@@ -187,7 +189,7 @@ $(document).ready(function() {
 						
 						<br />
                     </div>
-                    <h5><%=link_to("+ "+produto.subcategory.category.name,categoria_path(produto.subcategory.category_id))%></h5>
+                    <h5><%=link_to("+ "+produto.subcategory.category.name,categoria_path(produto.subcategory.category.url_slug))%></h5>
                     <div class="Buttons">
 						<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(produto)%>
 						<!-- <a href="#"><img src="images/bt_addtocart.png" width="154" height="31" /></a>--><br/>
@@ -205,7 +207,7 @@ $(document).ready(function() {
             </div>
 			<!-- BANNERS LATERAIS -->
 			<%@banners_laterais.each do |banner|%>
-				<div id="Right_up"><%=link_to image_tag(banner.image.url()), banner_path(banner)%></div>
+				<div id="Right_up"><%=link_to image_tag(banner.image.url()), banner_path(banner.url_slug)%></div>
 			<%end%>
 			
 			<!-- 

@@ -7,4 +7,8 @@ class Banner < ActiveRecord::Base
   #,
   #    :url => "/uploads/:attachment/:id/:basename_:style.:extension",
   #    :path => ":rails_root/public/uploads/:attachment/:id/:basename_:style.:extension"
+  
+  def url_slug()
+    "#{id}-#{name.parameterize}"
+  end
 end

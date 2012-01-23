@@ -4,7 +4,7 @@
 
 <div id="Content_products">
 <div id="Products">
-            <p class="Bread_crumb"><%=link_to "home", home_path%> / <%=link_to @subcategory.category.name, categoria_path(@subcategory.category)%></p>
+            <p class="Bread_crumb"><%=link_to "home", home_index_path%> / <%=link_to @subcategory.category.name, categoria_path(@subcategory.category.url_slug)%> / <%=link_to @subcategory.name, subcategoria_path(@subcategory.url_slug)%></p>
             <h1 style=" vertical-align:middle; text-align:left;"><%=@subcategory.category.name%> : <%=@subcategory.name%></h1>
             <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
             <div id=""><!-- <img src="/images/img_product_destaque.jpg" width="700" height="181" /> --></div>
@@ -29,9 +29,9 @@
 				<div id="Product" class="p">
                   	<div id="Name"><%=produto.name%></div>
 					<div id="Photo">
-						<%=link_to(image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto)) if !produto.product_images.first.blank? %>
+						<%=link_to(image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
 
-						<%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto)) if produto.product_images.first.blank? %>
+						<%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
 					</div>
                   <div id="Values">
                       	<h3><%=truncate(produto.summary, :length => 55)%></h3><br />
@@ -48,7 +48,7 @@
 						
 						<br />
                   </div>
-                  <h5><%=link_to "+ "+produto.subcategory.category.name,categoria_path(produto.subcategory.category_id)%></h5>
+                  <h5><%=link_to "+ "+produto.subcategory.category.name,categoria_path(produto.subcategory.category.url_slug)%></h5>
                   <div class="Buttons">
 						<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(produto)%><br/>
 

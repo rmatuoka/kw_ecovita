@@ -39,4 +39,9 @@ class Product < ActiveRecord::Base
     Product.all(:order => "name ASC")
   end
   
+  def url_slug()
+    "#{id}-#{name.parameterize}"
+  end
+  
+  
 end
