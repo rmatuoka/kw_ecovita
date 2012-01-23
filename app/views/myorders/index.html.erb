@@ -8,84 +8,96 @@
 	
 	<script>
 	$(document).ready(function() {
-		$("#Cart_content").hide();
-		$("#Cart_item").click(function(){
-			if($("#Cart_item").hasClass("Item_gray"))
-			{
-			  $("#Cart_content").slideDown('fast');
-			  $("#Cart_item").removeClass("Item_gray");
-			  $("#Cart_item").addClass("Item_orange");	  
-			}
-			else 
-			{
-				$("#Cart_content").slideUp('fast');
-				$("#Cart_item").removeClass("Item_orange");
-				$("#Cart_item").addClass("Item_gray");					
-			}
-		});
+		$(".Cart_content").hide();
 	});
+	
+	function showclosed($idorder)
+	{
+		if($("#Cart_item_"+$idorder).hasClass("Item_gray"))
+		{
+		  $("#Cart_content_"+$idorder).slideDown('fast');
+		  $("#Cart_item_"+$idorder).removeClass("Item_gray");
+		  $("#Cart_item_"+$idorder).addClass("Item_orange");	  
+		}
+		else 
+		{
+			$("#Cart_content_"+$idorder).slideUp('fast');
+			$("#Cart_item_"+$idorder).removeClass("Item_orange");
+			$("#Cart_item_"+$idorder).addClass("Item_gray");					
+		}
+	}
 	</script>
 <%end%>
 
 <div id="Content_products">
 
-    <div id="Products">
-    	<p class="Bread_crumb"><%=link_to "home", root_path%> / <%=link_to "minha conta", accounts_path%></p> 
-        <h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>
-        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
+	<div id="Products">
+		<p class="Bread_crumb"><%=link_to "home", home_index_path%> / <%=link_to "minha conta", accounts_path%></p> 
+		<h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>
+		<img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
 		<%@myorders.each do |order|%>
 		<!-- item-start --> 		
 		<div id="Cart">        
-            <div id="Cart_item" class="Item_gray">
-                <table width="700" border="0">
-                  <tr>
-                    <td width="269" height="26" class="Tit_text"><h2 class="Table_tit">Pedido N°: <%=order.id%></h2></td>
-                    <td width="86" class="Tit_text"><h2 class="Table_tit" >&nbsp;</h2></td>
-                    <td width="331" class="Tit_text"><span class="Table_status">Status:<%=traduz_tipo_do_pagamento(order.payment_type)%></span><div id="Status"><%=traduz_status_do_pedido(order.status)%></div></td>
-                  </tr>                 
-                </table>
-            </div>        
-        	<div id="Cart_content" class="closed">
-                <div class="Title_info">            
-                    <table width="685" height="26">
-                      <tr>
-                        <td width="282" class="Tit_text"><h2 class="Table_tit3">Data do Pedido: <%=order.created_at%></h2></td>
-                        <td width="103" class="Tit_text"><h2 class="Table_tit3"></h2></td>
-                        <td width="284" class="Tit_text Cel_Cust"><h2 class="Table_tit3"><!-- Data do Entrega: 00/00/0000 - 00:00 --></h2></td>
-                      </tr>             
-                    </table>
-                </div>
-                <div class="Title_table2">
-                <table width="685">
-                      <tr>
-                        <td width="69">&nbsp;</td>
-                        <td width="120">Produto</td>
-                        <td width="152">Valor Un.</td>
-                        <td width="125">Qntd.</td>
-                        <!--<td width="195">Presente</td> -->
-                      </tr>
-                    </table>
-                </div>            
-                <!-- PRODUTOS -->
+			<div id="Cart_item_<%= order.id %>" class="Item_gray Cart_item" onclick="showclosed(<%= order.id %>)">
+				<table width="700" border="0">
+					<tr>
+						<td width="270" height="26" class="Tit_text">
+							<h2 class="Table_tit">Pedido N°: <%=order.id%></h2>
+						</td>
+						<td width="30" class="Tit_text"><h2 class="Table_tit" >
+							&nbsp;</h2>
+						</td>
+						<td width="400" class="Tit_text">
+							<span class="Table_status">Status:<%=traduz_tipo_do_pagamento(order.payment_type)%></span>
+							<div id="Status"><%=traduz_status_do_pedido(order.status)%></div>
+						</td>
+					</tr>                 
+				</table>
+			</div>        
+			<div id="Cart_content_<%= order.id %>" class="closed Cart_content">
+				<div class="Title_info">            
+					<table width="685" height="26">
+						<tr>
+							<td width="282" class="Tit_text">
+								<h2 class="Table_tit3">Data do Pedido: <%= I18n.localize(order.created_at, :format => "%d/%m/%Y")%></h2>
+							</td>
+							<td width="103" class="Tit_text">
+								<h2 class="Table_tit3"></h2>
+							</td>
+							<td width="284" class="Tit_text Cel_Cust">
+								<h2 class="Table_tit3"><!-- Data do Entrega: 00/00/0000 - 00:00 --></h2>
+							</td>
+						</tr>             
+					</table>
+				</div>
+				<div class="Title_table2">
+					<table width="685">
+						<tr>
+							<td width="69">&nbsp;</td>
+							<td width="120">Produto</td>
+							<td width="152">Valor Un.</td>
+							<td width="125">Qntd.</td>
+							<!--<td width="195">Presente</td> -->
+						</tr>
+					</table>
+				</div>            
+				<!-- PRODUTOS -->
 				<%order.order_products.each do |produto|%>
 				<div class="Content_table">
-                    <table width="685">
-                       <tr class="Bg_table_line">
-                        <td width="76" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
-                        <td width="111"><%=produto.product.name%></td>
-                        <td width="139"><b><%=number_to_currency(produto.price)%></b></td>
-                        <td width="116"><%=produto.amount%></td>
-                        <!-- <td width="168">Sim</td> -->
-                      </tr>
-                    </table>
-                </div>
+					<table width="685">
+						<tr class="Bg_table_line">
+							<td width="76" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
+							<td width="111"><%=produto.product.name%></td>
+							<td width="139"><b><%=number_to_currency(produto.price)%></b></td>
+							<td width="116"><%=produto.amount%></td>
+							<!-- <td width="168">Sim</td> -->
+						</tr>
+					</table>
+				</div>
 				<%end%>
-
-            </div>
+			</div>
 		</div>  
-    </div>
-  
-  
- <%end%>                                                        
+		<%end%> 
+	</div>                                                    
 <!--item-end-->
- </div>
+

@@ -6,7 +6,7 @@
 	height:auto;
 	margin:auto;	
 }
-#General #Content #Content_products #Products #Cart_content
+#General #Content #Content_products #Products .Cart_content
 {
 	width:700px;
 	min-height:200px;
@@ -196,7 +196,7 @@
 		color:#666;	
 		padding:3px 3px 3px 3px;
 	}		
-	#General #Content #Content_products #Products #Cart_item
+	#General #Content #Content_products #Products .Cart_item
 	{		
 		display:block;
 		font-family:Verdana, Geneva, sans-serif;

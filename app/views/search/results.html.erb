@@ -35,9 +35,9 @@
 				<% @Results.each do |resultado|%>
 				<div id="Product_search">
 						<div id="Photo">
-							<%=link_to(image_tag(resultado.product_images.first.image.url("thumb")), produto_path(resultado)) if !resultado.product_images.first.blank? %>
+							<%=link_to(image_tag(resultado.product_images.first.image.url("thumb")), produto_path(resultado.url_slug)) if !resultado.product_images.first.blank? %>
 
-							<%=link_to(image_tag("missing_thumb.jpg"), produto_path(resultado)) if resultado.product_images.first.blank? %>
+							<%=link_to(image_tag("missing_thumb.jpg"), produto_path(resultado.url_slug)) if resultado.product_images.first.blank? %>
 							<%
 							"Foto"	#image_tag(resultado.product_images.first.image.url,:width=>"74", :height=>"128" )
 							%>
@@ -47,7 +47,7 @@
 								<%= resultado.name%>
 							</p>
 							<p>
-								<%=truncate(resultado.summary, :length => 100)%> <%=link_to image_tag("tit_vejamais.png", :width=>"64", :height=>"11", :alt=>"veja mais", :title=>"veja mais", :style=>"margin-top:4px;"), produto_path(resultado)%>
+								<%=truncate(resultado.summary, :length => 100)%> <%=link_to image_tag("tit_vejamais.png", :width=>"64", :height=>"11", :alt=>"veja mais", :title=>"veja mais", :style=>"margin-top:4px;"), produto_path(resultado.url_slug)%>
 							</p>
 						</div>
 	            		<div id="Field_buttons">
