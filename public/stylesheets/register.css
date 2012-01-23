@@ -4,7 +4,7 @@
 
 #Text_form 
 {
-	min-height:200px;
+	min-height:100px;
 	height:auto;
 	width:700px;
 	text-align:left;
@@ -17,32 +17,29 @@
 
 #Form
 {
+	position:relative;
 	height:auto;
-	width:auto;	
+	width:420px;
+	float:left;	
+	margin-left:28px;
+	*margin-left:-12px;
 }
-
-
+select{
+}
 
 #General #Form_box
 	{
-		width:340px;
-		height:220px;
+		width:420px;
+		height:340px;
 		text-align:right;
 		float:left;
 	}
-	#General #Form_box2
-		{
-			width:340px;
-			height:220px;
-			text-align:right;
-			float:left;
-			
-		}	
+	
 	.Item_form
 	{
 		background-image:url(../images/bg_input_form.jpg);
 		background-repeat:repeat;
-		width:135px;
+		width:300px;
 		font-size:12px;
 		border:#666666 1px solid;		
 	}
@@ -81,14 +78,14 @@
 	}	
 .Box_password
 {
+	position:relative;
 	float:left;
 	width:700px;
 	height:50px;
 	background-image:url(../images/menu/bg_item_coment.png);
 	background-repeat:repeat;
 	margin-top:20px;
-	margin-bottom:20px;
-	position:relative;
+	margin-bottom:20px;	
 }
 	#General #Content #Content_products #Products #Warning
 	{
@@ -127,4 +124,37 @@
 		color:red;
 		
 	}	
-	
+	.Bt_finalizar_cadastro
+	{
+		position:relative;
+		float:right;
+
+	}
+	.Bt_limpar_cadastro
+	{
+		background-color:transparent;
+		background-image:url('/images/bt_limpar_cadastro.png');
+		border:none;
+		width:212px;
+		height:32px;
+		cursor:pointer;		
+		position:relative;
+		float:left;
+
+	}	
+	.Item_form_3
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;
+		width:110px;
+		font-size:12px;
+		border:#666666 1px solid;		
+	}	
+	.Item_form_2
+	{
+		background-image:url(../images/bg_input_form.jpg);
+		background-repeat:repeat;
+		width:135px;
+		font-size:12px;
+		border:#666666 1px solid;		
+	}

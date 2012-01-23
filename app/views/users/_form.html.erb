@@ -8,18 +8,37 @@
 			<%= f.label :nome, "Nome completo:" %>
             <%=f.text_field :nome, :class => "Item_form"%>
             <br /><br />
+			<%= f.label :sexo, "Sexo:"%>
+			<%= f.radio_button :sexo, :masculino %>
+				<b style="font-weight:normal; font-size:12px; color:#000;"> Masculino</b> 
+				<%= f.radio_button :sexo, :feminino %>
+				<b style="font-weight:normal; font-size:12px; color:#000;"> Feminino</b>
+	        <br /><br />
 			<%= f.label :nascimento, "Data de Nascimento:" %>
             <%= f.date_select :nascimento, :start_year => 1920%>
             <br /><br />
+			<%= f.label :email, "Email:"%>
+	        <%=f.text_field :email, :class => "Item_form"%>
+	        <br /><br /> 
 			<%= f.label :phone, "Telefone:" %>
             <%=f.text_field :phone, :class => "Item_form" %>
             <br /><br />
+			<%= f.label :cellphone, "Celular:"%>
+			<%=f.text_field :cellphone, :class => "Item_form"%>
+			<br /><br /> 			
 			<%= f.label :address, "Endereço:" %>
             <%=f.text_field :address, :class => "Item_form"%>
             <br /><br />
 			<%= f.label :quarter, "Bairro:" %>
             <%=f.text_field :quarter, :class => "Item_form"%>
             <br /><br />
+			<%= f.label :number, "Nº:"%>
+	        <%=f.text_field :number, :class => "N"%>&nbsp;
+			<%= f.label :complement, "Complemento:"%>
+			<%=f.text_field :complement, :class => "N"%>
+	       	<br /><br /> 
+			<%= f.label :city, "Cidade:"%>
+	        <%=f.text_field :city, :class => "Item_form_3"%> 
 			<%= f.label :state, "Uf:", :style=>" vertical-align:middle;" %>
 			<%= f.select :state, ([["AC", "AC"], ["AL","AL"], ["AP", "AP"],
 			["AM", "AM"], ["BA", "BA"], ["CE", "CE"],
@@ -30,43 +49,25 @@
 			["RJ", "RJ"], ["RN", "RN"], ["RS", "RS"],
 			["RO", "RO"], ["RR", "RR"], ["SC", "SC"],
 			["SP", "SP"], ["SE", "SE"], ["TO", "TO"]]) %>
+			<br /><br />
 			<%= f.label :cep, "Cep:"%>
         	<%=f.text_field :cep, :class => "Item_form"%>
+			
         </div> 
-		<div id="Form_box2">
-			<%= f.label :sexo, "Sexo:"%>
-			<%= f.radio_button :sexo, :masculino %>
-				<b style="font-weight:normal; font-size:12px; color:#000;"> Masculino</b> 
-				<%= f.radio_button :sexo, :feminino %>
-				<b style="font-weight:normal; font-size:12px; color:#000;"> Feminino</b>
-	        <br /><br />
-			<%= f.label :email, "Email:"%>
-	        <%=f.text_field :email, :class => "Item_form"%>
-	        <br /><br /> 
-			<%= f.label :cellphone, "Celular:"%>
-			<%=f.text_field :cellphone, :class => "Item_form"%>
-			<br /><br /> 
-			<%= f.label :number, "Nº:"%>
-	        <%=f.text_field :number, :class => "N"%>&nbsp;
-			<%= f.label :complement, "Complemento:"%>
-			<%=f.text_field :complement, :class => "N"%>
-	       	<br /><br /> 
-			<%= f.label :city, "Cidade:"%>
-	        <%=f.text_field :city, :class => "Item_form"%>  	
-   		</div> 
  </div>
  <div class="Box_password">
-	<div style="position:absolute;  width: 340px; top: 18px;left:70px;">
+	<div style="position:relative;  width: 240px; top: 18px;left:70px; *left:-200px;">
 		<%= f.label :password, "Senha:" %>
-		<%=f.password_field :password, :class => "Item_form"%>
+		<%=f.password_field :password, :class => "Item_form_2"%>
 	</div>
-	<div style="position:absolute;  width: 340px; top:18px; left:390px;">
+	<div style="position:relative;  width: 240px; top:2px; left:390px;*left:170px;">
 		<%= f.label :password_confirmation, "Repita Senha:" %>
-	 	<%=f.password_field :password_confirmation, :class => "Item_form"%>
+	 	<%=f.password_field :password_confirmation, :class => "Item_form_2"%>
 	</div>
  </div>
-<%=image_submit_tag "bt_finalizar_cadastro.png", :stlyle => "margin-left:60px; float:right;"%>
-<input type="reset" value="" style="background-color:transparent; background-image:url('/images/bt_limpar_cadastro.png'); border:none; width:212px; height:32px;text-align:right; margin-left:220px; float:left; cursor:pointer;">
+ <div class="clear"></div>
+<%=image_submit_tag "bt_finalizar_cadastro.png", :class=>"Bt_finalizar_cadastro"%>
+<input type="reset" value="" class="Bt_limpar_cadastro" >
 
 
 <%end%>
