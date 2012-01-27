@@ -94,7 +94,7 @@
         	<div id="Info_photo">
 				<%if !@produto.product_images.first.blank?%>
 					<%@produto.product_images.all.each do |img|%>
-						<%=image_tag(img.image.url("medium"))%>
+						<%=image_tag(img.image.url("medium"), :width => "280")%>
 					<%end%>
 				<%end%>
 				<%#= image_tag(@produto.product_images.first.image.url()) if !@produto.product_images.first.blank? %>
