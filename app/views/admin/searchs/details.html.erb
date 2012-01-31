@@ -36,8 +36,8 @@
 		<tr>
 			<td align="center"><%= item.product.name %></td>
 			<td align="center"><%= item.amount %></td>
-			<td align="center"><%= number_to_currency(item.price) %></td>
-			<td align="center"><%=number_to_currency($total_parcial = (item.price * item.amount))%></td>
+			<td align="center"><%= number_to_currency(item.price / item.amount) %></td>
+			<td align="center"><%=number_to_currency($total_parcial = (item.price))%></td>
 		</tr>
 	<% $totalgeral += $total_parcial %>
 	<%end%>
