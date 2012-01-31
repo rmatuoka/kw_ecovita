@@ -21,7 +21,7 @@ Quantidade	Produto				Valor Unitário	Sub Total
 	$valor_total = 0
 	@order_itens.each do |item|
 %>
-<%= item.amount %>	<%= item.product.name %>				<%= number_to_currency(item.price) %>	<%= number_to_currency($subtotal = (item.amount * item.price)) %>
+<%= item.amount %>	<%= item.product.name %>				<%= number_to_currency(item.price / item.amount) %>	<%= number_to_currency($subtotal = (item.price)) %>
 
 <%
 	$valor_total += $subtotal
