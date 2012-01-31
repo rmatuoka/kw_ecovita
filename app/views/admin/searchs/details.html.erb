@@ -10,7 +10,7 @@
 	<label>Bairro: </label><strong class="f_dados"><%= @Results.neighbourood %></strong><br />		
 	<label>Cidade: </label><strong class="f_dados"><%= @Results.city%>-<%= @Results.state%></strong><br />
 	<label>CEP: </label><strong class="f_dados"><%= @Results.zipcode%></strong><br />		
-	<label>Telefone: </label><strong class="f_dados"><%= @Results.area_code%><%= @Results.phone%></strong><br />				
+	<label>Telefone: </label><strong class="f_dados"><%= @Results.user.phone%> / <%= @Results.user.cellphone%></strong><br />				
 	<br />
 	<br />
 	<label>Status: </label><strong class="f_dados"><%= traduz_status_do_pedido(@Results.status)%></strong><br />
