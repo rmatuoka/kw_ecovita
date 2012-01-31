@@ -110,6 +110,16 @@ Termina aqui Estava adaptando/
     end
   end
   
+  def details
+    if !params[:keyword].blank?
+      @Results = Order.find(params[:keyword])
+      
+      if !@Results.blank?
+        @Results_itens = @Results.order_products
+      end
+    end
+  end
+  
   def resend
     if !params[:cod].blank?
       $Order = Order.all(:conditions=>['id = ? and ((status = "completed") or (status = "approved"))',params[:cod]])

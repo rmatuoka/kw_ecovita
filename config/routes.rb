@@ -27,7 +27,8 @@ KwEcovita::Application.routes.draw do |map|
     resources :searchs  do
       collection do
         get 'results'
-        get 'resend'  
+        get 'resend' 
+        get 'details'  
       end
     end
     

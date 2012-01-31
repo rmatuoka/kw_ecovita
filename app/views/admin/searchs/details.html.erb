@@ -1,0 +1,52 @@
+<%if !@Results.blank?%>
+	<h2>Busca por: <%=params[:keyword]%></h2>
+	<br />
+	<br />
+	<label>Nome: </label><strong class="f_dados"><%= @Results.user.nome%> <%= @Results.user.sobrenome%></strong><br />
+	<label>E-mail: </label><strong class="f_dados"><%= @Results.user.email%></strong><br />
+	<label>CPF: </label><strong class="f_dados"><%= @Results.user.cpf%></strong><br />
+	<label>RG: </label><strong class="f_dados"><%= @Results.user.rg%></strong><br />	
+	<label>Endereço: </label><strong class="f_dados"><%= @Results.street%>, <%= @Results.number%> <%= " - " + @Results.complement if !@Results.complement.blank?%> </strong><br />
+	<label>Bairro: </label><strong class="f_dados"><%= @Results.neighbourood %></strong><br />		
+	<label>Cidade: </label><strong class="f_dados"><%= @Results.city%>-<%= @Results.state%></strong><br />
+	<label>CEP: </label><strong class="f_dados"><%= @Results.zipcode%></strong><br />		
+	<label>Telefone: </label><strong class="f_dados"><%= @Results.area_code%><%= @Results.phone%></strong><br />				
+	<br />
+	<br />
+	<label>Status: </label><strong class="f_dados"><%= traduz_status_do_pedido(@Results.status)%></strong><br />
+	<label>Tipo de Pagameto: </label><strong class="f_dados"><%= traduz_tipo_do_pagamento(@Results.payment_type)%></strong><br />
+	<label>Tipo de Envio: </label><strong class="f_dados"><%= @Results.shipping%></strong><br />
+	<label>Código Rastreamento: </label><strong class="f_dados"><%= @Results.rastreamento%></strong> <br />
+	<br />
+
+	<br />
+	<br />	
+	<table border="1" align="center">
+		<tr>
+		    <th width="300px">Produto</th>
+		    <th width="120px">Quantidade</th>
+		    <th width="200px">Unitário</th>
+		    <th width="250px">Total</th>
+	  </tr>
+	<%
+		$totalgeral = 0
+		$total_parcial = 0
+	%>
+	<% @Results_itens.each do |item| %>
+		<tr>
+			<td align="center"><%= item.product.name %></td>
+			<td align="center"><%= item.amount %></td>
+			<td align="center"><%= number_to_currency(item.price) %></td>
+			<td align="center"><%=number_to_currency($total_parcial = (item.price * item.amount))%></td>
+		</tr>
+	<% $totalgeral += $total_parcial %>
+	<%end%>
+	</table>
+	<br />
+	<label>Total: </label><strong class="f_dados"><%= number_to_currency($totalgeral)%></strong><br />
+	<br />
+	<%= link_to "Voltar", request.env['HTTP_REFERER'] %>
+<%else%>
+	<h2>Nenhum registro foi localizado!</h2><br/>
+	<%= link_to "Voltar", request.env['HTTP_REFERER'] %>
+<%end%>
