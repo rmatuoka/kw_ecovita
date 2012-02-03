@@ -6,6 +6,7 @@ KwEcovita::Application.routes.draw do |map|
     resources :users
     resources :orders
     resources :order_products
+    resources :product_comments
     resources(:pages){
       resources(:galleries){
         resources :gallery_images

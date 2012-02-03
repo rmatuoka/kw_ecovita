@@ -15,12 +15,8 @@
       <td><%= product_comment.comment %></td>
       <td><%= product_comment.user_id %></td>
       <td><%= product_comment.published %></td>
-      <td><%= link_to "Show", admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product, product_comment) %></td>
-      <td><%= link_to "Edit", edit_admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product, product_comment) %></td>
-      <td><%= link_to "Destroy", admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product, product_comment), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Edit", edit_admin_product_comment_path(product_comment) %></td>
+      <td><%= link_to "Destroy", admin_product_comment_path(product_comment), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Product Comment", new_admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product) %></p>
-

@@ -3,38 +3,25 @@ class Admin::ProductCommentsController < ApplicationController
     allow :admin, :supervisor
   end
   
-  before_filter :load_category
+  #before_filter :load_category
   layout "admin"
   
   def index
-    @product_comments = @product.product_comments.all
+    @product_comments = ProductComment.all
   end
 
   def show
-    @product_comment = @product.product_comments.find(params[:id])
-  end
-
-  def new
-    @product_comment = @product.product_comments.build
-  end
-
-  def create
-    @product_comment = @product.product_comments.build(params[:product_comment])
-    if @product_comment.save
-      redirect_to admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product, @product_comment), :notice => "Successfully created product comment."
-    else
-      render :action => 'new'
-    end
+    @product_comment = ProductComment.find(params[:id])
   end
 
   def edit
-    @product_comment = @product.product_comments.find(params[:id])
+    @product_comment = ProductComment.find(params[:id])
   end
 
   def update
-    @product_comment = @product.product_comments.find(params[:id])
+    @product_comment = ProductComment.find(params[:id])
     if @product_comment.update_attributes(params[:product_comment])
-      redirect_to admin_category_subcategory_product_product_comment_path(@category, @subcategory, @product, @product_comment), :notice  => "Successfully updated product comment."
+      redirect_to admin_product_comments_path, :notice  => "Successfully updated product comment."
     else
       render :action => 'edit'
     end
@@ -43,7 +30,7 @@ class Admin::ProductCommentsController < ApplicationController
   def destroy
     @product_comment = @product.product_comments.find(params[:id])
     @product_comment.destroy
-    redirect_to admin_category_subcategory_product_product_comments_path(@category, @subcategory, @product), :notice => "Successfully destroyed product comment."
+    redirect_to redirect_to admin_product_comments_path, :notice => "Successfully destroyed product comment."
   end
   
   def load_category
