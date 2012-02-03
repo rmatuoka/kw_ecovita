@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
   def load_site_categories
     @category_site = Category.menu
     @banners_laterais = BannerCategory.lateral.banners
+    @banners_home = BannerCategory.home.banners
   end
   
   def load_cart

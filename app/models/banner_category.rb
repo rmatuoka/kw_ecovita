@@ -4,4 +4,8 @@ class BannerCategory < ActiveRecord::Base
   def self.lateral
     BannerCategory.first(:conditions => ['name = ?', 'Lateral'])
   end
+  
+  def self.home
+    BannerCategory.first(:conditions => ['name = ?', 'Home'])
+  end
 end
