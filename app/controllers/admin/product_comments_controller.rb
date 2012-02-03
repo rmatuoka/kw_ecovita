@@ -28,7 +28,7 @@ class Admin::ProductCommentsController < ApplicationController
   end
 
   def destroy
-    @product_comment = @product.product_comments.find(params[:id])
+    @product_comment = ProductComment.find(params[:id])
     @product_comment.destroy
     redirect_to redirect_to admin_product_comments_path, :notice => "Successfully destroyed product comment."
   end
