@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">td img {display: block;}</style>
+<!--Fireworks CS5 Dreamweaver CS5 target.  Created Mon Jun 20 14:43:47 GMT-0300 (Hora oficial do Brasil) 2011-->
+</head>
+<body bgcolor="#ffffff">
+<table style="font-family:Verdana, Geneva, sans-serif;" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+  <tr>
+   <td><img name="modelo_padrao_email_r1_c1" src="http://www.farmaciaecovita.com.br/images/email/modelo_padrao_email_r1_c1.jpg" width="600" height="196" border="0" id="modelo_padrao_email_r1_c1" alt="" /></td>
+  </tr>
+  <tr>
+   <td style="border-bottom:1px solid #9EBF09; font-size:18px; color:#9EBF09; font-weight:bold; padding:5px; text-transform:uppercase">Novo comentário</td>
+  </tr>
+  <tr>
+    <td width="600" style="text-align:justify; padding:10px; font-size:12px;">
+		<br />
+		<br />
+		<br />
+		Olá ADM.
+		<br />
+		<br />
+		O usuário <%=@user.nome%> comentou no produto: <%=@product.name%><br />
+		<br />
+		Antes de responder, você deve publicar o comentário no administrador. <a href="http://www.farmaciaecovita.com.br/admin" target="_blank">ADMIN</a><br />
+		<br />		
+		Link do produto: <%=link_to("http://www.farmaciaecovita.com.br" + produto_path(@product.url_slug), produto_path(@product.url_slug), :target => "_blank")%>
+		<br />
+		<br />
+    </td>
+  </tr>
+  <tr>
+   <td><img name="modelo_padrao_email_r3_c1" src="http://www.farmaciaecovita.com.br/images/email/modelo_padrao_email_r3_c1.jpg" width="600" height="78" border="0" id="modelo_padrao_email_r3_c1" alt="" /></td>
+  </tr>
+</table>
+</body>
+</html>

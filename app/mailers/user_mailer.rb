@@ -45,4 +45,12 @@ class UserMailer < ActionMailer::Base
     mail(:to=>"vendas@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
   end
   
+  #Enviado quando o tem algum comentário em algum produto
+  def user_commented(user, product)
+    @user = user
+    @product = product
+    
+    mail(:to=>"sac@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @user.nome + " comentou no produto " + @product.name)    
+  end
+  
 end
