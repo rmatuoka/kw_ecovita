@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
             :email                 => current_user.email
           }
           
-          @order_product.add :id => cart_item.id_product, :weight => 0.250, :price => cart_item.price, :description => cart_item.title, :quantity => cart_item.quantity 
+          @order_product.add :id => cart_item.id_product, :weight => 0.250, :price => (cart_item.price/cart_item.quantity), :description => cart_item.title, :quantity => cart_item.quantity 
         
           
         end
