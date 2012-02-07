@@ -35,7 +35,7 @@
 	%>
 	<% @Results_itens.each do |item| %>
 		<tr>
-			<td align="center"><%= item.product.name %></td>
+			<td align="center"><%= item.product.name %> - <%= item.product.features %></td>
 			<td align="center"><%= item.amount %></td>
 			<td align="center"><%= number_to_currency(item.price / item.amount) %></td>
 			<td align="center"><%=number_to_currency($total_parcial = (item.price))%></td>

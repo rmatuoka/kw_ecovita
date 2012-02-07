@@ -31,4 +31,8 @@ class CartItem
       (@product.price - @product.discount) * @quantity
     end
   end
+  
+  def url_slug()
+    "#{id_product}-#{title.parameterize}"
+  end  
 end

@@ -46,7 +46,7 @@
 		            <table width="685">
 		                <tr class="Bg_table_line">
 		                <td width="95" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
-		                <td width="118"><%=cart_item.title%></td>
+		                <td width="118"><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></td>
 		                <td width="112"><b><%=number_to_currency(cart_item.price)%></b></td>
 		                <td width="114"><%=cart_item.quantity%></td>
 		                <td width="115"><!-- <input type="checkbox" /> --></td>
