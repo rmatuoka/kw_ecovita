@@ -16,9 +16,9 @@ E-MAIL: <%= @order.user.rg %>
 
 TELEFONE: <%= @order.area_code %><%= @order.phone %>
 
-TIPO DE PAGAMENTO: <%= @order.payment_type%>
+TIPO DE PAGAMENTO: <%= traduz_tipo_do_pagamento(@order.payment_type)%>
 
-STATUS DO PAGAMENTO: <%= @order.status%>
+STATUS DO PAGAMENTO: <%= traduz_status_do_pedido(@order.status)%>
 
 ID PAGSEGURO: <%= @order.pagseguro_id%>
 

@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20110721151901) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "amount"
-    t.decimal  "price",      :precision => 10, :scale => 0
+    t.decimal  "price",      :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

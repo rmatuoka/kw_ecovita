@@ -35,9 +35,9 @@
 		<br />
 		<b>TELEFONE:</b> <%= @order.area_code %><%= @order.phone %>
 		<br />
-		<b>TIPO DE PAGAMENTO:</b> <%= @order.payment_type%>
+		<b>TIPO DE PAGAMENTO:</b> <%= traduz_tipo_do_pagamento(@order.payment_type)%>
 		<br />
-		<b>STATUS DO PAGAMENTO:</b> <%= @order.status%>
+		<b>STATUS DO PAGAMENTO:</b> <%= traduz_status_do_pedido(@order.status)%>
 		<br />
 		<b>ID PAGSEGURO:</b> <%= @order.pagseguro_id%>
 		<br />
@@ -88,10 +88,10 @@
 						<%= item.product.name %>
 					</td>
 					<td align="right">
-						<%= number_to_currency(item.price) %>
+						<%= number_to_currency(item.price / item.amount) %>
 					</td>
 					<td align="right">
-						<%= number_to_currency($subtotal = (item.amount * item.price)) %>
+						<%= number_to_currency($subtotal = (item.price)) %>
 					</td>
 				</tr>
 				<tr height="5">
