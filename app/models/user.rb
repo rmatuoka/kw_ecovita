@@ -5,14 +5,16 @@ class User < ActiveRecord::Base
   acts_as_authentic
   acts_as_authorization_subject
   
-  validates_uniqueness_of :email  
+  validates_uniqueness_of :email
   validates_presence_of :nome
+  validates_presence_of :rg
+  validates_presence_of :cpf
   validates_presence_of :phone
   validates_presence_of :address
   validates_presence_of :quarter
   validates_presence_of :cep
   validates_presence_of :sexo
-  validates_presence_of :city  
+  validates_presence_of :city   
 
   
   

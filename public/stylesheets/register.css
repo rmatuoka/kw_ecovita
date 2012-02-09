@@ -30,7 +30,8 @@ select{
 #General #Form_box
 	{
 		width:420px;
-		height:340px;
+		height:375px;
+		*height:395px;
 		text-align:right;
 		float:left;
 	}
@@ -117,6 +118,10 @@ select{
 	}
 	.error_messages
 	{
+		position:absolute;
+		left:430px;
+		top:110px;
+		width:300px;
 		margin-bottom:30px;
 		font:Verdana, Geneva, sans-serif;
 		font-size:12px;

@@ -17,6 +17,12 @@
 			<%= f.label :nascimento, "Data de Nascimento:" %>
             <%= f.date_select :nascimento, :start_year => 1920%>
             <br /><br />
+			<%= f.label :rg, "Rg:"%>
+	        <%=f.text_field :rg, :class => "Item_form"%>
+	        <br /><br /> 
+			<%= f.label :cpf, "Cpf:"%>
+	        <%=f.text_field :cpf, :class => "Item_form"%>
+	        <br /><br /> 						
 			<%= f.label :email, "Email:"%>
 	        <%=f.text_field :email, :class => "Item_form"%>
 	        <br /><br /> 
