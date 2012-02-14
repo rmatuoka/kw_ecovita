@@ -6,6 +6,6 @@ class BannerCategory < ActiveRecord::Base
   end
   
   def self.home
-    BannerCategory.first(:conditions => ['name = ?', 'Home'])
+    BannerCategory.first(:conditions => ['name = ?', 'Home'], :order => "id DESC")
   end
 end
