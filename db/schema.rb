@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721151901) do
+ActiveRecord::Schema.define(:version => 20120214130706) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20110721151901) do
     t.string   "country"
     t.string   "area_code"
     t.string   "phone"
+    t.boolean  "completed"
   end
 
   create_table "pages", :force => true do |t|

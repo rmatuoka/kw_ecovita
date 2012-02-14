@@ -30,12 +30,16 @@ class PaymentsController < ApplicationController
           order.state = notification.buyer[:address][:state]
           order.area_code = notification.buyer[:phone][:area_code]
           order.phone = notification.buyer[:phone][:number]
-
+          
           order.save
           
           if order.status.to_s.include? 'completed' or order.status.to_s.include? 'approved'
-            UserMailer.payment_made(order).deliver
-            UserMailer.order_completed(order).deliver
+            if !order.completed
+              UserMailer.payment_made(order).deliver
+              UserMailer.order_completed(order).deliver
+              order.completed = true
+              order.save
+            end
           else
             if $first
               UserMailer.transaction_initiated(order).deliver
