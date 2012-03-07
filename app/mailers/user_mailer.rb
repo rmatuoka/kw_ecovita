@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default :from => "Farmácia Ecovita - Vendas <vendas@farmaciaecovita.com.br>"
 
-/ Emails para o usuário: /
+
   
   #Enviado quando ocorrer o primeiro retorno do pagseguro!
   def transaction_initiated(order)
@@ -29,7 +29,7 @@ class UserMailer < ActionMailer::Base
 	end/	
 	
   
-/ Emails para os ADMs /
+
 
   #Enviado quando o pedido entrar no sistema!
   def order_start(order)
