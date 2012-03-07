@@ -1,0 +1,63 @@
+<%content_for :head do%>
+
+<script>
+	jQuery.noConflict();
+	var htmlold = "";
+	
+	function novoConteudo(){
+		jQuery('#flash_error_cadastro').hide();
+		htmlold = jQuery('#box_login').html();
+		if (jQuery('#flash_error_cadastro').show){
+			jQuery('#flash_error_cadastro').hide();
+		}
+		jQuery.ajax({
+			url: '/password_resets/new',
+		    type:'get',
+			beforeSend: function (){
+				jQuery('#loading-forgot').show();
+			},
+		    success: function(response){
+				jQuery('#loading-forgot').hide();
+				jQuery('#box_login').html(response);
+		    },
+		    error: function(){ 
+				alert('Falha ao carregar a página!') ;
+				jQuery('#loading-forgot').hide();
+			}
+		  })
+	}
+	
+	function enviardaodos(obj){
+		if (jQuery('#flash_error_cadastro').show){
+			jQuery('#flash_error_cadastro').hide();
+		}		
+		jQuery(obj).hide();
+		jQuery('#loading-forgot').show();
+		jQuery("#frm_password_resets").submit();
+	}
+
+	function voltaConteudo(){
+		jQuery('#box_login').html(htmlold); 
+		htmlold = "";		
+	}
+
+</script>
+<%end%>
+<div class ="Box_Forgot">
+	<h1>Esqueceu a senha?</h1> 
+	<br />
+	<p>Digite seu e-mail abaixo para recuperar sua senha.</p>
+	<br />
+	<div id="flash_error_cadastro" style="display:none;"></div>
+	<%= form_tag password_resets_path, :remote => true,:id=>"frm_password_resets" do %>
+		<p><%= label "email", "", "E-mail" %>
+			<%= text_field_tag "email","e-mail", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+		</p>
+		<br />
+		<div class="Center">
+				<%= submit_tag "Voltar",:type=>"reset",:onclick=>"voltaConteudo()", :class => "Bt_enviar", :style=>"margin-right: 5px;"%> 
+				<%= submit_tag "Enviar",:type=>"reset",:onclick=>"enviardaodos(this)",:id=>"btn_enviar_password",:class => "Bt_enviar"  %><br /><br />
+				<%= image_tag "loading.gif", :style => 'display:none;', :id => 'loading-forgot' %>
+		</div>
+	<% end %>
+</div>

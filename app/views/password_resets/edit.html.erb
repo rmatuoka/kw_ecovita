@@ -1,0 +1,73 @@
+<% 
+	content_for :title do "Recuperar Senha" end
+%>
+<%content_for :head do%>
+<%= stylesheet_link_tag "login"%>
+<%=javascript_include_tag "jquery.validate.min.js"%>
+<%=javascript_include_tag "meusmetodos.js"%>
+	<script>
+		jQuery(document).ready(function(){		
+    	jQuery('#password_new').validate({
+        rules: {
+			"user[password]":{
+				required:true,
+				minlength: 6
+			},			
+			"user[password_confirmation]": {
+                required: true,
+                minlength: 6,
+				equalTo: "#user_password"
+            }
+			
+        },
+        messages: {
+			"user[password]":{
+				required: "Preencha com uma senha",
+				minlength: "Mínimo de 6 caracteres"	
+			},
+			"user[password_confirmation]":{
+				required: "Preencha com a confirmação",
+				minlength: "Mínimo de 6 caracteres",
+				equalTo: "Confirmação não é igual a senha"	
+			}
+        }
+    });
+});
+	</script>
+<%end%>
+<div id ="Box_Forgot">
+	<h1>Alteração da senha</h1>
+	<div id="flash_error_cadastro" style="display:none;"></div> 
+	<%= form_for @user, :url => password_reset_path, :method => :put, :html => {:id => "password_new" }  do |f| %>
+		<p class="treze">
+			Senha<br>
+			<%= f.password_field :password, :class => "Form Align_ie7" %>
+		</p>
+		<br />
+		<p class="treze">
+			Confirmação de senha<br>
+			<%= f.password_field :password_confirmation, :class => "Form Align_ie7" %>
+		</p>
+		<br />
+		<%= f.submit "Alterar senha", :id => "botao", :class => "Bt_enviar" %> 
+	<% end %>
+</div>
+<%if flash[:error_senha]%>
+	<%if !flash[:error].blank?%>
+	<script>
+		jQuery('#flash_error_cadastro').removeClass('flash_ok').addClass('flash_ops');
+		jQuery('#flash_error_cadastro').show();
+		erro = "";
+		erro += "<%= escape_javascript(image_tag("img_ops.png", :id=>"Box_warning_img"))%>";	
+		erro += "<div class='Box_warning_text'>";
+		erro += "	<h2>Ops!</h2>";
+		erro += "	<p><%= flash[:error];%></p>";
+		erro += "<br /><br />"
+		erro +=	"</div>";
+		erro += "<div class='clear'></div>";
+		jQuery('#flash_error_cadastro').html(erro);
+		jQuery('#loading-forgot').hide();
+		jQuery('#btn_enviar_password').show();
+	</script>
+	<%end%>
+<% end %>

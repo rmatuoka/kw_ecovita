@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
         self.has_role! @role
       end
     end
+    
+    def deliver_password_reset_instructions!
+      reset_perishable_token!
+    end
 end

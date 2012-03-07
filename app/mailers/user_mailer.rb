@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
     
   end
   
-/ #Envia email (instruções para recuperar a senha)
+ #Envia email (instruções para recuperar a senha)
 	def send_email_password_reset(user)
     @user = user
 		mail(:to => user.email, :subject => "Instruções para trocar a senha")

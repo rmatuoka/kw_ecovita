@@ -81,7 +81,8 @@ KwEcovita::Application.routes.draw do |map|
       get :efetuado
     end
   }
-  
+  resources :password_resets
+    
   get "static_content/denied"
   get "static_content/index"
 

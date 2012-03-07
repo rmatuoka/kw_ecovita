@@ -1,0 +1,31 @@
+<%if @sucess %>
+	//window.location.href = "<%= login_path %>";
+	jQuery('#flash_error_cadastro').removeClass('flash_ops').addClass('flash_ok');
+	jQuery('#flash_error_cadastro').show();
+	erro = "";
+	erro += "<%= escape_javascript(image_tag("img_ok.png", :id=>"Box_warning_img"))%>";	
+	erro += "<div class='Box_warning_text'>";
+	erro += "	<h2>Ok!</h2>";
+	erro += "	<p>Em breve você receberá um e-mail com as orientações para efetuar a recuperação de sua senha.</p><br/>";
+	erro += "	<p><b>Importante:</b> Seu antivírus pode não reconhecer o e-mail, por isso não se esqueça de verificar seu “lixo eletrônico” e sua pasta de SPAM.</p>";
+	erro += "<br /><br />"
+	erro +=	"</div>";
+	erro += "<div class='clear'></div>";	
+	jQuery('#flash_error_cadastro').html(erro);
+	jQuery('#loading-forgot').hide();
+	
+<%else%>
+	jQuery('#flash_error_cadastro').removeClass('flash_ok').addClass('flash_ops');
+	jQuery('#flash_error_cadastro').show();
+	erro = "";
+	erro += "<%= escape_javascript(image_tag("img_ops.png", :id=>"Box_warning_img"))%>";	
+	erro += "<div class='Box_warning_text'>";
+	erro += "	<h2>Ops!</h2>";
+	erro += "	<p><%= flash[:error];%></p>";
+	erro += "<br /><br />"
+	erro +=	"</div>";
+	erro += "<div class='clear'></div>";
+	jQuery('#flash_error_cadastro').html(erro);
+	jQuery('#loading-forgot').hide();
+	jQuery('#btn_enviar_password').show();
+<%end%>
