@@ -80,6 +80,14 @@
 	  <%= f.check_box :published %>
 	</div>
 	<div class="pqno">
+	  <%= f.label :stock_control,"Controla Estoque?" %><br />
+	  <%= f.check_box :stock_control %>
+	</div>	
+  <div class="pqno">
+    <%= f.label :stock_quantity, "Quantidade em Estoque" %><br />
+    <%= f.text_field :stock_quantity%>
+  </div>	
+	<div class="pqno">
 	  <%= f.label :literature %><br />
 	  <%= f.file_field :literature %>
 	</div>

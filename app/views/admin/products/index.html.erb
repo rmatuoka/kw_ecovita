@@ -1,13 +1,15 @@
-<% title "Products" %>
+<% title "Produtos" %>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Views</th>
-    <th>SubCategory</th>
-    <th>Published</th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Exibições</th>
+    <th>Sub Categoria</th>
+    <th>Publicado</th>
     <th>Vendas</th>
+    <th>Controla Estoque</th>
+    <th>Quant</th>
   </tr>
   <% for product in @products %>
     <tr>
@@ -15,13 +17,15 @@
       <td><%= product.price %></td>
       <td><%= product.views %></td>
       <td><%= product.subcategory.name %></td>
-      <td><%= product.published %></td>
+      <td><%= print_active(product.published) %></td>
       <td><%= product.vendas %></td>
+      <td><%= print_active(product.stock_control) %></td>
+      <td><%= product.stock_quantity %></td>
 	  <td><%= link_to "Imagens", admin_category_subcategory_product_product_images_path(@category, @subcategory, product) %></td>
       <td><%= link_to "Comentários", admin_category_subcategory_product_product_comments_path(@category, @subcategory, product) %></td>
-	  <td><%= link_to "Show", admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
-      <td><%= link_to "Edit", edit_admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
-      <td><%= link_to "Destroy", admin_category_subcategory_product_path(@category, @subcategory, product), :confirm => 'Are you sure?', :method => :delete %></td>
+	  <td><%= link_to "Ver", admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
+      <td><%= link_to "Editar", edit_admin_category_subcategory_product_path(@category, @subcategory, product) %></td>
+      <td><%= link_to "Excluir", admin_category_subcategory_product_path(@category, @subcategory, product), :confirm => 'Are you sure?', :method => :delete %></td>
       
 	</tr>
   <% end %>

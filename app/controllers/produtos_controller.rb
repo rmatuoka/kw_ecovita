@@ -5,7 +5,7 @@ class ProdutosController < ApplicationController
   def show
     @produto = Product.find(params[:id])
     views = @produto.views + 1
-    @recomendados = @produto.recommendeds.all(:conditions => ['products.published = true'])
+    @recomendados = @produto.recommendeds.all(:conditions => ['`products`.`price` > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND `products`.`published` = 1,  `products`.`published` = 1)'])
     @produto.views = views
     @produto.save
   end

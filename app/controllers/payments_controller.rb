@@ -46,7 +46,35 @@ class PaymentsController < ApplicationController
               UserMailer.order_start(order).deliver
             end
           end
-          
+          #Se o estoque ainda não foi ajustado então ajusta
+          if !order.adjust_stock
+            itens = order.order_products.all
+            itens.each do |item|
+              produto = Product.find(item.product_id)
+              produto.vendas = produto.vendas + item.amount
+              if produto.stock_control
+                produto.stock_quantity = produto.stock_quantity - item.amount
+              end 
+              produto.save
+            end
+            order.adjust_stock = true
+            order.save
+          else
+            #Se o estoque já foi ajustado mas o pedido voltou como cancelado(Volta o estoque e desmarca o addjust)
+              if order.status.to_s.include? 'canceled'
+                itens = order.order_products.all
+                itens.each do |item|
+                  produto = Product.find(item.product_id)
+                  produto.vendas = produto.vendas - item.amount
+                  if produto.stock_control
+                    produto.stock_quantity = produto.stock_quantity + item.amount
+                  end 
+                  produto.save
+                end
+                order.adjust_stock = false
+                order.save                            
+            end
+          end
           #SETA QUOTES COMO INDIPONIVEL
           #carts = Cart.all(:conditions => ['session_id = ?', transaction.session_id])
           #carts.each do |c|

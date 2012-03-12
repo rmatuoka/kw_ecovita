@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214130706) do
+ActiveRecord::Schema.define(:version => 20120309184835) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(:version => 20120214130706) do
     t.string   "area_code"
     t.string   "phone"
     t.boolean  "completed"
+    t.boolean  "adjust_stock"
+    t.decimal  "shipping_value", :precision => 10, :scale => 2
   end
 
   create_table "pages", :force => true do |t|
@@ -180,6 +182,8 @@ ActiveRecord::Schema.define(:version => 20120214130706) do
     t.string   "literature_content_type"
     t.integer  "literature_file_size"
     t.datetime "literature_updated_at"
+    t.boolean  "stock_control",                                          :default => false
+    t.integer  "stock_quantity",                                         :default => 0
   end
 
   create_table "products_recommendeds", :id => false, :force => true do |t|

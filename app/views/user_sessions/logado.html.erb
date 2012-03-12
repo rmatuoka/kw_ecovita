@@ -50,7 +50,9 @@ label
         <br /><br />
 		
         <label class="Text_tile">Olá <%=current_user.nome%>!<br/><br/><a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location.reload();">Clique aqui para continuar navegando.</a></label><br /><br />
-       
+       	<% if (User.find(current_user).has_role? :admin) %>
+			<%= link_to "Acesse o painel Administrativo.", "javascript:void(0);",:class=>"Text_tile", :onclick=>"window.parent.location.href='#{admin_root_path}'"%>
+      	<% end %>
     </div>
 </body>
 </html>

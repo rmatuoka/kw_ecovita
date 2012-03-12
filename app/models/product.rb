@@ -24,15 +24,15 @@ class Product < ActiveRecord::Base
   
   
   def self.most_viewed  
-    Product.all(:conditions => ['published = 1 AND price > 0'], :order => "views ASC")
+    Product.all(:conditions => ['price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)'], :order => "views ASC")
   end
   
   def self.six_most_viewed  
-    Product.all(:conditions => ['published = 1 AND price > 0'], :order => "views DESC", :limit => 6)
+    Product.all(:conditions => ['price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)'], :order => "views DESC", :limit => 6)
   end
   
   def self.all_published
-    Product.all(:conditions => ['published = 1 AND price > 0'])
+    Product.all(:conditions => ['price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)'])
   end
   
   def self.all_order_by_name_asc

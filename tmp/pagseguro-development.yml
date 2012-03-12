@@ -27,3 +27,55 @@
   item_id_1: "12"
   item_descr_1: "Bio-Arct  60 C\xC3\xA1psulas"
   cliente_nome: Zaba
+"38": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "38"
+  item_valor_1: "13050"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "2"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "102"
+  item_descr_1: "Bio-Arct  90 C\xC3\xA1psulas"
+  cliente_nome: Zaba
+"40": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "40"
+  item_valor_1: "9000"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "13050"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "12"
+  item_peso_2: "250"
+  item_id_2: "102"
+  item_descr_1: "Bio-Arct  60 C\xC3\xA1psulas"
+  item_descr_2: "Bio-Arct  90 C\xC3\xA1psulas"
+  cliente_nome: Zaba
+"39": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "39"
+  item_valor_1: "9000"
+  commit: Clique aqui para efetuar o pagamento!
+  moeda: BRL
+  item_quant_1: "2"
+  item_valor_2: "18250"
+  email_cobranca: bruformulasatibaia@uol.com.br
+  item_quant_2: "1"
+  cliente_email: bsilva@korewa.com.br
+  item_peso_1: "250"
+  item_id_1: "12"
+  item_peso_2: "250"
+  item_id_2: "103"
+  item_descr_1: "Bio-Arct  60 C\xC3\xA1psulas"
+  item_descr_2: "Bio-Arct 120 C\xC3\xA1psulas"
+  cliente_nome: Zaba

@@ -1,59 +1,59 @@
 <% title "Product" %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @product.name %>
 </p>
 <p>
-  <strong>Summary:</strong>
+  <strong>Resumo:</strong>
   <%= @product.summary %>
 </p>
 <p>
-  <strong>Price:</strong>
+  <strong>Valor:</strong>
   <%= @product.price %>
 </p>
 <p>
-  <strong>Discount:</strong>
+  <strong>Disconto:</strong>
   <%= @product.discount %>
 </p>
 <p>
-  <strong>Bibliography:</strong>
+  <strong>Bibliografía:</strong>
   <%= @product.bibliography %>
 </p>
 <p>
-  <strong>Features:</strong>
+  <strong>Características:</strong>
   <%= @product.features %>
 </p>
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @product.description %>
 </p>
 <p>
-  <strong>Usage:</strong>
+  <strong>Uso:</strong>
   <%= @product.usage %>
 </p>
 <p>
-  <strong>Pub Start:</strong>
+  <strong>Data Inicial da Publicação:</strong>
   <%= @product.pub_start %>
 </p>
 <p>
-  <strong>Pub End:</strong>
+  <strong>Data Final da Publicação:</strong>
   <%= @product.pub_end %>
 </p>
 <p>
-  <strong>Views:</strong>
+  <strong>Visualizações:</strong>
   <%= @product.views %>
 </p>
 <p>
-  <strong>Published:</strong>
+  <strong>Publicado:</strong>
   <%= @product.published %>
 </p>
 <p>
-  <strong>Tweet Text:</strong>
+  <strong>Texto do Twitter:</strong>
   <%= @product.tweet_text %>
 </p>
 <p>
-  <strong>Like Link:</strong>
+  <strong>Links curtidos:</strong>
   <%= @product.like_link %>
 </p>
 <p>
@@ -66,7 +66,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_admin_category_subcategory_product_path(@category, @subcategory, @product) %> |
-  <%= link_to "Destroy", admin_category_subcategory_product_path(@category, @subcategory,  @product), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_category_subcategory_products_path(@category, @subcategory) %>
+  <%= link_to "Editar", edit_admin_category_subcategory_product_path(@category, @subcategory, @product) %> |
+  <%= link_to "Excluir", admin_category_subcategory_product_path(@category, @subcategory,  @product), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Ver Todos", admin_category_subcategory_products_path(@category, @subcategory) %>
 </p>

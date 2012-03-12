@@ -47,7 +47,7 @@ class SearchController < ApplicationController
       @Results = Product.find(:all,
                               :select=> "`products`.*, `subcategories`.`name` as scatname,`categories`.`id` as catid ,`categories`.`name` as catname ",
                               :joins=>"`products` INNER JOIN `subcategories` ON `products`.`subcategory_id` = `subcategories`.`id` INNER JOIN `categories` ON `subcategories`.`category_id` = `categories`.`id` ",
-                              :conditions=>["(`products`.`name` like ? or `products`.`summary` like ? or `products`.`description` like ?) AND price > 0 AND published = 1"+cat,key,key,key],
+                              :conditions=>["(`products`.`name` like ? or `products`.`summary` like ? or `products`.`description` like ?) AND price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)"+cat,key,key,key],
                               :order=> order
                               ).paginate(:page => params[:page], :per_page => qtdade)
     else

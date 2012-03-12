@@ -15,6 +15,16 @@ module ApplicationHelper
         return meses[mes - 1]
   end
   
+  def print_active(print_status)  
+    retorno = ""
+    if print_status
+      retorno = "Sim"
+    else
+      retorno = "Não"
+    end
+    return retorno
+  end  
+  
   def traduz_status_do_pedido(status)
     
     retorno = ""
