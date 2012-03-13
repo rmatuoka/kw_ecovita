@@ -53,4 +53,9 @@ class UserMailer < ActionMailer::Base
     mail(:to=>"sac@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @user.nome + " comentou no produto " + @product.name)    
   end
   
+  def reports(vendasok)
+     @vendasefetuadas = vendasok
+     mail(:to => "andreafarma@uol.com.br", :cc=> "andrea@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br, vendas@farmaciaecovita.com.br", :subject => "Relatorio de Vendas aprovadas!")
+   end
+  
 end

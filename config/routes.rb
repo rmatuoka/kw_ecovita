@@ -1,4 +1,6 @@
 KwEcovita::Application.routes.draw do |map|
+  get "reports/index"
+
   get "ratings/create"
 
   namespace(:admin){
@@ -30,6 +32,7 @@ KwEcovita::Application.routes.draw do |map|
         get 'results'
         get 'resend' 
         get 'details'  
+        get 'sendmail'
       end
     end
     

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309184835) do
+ActiveRecord::Schema.define(:version => 20120312205120) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -117,7 +117,8 @@ ActiveRecord::Schema.define(:version => 20120309184835) do
     t.string   "phone"
     t.boolean  "completed"
     t.boolean  "adjust_stock"
-    t.decimal  "shipping_value", :precision => 10, :scale => 2
+    t.decimal  "shipping_value",  :precision => 10, :scale => 2
+    t.boolean  "order_send_mail",                                :default => false
   end
 
   create_table "pages", :force => true do |t|

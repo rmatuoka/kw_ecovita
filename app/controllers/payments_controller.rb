@@ -17,6 +17,7 @@ class PaymentsController < ApplicationController
           order.payment_type = notification.payment_method
           order.status = notification.status
           order.shipping = notification.shipping_type
+          order.shipping_value = notification.shipping
           order.pagseguro_id = notification.transaction_id
 
           #GRAVA ENDEREÇOS

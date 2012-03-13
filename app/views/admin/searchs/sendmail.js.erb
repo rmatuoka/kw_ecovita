@@ -1,0 +1,15 @@
+<% if !@erro%>
+	aclasse = "<%= @classe[1] %>";
+	update = "";	
+	update += "  <td align='center'>SS<%= @ordersend.first.id %></td>";
+	update += "  <td><%= @ordersend.first.user.nome %></td>";
+	update += "  <td align='center'><%= traduz_status_do_pedido(@ordersend.first.status) %></td>";
+	update += "  <td align='center'><%= traduz_tipo_do_pagamento(@ordersend.first.payment_type) %></td>";
+	update += "  <td align='center'><%= print_active(@ordersend.first.order_send_mail)  %><%=raw escape_javascript ('<br />'+ link_to('Reenviar email', '/admin/searchs/sendmail?cod='+ @ordersend.first.id.to_s, :remote=>true)) if (@ordersend.first.status == 'completed' or @ordersend.first.status == 'approved')%></td>";
+	update += "  <td align='center'><%= escape_javascript (link_to(@ordersend.first.pagseguro_id, '/admin/searchs/results?utf8=✓&keyword='+ @ordersend.first.pagseguro_id+'&commit=Buscar')) if !@ordersend.first.pagseguro_id.blank? %> <%= escape_javascript(link_to('Detalhes', '/admin/searchs/details?utf8=✓&keyword='+ @ordersend.first.id.to_s+'&commit=Buscar')) if @ordersend.first.pagseguro_id.blank? %></td>";
+	jQuery('#tr_show_<%=@ordersend.first.id%>').removeClass().addClass(aclasse);
+	jQuery('#tr_show_<%=@ordersend.first.id%>').html(update);
+	alert('Email enviado com sucesso!');
+<% else %>
+	alert("Ocorreu um erro ao processar a requisição");
+<% end %>

@@ -166,3 +166,54 @@ tr:hover
 	float: left;	
 	width: 450px;
 }
+.pedido_ok{
+	background-color: green;
+}
+.pedido_enviar{
+	background-color: red;
+}
+.pedido_pendente{
+	background-color:yellow;
+}
+.pedido_cancelado{
+	background-color:gray;
+}
+
+.tablesorter{
+	width:100%; 
+	margin-top:10px;
+}
+	.tablesorter th{
+		text-align:left; 
+		background-color:#CCC;
+	}
+	.tablesorter th.header { 
+	    background-image: url(../images/bg.gif);     
+	    cursor: pointer; 
+	    font-weight: bold; 
+	    background-repeat: no-repeat; 
+	    background-position: center left; 
+	    padding-left: 20px; 
+	  /*  border: 1px solid #dad9c7; 
+	    margin-left: -1px;*/ 
+	}	
+	.tablesorter th.headerSortUp { 
+	    background-image: url(../images/asc.gif); 
+	    background-color: #aaa; 
+	}
+	.tablesorter th.headerSortDown { 
+	    background-image: url(../images/desc.gif); 
+	    background-color: #aaa; 
+	}
+	.tablesorter td { 
+		height:20px;
+	}
+	.notactive { 
+		background-color:red;
+	}
+.p_index{
+	margin-top:10px;
+}				
+#table_user a{
+	color:black;
+}

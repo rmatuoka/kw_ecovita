@@ -76,4 +76,35 @@ module ApplicationHelper
     
     return retorno
   end
+  
+  def status_do_pedido(pedido, enviado)
+    retorno = ''
+    if enviado
+      retorno = "class ='pedido_ok'"
+    else
+      case pedido 
+        when "completed"
+          retorno = "class ='pedido_enviar'"
+
+         when "incompleted"
+            retorno = "class ='pedido_cancelado'"
+
+        when "pending"
+          retorno = "class ='pedido_pendente'"
+
+        when "approved"
+          retorno = "class ='pedido_enviar'"
+
+        when "verifying"
+          retorno = "class ='pedido_pendente'"
+
+        when "canceled"
+          retorno = "class ='pedido_cancelado'"
+
+        when "refunded"
+          retorno = "class ='pedido_cancelado'"
+      end
+    end
+  end 
+  
 end

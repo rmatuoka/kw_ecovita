@@ -19,7 +19,7 @@
 	<label>Código Rastreamento: </label><strong class="f_dados"><%= @Results.first.rastreamento%></strong> <%= link_to "Inserir Codigo de Rastreamento", ""%><br />
 	<br />
 	<br />
-	<%= link_to "Reenviar email", "/admin/searchs/resend?cod="+ @Results.first.id.to_s%>
+	<%= link_to "Reenviar email para cliente", "/admin/searchs/resend?cod="+ @Results.first.id.to_s%>
 	<br />
 	<br />	
 	<table border="1" align="center">
