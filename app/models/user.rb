@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates_presence_of :sexo
   validates_presence_of :city   
 
-  
+    scoped_search :on => [:email, :nome]
   
 #  attr_accessible :nome, :sobrenome, :email, :crypted_password, :password_salt, :persistence_token, :sexo, :nascimento, :cpf, :rg
   attr_writer :role

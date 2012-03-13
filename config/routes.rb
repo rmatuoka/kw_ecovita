@@ -5,7 +5,11 @@ KwEcovita::Application.routes.draw do |map|
 
   namespace(:admin){
     resources :gifts
-    resources :users
+    resources :users do
+      collection do
+        get 'search'
+      end
+    end
     resources :orders
     resources :order_products
     resources :product_comments

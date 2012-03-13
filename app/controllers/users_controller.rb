@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.role = "user"
     if @user.save
       redirect_to accounts_path, :notice => "Usuário Cadastrado com Sucesso!"
     else

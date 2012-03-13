@@ -1,4 +1,8 @@
 class Admin::UsersController < ApplicationController
+  access_control do
+    allow :admin, :supervisor
+  end
+  
   layout "admin"
   
   def index
