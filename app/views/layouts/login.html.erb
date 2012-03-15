@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ecovita Login</title>
+<style>
+#Login_box
+{
+	z-index:1300;
+	/*background-image:url(/images/bg_login.png);*/
+	background-repeat:no-repeat;
+	background-position:top center;
+	width:465px;
+	height:243px;
+	margin:auto;
+	margin-top:0px;
+	text-align:center;	
+}
+input
+{
+	width:260px;
+	height:28px;
+	border:#999 1px solid;
+}
+.Text_tile
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	color:#666;
+	font-weight:bold;	
+}
+#aviso_show_notice{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:red;
+	font-weight:bold;		
+}
+h1
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:16px;
+	color:#666;
+	font-weight:bold;	
+}
+.Sub_t
+{
+	color:#999;		
+}
+label
+{
+}
+.error_messages
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:red;
+	font-weight:bold;
+}
+.error_messages li
+{
+	list-style:none;
+}
+.field_with_errors{
+	width:260px;
+}
+.Bt_enviar
+{
+	position:relative;
+	width:102px;
+	height:32px;	
+/*	margin-left:152px;*/
+	cursor: pointer;
+	border-radius: 10px;
+	background:#999;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#fff;
+	background: linear-gradient(#D6D6D6, #2F2F2F 70%); /* Implementação W3C */
+	background: -moz-linear-gradient(#D6D6D6, #2F2F2F 70%); /* Implementação Mozilla */
+	background: -webkit-gradient(linear, 0 0, 0 70%, from(#D6D6D6), to(#2F2F2F));/* Implementação para browsers que renderizam via webkit */
+	-pie-background: linear-gradient(#D6D6D6, #2F2F2F 70%); /*Propriedade adicionada para renderização das propriedades acima no IE 7 e IE 8 */
+	background: url (image.png) repeat-x 0px 0px; /* Background com imagem para degradê para o Opera 10 */
+	cursor:pointer;
+}
+</style>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag "jquery.js" %>
+
+<script>
+jQuery.noConflict();
+
+var htmlold = "";
+
+function check_text_onfocus(obj)
+{
+    if(obj.value == obj.defaultValue)
+        obj.value = '';
+}
+function check_text_onblur(obj)
+{
+    if(obj.value=='')
+        obj.value = obj.defaultValue;
+}
+function enviardaodos(obj){
+	if (jQuery('#flash_error_cadastro').show){
+		jQuery('#flash_error_cadastro').hide();
+	}		
+	jQuery(obj).hide();
+	jQuery('#loading-forgot').show();
+	jQuery("#frm_password_resets").livequery('submit', function() {
+	  return request({ url : this.action, type : this.method, data : jQuery(this).serialize() });
+	});
+	
+}
+
+function novoConteudo(){
+	htmlold = jQuery('#login_show').html();
+	jQuery.ajax({
+		url: '/password_resets/new',
+	    type:'get',
+		beforeSend: function (){
+			jQuery('#login_show').hide();
+			jQuery('#loading-forgot').show();
+		},
+	    success: function(response){
+			jQuery('#loading-forgot').hide();
+			jQuery('#login_show').html(response);
+			jQuery('#login_show').show();
+	    },
+	    error: function(){ 
+			alert('Falha ao carregar a página!') ;
+			jQuery('#loading-forgot').hide();
+			jQuery('#login_show').show();
+		}
+	  })
+}
+
+function voltaConteudo(){
+	jQuery('#login_show').html(htmlold); 
+	htmlold = "";		
+}
+
+</script>
+<%=yield :head%>
+</head>
+
+<body>
+    <div id="Login_box">	
+        <br />
+        <img src="/images/user_bars/img_myacount.png" width="25" height="17" style="float:left; margin-left:20px; margin-top:10px;" /><label class="Text_tile" style="float:left; margin-left:10px; margin-top:10px;">Minha Conta <b class="Sub_t">: Login</b></label>
+        <img src="/images/img_login_line.png" width="440" height="2" />
+        <br />
+		<%=yield%>
+  	</div>
+</body>
+</html>
+
+

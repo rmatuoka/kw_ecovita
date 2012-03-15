@@ -1,60 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ecovita Login</title>
-<style>
-body
-
-#Login_box
-{
-	z-index:1300;
-	/*background-image:url(/images/bg_login.png);*/
-	background-repeat:no-repeat;
-	background-position:top center;
-	width:465px;
-	height:243px;
-	margin:auto;
-	margin-top:0px;
-	text-align:center;	
-}
-input
-{
-	width:260px;
-	height:28px;
-	border:#999 1px solid;
-}
-.Text_tile
-{
-	font-family:Verdana, Geneva, sans-serif;
-	font-size:14px;
-	color:#666;
-	font-weight:bold;	
-}
-.Sub_t
-{
-	color:#999;		
-}
-label
-{
-}
-
-</style>
-</head>
-
-<body>
-    <div id="Login_box">
-        <br />
-        <img src="/images/user_bars/img_myacount.png" width="25" height="17" style="float:left; margin-left:20px; margin-top:10px;" /><label class="Text_tile" style="float:left; margin-left:10px; margin-top:10px;">Minha Conta <b class="Sub_t">: Logado!</b></label>
-        <img src="/images/img_login_line.png" width="440" height="2" />
-        <br /><br />
-		
         <label class="Text_tile">Olá <%=current_user.nome%>!<br/><br/><a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location.reload();">Clique aqui para continuar navegando.</a></label><br /><br />
        	<% if (User.find(current_user).has_role? :admin) %>
 			<%= link_to "Acesse o painel Administrativo.", "javascript:void(0);",:class=>"Text_tile", :onclick=>"window.parent.location.href='#{admin_root_path}'"%>
       	<% end %>
-    </div>
-</body>
-</html>
+
 
 

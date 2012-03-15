@@ -38,36 +38,17 @@
 <div id ="Box_Forgot">
 	<h1>Alteração da senha</h1>
 	<div id="flash_error_cadastro" style="display:none;"></div> 
+	<%=raw "<div id='aviso_show_notice'>"+notice+"</div>" if !notice.blank?%>
 	<%= form_for @user, :url => password_reset_path, :method => :put, :html => {:id => "password_new" }  do |f| %>
-		<p class="treze">
-			Senha<br>
-			<%= f.password_field :password, :class => "Form Align_ie7" %>
+		<p>
+			<%= f.label :password, "Senha", :class=>"Text_tile" %>
+			<%= f.password_field :password%>
 		</p>
-		<br />
-		<p class="treze">
-			Confirmação de senha<br>
-			<%= f.password_field :password_confirmation, :class => "Form Align_ie7" %>
+		<p>
+			<%= f.label :password_confirmation, "Confirmação", :class=>"Text_tile"  %>
+			<%= f.password_field :password_confirmation %>
 		</p>
 		<br />
 		<%= f.submit "Alterar senha", :id => "botao", :class => "Bt_enviar" %> 
 	<% end %>
 </div>
-<%if flash[:error_senha]%>
-	<%if !flash[:error].blank?%>
-	<script>
-		jQuery('#flash_error_cadastro').removeClass('flash_ok').addClass('flash_ops');
-		jQuery('#flash_error_cadastro').show();
-		erro = "";
-		erro += "<%= escape_javascript(image_tag("img_ops.png", :id=>"Box_warning_img"))%>";	
-		erro += "<div class='Box_warning_text'>";
-		erro += "	<h2>Ops!</h2>";
-		erro += "	<p><%= flash[:error];%></p>";
-		erro += "<br /><br />"
-		erro +=	"</div>";
-		erro += "<div class='clear'></div>";
-		jQuery('#flash_error_cadastro').html(erro);
-		jQuery('#loading-forgot').hide();
-		jQuery('#btn_enviar_password').show();
-	</script>
-	<%end%>
-<% end %>
