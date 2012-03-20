@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
   def load_site_categories
     @category_site = Category.menu
     @banners_laterais = BannerCategory.lateral.banners
-    @banners_home = BannerCategory.home.banners
+    dataandhora = DateTime.now 
+    @banners_home = BannerCategory.home.banners.all(:conditions => ['pub_end > ? and pub_start < ?',dataandhora,dataandhora])
   end
   
   def load_cart
