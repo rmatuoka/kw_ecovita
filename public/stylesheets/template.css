@@ -215,12 +215,39 @@ body
 		text-align:center;
 	}
 	
-		#General #Destaque a
+		#General #Destaque #DestaqueBox a
 		{
 			position:absolute !important;
 			left:50% !important;
 			margin-left:-800px !important;
-		}		
+		}	
+	#General #Destaque #featured_navigation_numbers{
+		width: auto;
+		height: 25px;
+		position: absolute;
+		left: 30px;
+		top: 225px;
+		background-image:url(../images/bg_destaque_numeros.png);
+		padding: 0px 5px;
+	}	
+	#General #Destaque #featured_navigation_numbers a{
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-bottom: 2px;
+		padding-top: 2px;
+		text-decoration: none;
+		color: white;
+		font-weight: bold;
+		font-size: 12px;
+		position: relative;
+		top: 6px;
+	}
+	#General #Destaque #featured_navigation_numbers a.activeSlide{
+		border: 2px solid white;
+		-khtml-border-radius: 2px;		
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+	}
 	#General #Content
 	{
 		background-image:url(../images/bg_content.png);

@@ -74,10 +74,11 @@ $(document).ready(function() {
 	
 	//DESTAQUES
 	$('#Destaque').show(); //exibe a div pai  
-		$('#Destaque').cycle({  
+		$('#DestaqueBox').cycle({  
 		fx:     'fade',  
 		timeout: 5000,  
-		speed: 500
+		speed: 500,
+		pager: '#featured_navigation_numbers'
 		/*,  
 		next:   '.next',  
 		prev:   '.previous',  
@@ -151,9 +152,12 @@ $(document).ready(function() {
 	    </div>
     </div>
     <div id="Destaque">
-		<%@banners_home.each do |banner|%>
-			<a href="<%=banner.link%>"><%=image_tag(banner.image.url)%></a>
-		<%end%>
+		<div id="DestaqueBox">
+			<%@banners_home.each do |banner|%>
+				<a href="<%=banner.link%>"><%=image_tag(banner.image.url)%></a>
+			<%end%>
+		</div>
+		<div id="featured_navigation_numbers"> </div>
 		<!-- <img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /> -->
 	</div>
     <div id="Content">
