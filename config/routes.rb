@@ -1,9 +1,11 @@
 KwEcovita::Application.routes.draw do |map|
+
   get "reports/index"
 
   get "ratings/create"
 
   namespace(:admin){
+    resources :newsletters
     resources :gifts
     resources :users do
       collection do
