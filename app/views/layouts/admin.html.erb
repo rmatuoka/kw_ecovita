@@ -22,12 +22,13 @@
 	<div id="menu">
 		<%=link_to "Gerenciar Produtos", admin_categories_path%> | 
 		<%=link_to "Gerenciar Banners", admin_banner_categories_path%> | 
-		<%=link_to "Gerenciar Páginas", admin_pages_path%> | 
+		<%#=link_to "Gerenciar Páginas", admin_pages_path%> | 
 		<%=link_to "Gerenciar Usuários", admin_users_path%> | 
 		<%=link_to "Gerenciar Vale-Presente", admin_gifts_path%> |
 		<%=link_to "Gerenciar Compras", admin_searchs_path%> |
 		<%=link_to "Gerenciar Comentários", admin_product_comments_path%>|
-    <%=link_to "Newsletters", admin_newsletters_path%>
+    	<%=link_to "Newsletters", admin_newsletters_path%> |
+		<%=link_to "Relatórios", admin_reports_path%>
 	</div>
     <div id="container">
       <% flash.each do |name, msg| %>
