@@ -1,0 +1,22 @@
+<% title "Produtos mais vendidos" %>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Exibições</th>
+    <th>Publicado</th>
+    <th>Vendas</th>
+    <th>Controla Estoque</th>
+    <th>Quant</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.views %></td>
+      <td><%= print_active(product.published) %></td>
+      <td><%= product.vendas %></td>
+      <td><%= print_active(product.stock_control) %></td>
+      <td><%= product.stock_quantity %></td>
+	</tr>
+  <% end %>
+</table>

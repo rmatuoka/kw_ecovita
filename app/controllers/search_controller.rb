@@ -1,6 +1,9 @@
 class SearchController < ApplicationController
   layout "interna"
   before_filter :load_site_categories,:load_cart  
+  require "rails3-jquery-autocomplete"
+  autocomplete :product, :name, {:limit => 200}
+  
   def index
     
   end

@@ -2,7 +2,9 @@ KwEcovita::Application.routes.draw do |map|
   get "reports/index"
 
   get "ratings/create"
-
+  
+  
+  
   namespace(:admin){
     resources :gifts
     resources :users do
@@ -11,6 +13,12 @@ KwEcovita::Application.routes.draw do |map|
       end
     end
     resources :orders
+    resources :reports do
+      collection do
+        get 'seen'
+        get 'sold'
+      end
+    end
     resources :order_products
     resources :product_comments
     resources(:pages){
@@ -59,6 +67,7 @@ KwEcovita::Application.routes.draw do |map|
     end
   }
   resources :search  do
+    get :autocomplete_product_name, :on => :collection
     collection do
       get 'results'
     end
