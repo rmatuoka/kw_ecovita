@@ -48,6 +48,13 @@ KwEcovita::Application.routes.draw do |map|
         get 'details'  
         get 'sendmail'
       end
+      
+      member do
+        get 'track'
+        post 'track'
+        post 'save_track'
+        get 'save_track'
+      end
     end
     
     root :to => "categories#index"

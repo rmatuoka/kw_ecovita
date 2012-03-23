@@ -16,7 +16,7 @@
 	<label>Status: </label><strong class="f_dados"><%= traduz_status_do_pedido(@Results.first.status)%></strong><br />
 	<label>Tipo de Pagameto: </label><strong class="f_dados"><%= traduz_tipo_do_pagamento(@Results.first.payment_type)%></strong><br />
 	<label>Tipo de Envio: </label><strong class="f_dados"><%= @Results.first.shipping%></strong><br />
-	<label>Código Rastreamento: </label><strong class="f_dados"><%= @Results.first.rastreamento%></strong> <%= link_to "Inserir Codigo de Rastreamento", ""%><br />
+	<label>Código Rastreamento: </label><strong class="f_dados"><%= @Results.first.rastreamento%></strong> | <%= link_to "Inserir/ Alterar Codigo de Rastreamento", track_admin_search_path(@Results.first.id)%><br />
 	<br />
 	<br />
 	<%= link_to "Reenviar email para cliente", "/admin/searchs/resend?cod="+ @Results.first.id.to_s%>

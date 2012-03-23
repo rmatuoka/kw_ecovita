@@ -108,4 +108,22 @@ class Admin::SearchsController < ApplicationController
     end
   end
   
+  def track
+    @order = Order.find(params[:id])
+  end
+  
+  def save_track
+    @order = Order.find(params[:order_id])
+    @order.rastreamento = params[:code]
+    
+    if !params[:code].blank?
+      if @order.save
+        @out = "Código inserido com sucesso!"
+      else
+        @out = "Falha ao salvar o código"
+      end
+    else
+      @out = "Digite o código!"
+    end
+  end
 end

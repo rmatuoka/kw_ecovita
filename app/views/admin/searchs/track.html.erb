@@ -1,0 +1,9 @@
+<% title "Inserir código de rastreamento" %>
+
+<p><strong>AVISO:</strong> depois de inserido o código, o status do pedido será alterado automaticamente para ENVIADO.</p>
+
+<%=form_tag save_track_admin_search_path(@order), :remote => :true, :method => :post%>
+	<%=text_field_tag :code, @order.rastreamento%>
+	<%=hidden_field_tag :order_id, @order.id%>
+	<%=submit_tag "Enviar"%>
+</form>
