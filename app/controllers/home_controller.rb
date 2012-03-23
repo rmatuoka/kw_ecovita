@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  
+  
   before_filter :load_site_categories, :load_cart
   layout "home"
   
