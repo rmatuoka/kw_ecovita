@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "amount"
-    t.decimal  "price",      :precision => 10, :scale => 0
+    t.decimal  "price",      :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -263,6 +263,17 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "payment_type"
+    t.string   "shipping"
+    t.string   "pagseguro_id"
+    t.string   "rastreamento"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

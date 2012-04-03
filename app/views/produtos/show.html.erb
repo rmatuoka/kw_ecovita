@@ -218,10 +218,10 @@
                 <li><a href="#tabs-1">Descri&ccedil;&atilde;o</a></li>
                 <li><a href="#tabs-2">Caracter&iacute;sticas</a></li>
                 <li><a href="#tabs-3">Modo de Uso</a></li>
-				<li><a href="#tabs-4">Bibliografia</a></li>
+				        <li><a href="#tabs-4">Bibliografia</a></li>
                 <%if !@produto.video.blank?%>
-				<li><a href="#tabs-5">Videos</a></li>
-            	<%end%>
+				          <li><a href="#tabs-5">Videos</a></li>
+            	  <%end%>
 			</ul>
             <div id="tabs-1"><%=raw(@produto.description)%></div>
             <div id="tabs-2"><%=raw(@produto.features)%></div>
@@ -230,7 +230,10 @@
 				<%=link_to("Clique aqui e faça o download da literatura.", @produto.literature.url, :target => "_blank")%>
 			</div>
             <%if !@produto.video.blank?%>
-			<div id="tabs-5"><%=@produto.video%></div>
+			<div id="tabs-5">
+        <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/<%=@produto.video%>" frameborder="0">
+        </iframe>
+      </div>
         	<%end%>
 		</div>     
        </div>
